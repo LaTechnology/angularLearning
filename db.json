@@ -1,0 +1,74 @@
+{
+  "customers": [
+    {
+      "customerId": "1a2b3c4d5e",
+      "firstName": "John",
+      "lastName": "Doe",
+      "age": 30,
+      "email": "johndoe@example.com",
+      "dateOfBirth": "1994-02-15",
+      "address": "123 Main St, Springfield, IL",
+      "phoneNumber": "9989898999",
+      "alternativePhoneNumber": "987-654-3210",
+      "isActive": true,
+      "gender": "Male",
+      "id": "1519"
+    },
+    {
+      "id": "302d",
+      "customerId": "912c1ff0-7063-4ab9-a169-2bb70d75dd6c",
+      "firstName": "dfghjk",
+      "lastName": "dfghj",
+      "age": 23,
+      "email": "dfghj@sdfgh",
+      "dateOfBirth": "2025-02-10T18:30:00.000Z",
+      "phoneNumber": "9876543210",
+      "alternativePhoneNumber": "34567098765",
+      "isActive": true,
+      "customerType": "",
+      "gender": "Female"
+    },
+    {
+      "id": "999d",
+      "customerId": "9afba711-ea77-4680-999e-127b58911909",
+      "firstName": "yuvasri",
+      "lastName": "velumai",
+      "age": 24,
+      "email": "yuva@gmail.com",
+      "dateOfBirth": "2001-03-14T18:30:00.000Z",
+      "phoneNumber": "9876543450",
+      "alternativePhoneNumber": "87654456788",
+      "isActive": true,
+      "customerType": "",
+      "gender": "Female"
+    },
+    {
+      "id": "85d1",
+      "customerId": "fcd51a3f-5c57-4d97-826d-55417aa95655",
+      "firstName": "sunitha",
+      "lastName": "velumani",
+      "age": 24,
+      "email": "sunitha@gmail.com",
+      "dateOfBirth": "2025-02-04T18:30:00.000Z",
+      "phoneNumber": "1235689898",
+      "alternativePhoneNumber": "e4567894567890",
+      "isActive": true,
+      "customerType": "",
+      "gender": "Female"
+    },
+    {
+      "id": "23f5",
+      "customerId": null,
+      "firstName": "presanna",
+      "lastName": "kumar",
+      "age": 23,
+      "email": "presanna@gmail.com",
+      "dateOfBirth": "2025-02-03T18:30:00.000Z",
+      "phoneNumber": "8776523459",
+      "alternativePhoneNumber": "23456789",
+      "isActive": true,
+      "customerType": "",
+      "gender": "Male"
+    }
+  ]
+}
