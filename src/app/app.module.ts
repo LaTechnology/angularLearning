@@ -30,6 +30,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { customerReducer } from './home-page/admin/customer/store/customer.reducer';
 import { CustomerEffects } from './home-page/admin/customer/store/customer.effects';
+import { CreateAddressComponent } from './home-page/admin/address/create-address/create-address.component';
+import { AddressListComponent } from './home-page/admin/address/address-list/address-list.component';
 
 @NgModule({
   declarations: [
@@ -39,9 +41,12 @@ import { CustomerEffects } from './home-page/admin/customer/store/customer.effec
     OrdersComponent,
     CustomerListComponent,
     AddCustomerComponent,
+    CreateAddressComponent,
+    AddressListComponent
   ],
   imports: [
     CustomerModule,
+    // AddressModule,
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
@@ -54,7 +59,6 @@ import { CustomerEffects } from './home-page/admin/customer/store/customer.effec
      FormsModule,
      ReactiveFormsModule,
      MatInputModule,
-     MatFormFieldModule,
      MatDatepickerModule,
      MatNativeDateModule,
      MatCardModule,
@@ -66,13 +70,15 @@ import { CustomerEffects } from './home-page/admin/customer/store/customer.effec
      HttpClientModule,
      StoreModule.forRoot({customers: customerReducer}),
      EffectsModule.forRoot([CustomerEffects]),
-     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+     
   ],
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
     MatDatepickerModule,
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch()),
+    provideAnimationsAsync('noop')
   ],
   bootstrap: [AppComponent]
 })
