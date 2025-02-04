@@ -30,20 +30,14 @@ export class CustomerListComponent implements OnInit {
   ngOnInit() {
     this.store.dispatch(loadCustomers());
 
-    // Subscribe to customer changes and update the table
     this.customers$.subscribe(customers => {
       this.dataSource.data = customers;
     });
     }
 
-  // loadCustomers() {
-  //   this.dataSource.data = this.customerService.getCustomers();
-  //   this.dataSource.sort = this.sort;
-  //   this.dataSource.paginator = this.paginator;
-  // }
 
   editCustomer(customerId: string) {
-    this.router.navigate(['/addcustomer', customerId]);
+    this.router.navigate(['customer/edit', customerId]);
     console.log(customerId)
   }
 

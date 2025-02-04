@@ -23,7 +23,7 @@
     "@angular/router": "^17.0.0",
     "@angular/ssr": "^17.0.0",
     "@ngrx/effects": "^17.2.0",
-    "@ngrx/store": "^17.2.0",
+    "@ngrx/store": "^17.2.08",
     "@ngrx/store-devtools": "^17.2.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.0.1",

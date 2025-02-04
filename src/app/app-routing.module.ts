@@ -4,8 +4,8 @@ import { AddCustomerComponent } from './home-page/admin/customer/add-customer/ad
 import { CustomerListComponent } from './home-page/admin/customer/customer-list/customer-list.component';
 
 const routes: Routes = [
-  { path: 'addcustomer/:customerId', component: AddCustomerComponent }, // For update
-  { path: 'addcustomer', component: AddCustomerComponent },
+  { path: 'customer/edit/:customerId', component: AddCustomerComponent }, // For update
+  { path: 'customer/add', component: AddCustomerComponent },
   { path: 'customer', component: CustomerListComponent},
 ];
 
