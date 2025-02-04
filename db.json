@@ -70,5 +70,82 @@
       "customerType": "",
       "gender": "Male"
     }
+  ],
+  "addresses": [
+    {
+      "id": "22tg5",
+      "addressId": "6t8t",
+      "addressLine1": "ambathur estate",
+      "addressLine2": "SIDCO",
+      "city": "ambatur",
+      "district": "chennai",
+      "pincode": "897098",
+      "state": "tamilnadu",
+      "country": "india",
+      "region": "asia",
+      "landMark": "ashok pillar",
+      "phoneNumber": "9898989898",
+      "addressType": "Work"
+    },
+    {
+      "addressId": "b14777a0-60ba-4f74-997a-81523ccb05cd",
+      "addressLine1": "updated dsd",
+      "addressLine2": "updated  dsd",
+      "city": "updated  sdsd",
+      "district": "updated  dsd",
+      "pincode": "updated  dsd",
+      "state": "updated  dsd",
+      "country": "updated  dsd",
+      "region": "updated  sds",
+      "landMark": "updated  dsds",
+      "phoneNumber": "9866766662",
+      "addressType": "Home",
+      "id": "22tg6"
+    },
+    {
+      "addressId": "1ed57ea8-6e6f-46c5-b15a-aa348100fab9",
+      "addressLine1": "dlf",
+      "addressLine2": "ramapuran",
+      "city": "chennai",
+      "district": "chennai",
+      "pincode": "98787",
+      "state": "tamilnadu",
+      "country": "india",
+      "region": "asia",
+      "landMark": "phoenix updated",
+      "phoneNumber": "9898987879",
+      "addressType": "Work",
+      "id": "22tg7"
+    },
+    {
+      "addressId": "4d276302-2f0b-4168-ba7e-4cab78b59562",
+      "addressLine1": "marina",
+      "addressLine2": "triplicane",
+      "city": "chennai",
+      "district": "chennai",
+      "pincode": "879799",
+      "state": "tamilnadu",
+      "country": "india",
+      "region": "asia",
+      "landMark": "titan ship",
+      "phoneNumber": "9808098808",
+      "addressType": "Home",
+      "id": "be05"
+    },
+    {
+      "id": "79ca",
+      "addressId": "9e6c497e-f99d-4237-ada5-d0c2c8085fb8",
+      "addressLine1": "park",
+      "addressLine2": "porur",
+      "city": "chennai",
+      "district": "chennai",
+      "pincode": "98787",
+      "state": "tamilnadu",
+      "country": "India",
+      "region": "asia",
+      "landMark": "mark",
+      "phoneNumber": "0989898787",
+      "addressType": "Work"
+    }
   ]
 }
