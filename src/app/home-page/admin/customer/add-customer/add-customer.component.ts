@@ -15,78 +15,14 @@ import { selectCustomerById } from '../store/customer.selector';
   styleUrl: './add-customer.component.scss'
 })
 export class AddCustomerComponent implements OnInit {
-  // customerForm: FormGroup;
-  // customerId: string | null = null; 
-  // isEditMode = false; 
 
-  // constructor(
-  //   private fb: FormBuilder,
-  //   private customerService: CustomerService,
-  //   private router: Router,
-  //   private route: ActivatedRoute
-  // ) {
-  //   this.customerForm = this.fb.group({
-  //     firstName: ['', [Validators.required, Validators.minLength(2)]],
-  //     lastName: ['', [Validators.required]],
-  //     age: [null, [Validators.required, Validators.min(18), Validators.max(100)]],
-  //     email: ['', [Validators.required, Validators.email]],
-  //     dateOfBirth: ['', Validators.required],
-  //     phoneNumber: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
-  //     alternativePhoneNumber: [''],
-  //     isActive: [true],
-  //     customerType: [''],
-  //     gender: ['', Validators.required],
-  //   });
-  // }
-
-  // ngOnInit() {
-  //   this.route.paramMap.subscribe(params => {
-  //     this.customerId = params.get('customerId');
-  //     if (this.customerId) {
-  //       this.isEditMode = true;
-  //       this.loadCustomerData(this.customerId);
-  //     }
-  //   });
-  // }
-
-  // private loadCustomerData(customerId: string) {
-  //   const customer = this.customerService.getCustomerById(customerId);
-  //   if (customer) {
-  //     this.customerForm.patchValue(customer); 
-  //   }
-  // }
-
-  // onSubmit() {
-  //   if (this.customerForm.valid) {
-  //     if (this.isEditMode) {
-      
-  //       const updatedCustomer: Customer = {
-  //      customerId: this.customerId!, 
-  //         ...this.customerForm.value
-  //       };
-  //       console.log("0000000000000000000"+ this.customerId)
-
-  //       this.customerService.updateCustomer(updatedCustomer)
-  //       alert('Customer updated successfully!');
-  //     } else {
-        
-  //       const newCustomer: Customer = {
-  //         customerId: uuidv4(),
-  //         ...this.customerForm.value
-  //       };
-  //       this.customerService.addCustomer(newCustomer);
-  //       console.log("---"+ newCustomer.age)
-  //       alert('Customer added successfully!');
-  //     }
-  //     this.router.navigate(['/customer']);
-  //   }
-  // }
 
   customerForm: FormGroup;
   customerId: string | null = null;
   isEditMode = false;
   customer$: Observable<Customer | undefined>;
-
+  isEditEnabled = false;
+  originalCustomerData!: Customer; 
   constructor(
     private fb: FormBuilder,
     private store: Store,
@@ -113,26 +49,33 @@ export class AddCustomerComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.customerId = params.get('customerId');
-      console.log("fghjk",this.customerId)
       if (this.customerId) {
         this.isEditMode = true;
         this.customer$ = this.store.select(selectCustomerById(this.customerId));
         this.customer$.subscribe(customer => {
           if (customer) {
             this.customerForm.patchValue(customer);
+            this.originalCustomerData = this.customerForm.value;
           }
         });
 
         // Dispatch action to load the customer data if not already loaded
       }
     });
+
+    this.customerForm.valueChanges.subscribe(() => {
+      this.isEditEnabled = !this.isFormUnchanged();
+    });
   }
 
+  isFormUnchanged(): boolean {
+    return JSON.stringify(this.customerForm.value) === JSON.stringify(this.originalCustomerData);
+  }
   onSubmit() {
     if (this.customerForm.valid) {
       if (this.isEditMode) {
         const updatedCustomer: Customer = {
-        //  id: this.customerId!,
+         id: this.customerId!,
           ...this.customerForm.value
         };
         console.log(this.customerForm.value)

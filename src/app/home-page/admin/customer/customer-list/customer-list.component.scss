@@ -1,9 +1,44 @@
-.search-box {
-    width: 100%;
-    max-width: 400px;
-    margin-bottom: 20px;
-  }
-  
+.action-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.custom-button {
+  background-color: #1976d2; /* Primary Color */
+  color: white;
+  padding: 10px 16px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-button:hover {
+  background-color: #1565c0;
+}
+
+.button-link {
+  color: white;
+  text-decoration: none;
+}
+
+// .search-box {
+//   flex: 1; 
+//   min-width: 250px;
+
+ 
+// }
+::ng-deep .search-box .mdc-notched-outline {
+  width: 50% !important; /* Override default width */
+}
   .table-container {
     overflow: auto;
     max-width: 100%;
@@ -16,4 +51,5 @@
   mat-paginator {
     margin-top: 20px;
   }
+  
   

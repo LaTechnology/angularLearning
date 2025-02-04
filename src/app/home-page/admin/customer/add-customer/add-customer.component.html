@@ -16,7 +16,6 @@
             </mat-error>
           </mat-form-field>
   
-          <!-- Last Name -->
           <mat-form-field appearance="fill">
            
             <mat-label>Last Name
@@ -27,7 +26,6 @@
             </mat-error>
           </mat-form-field>
   
-          <!-- Age -->
           <mat-form-field appearance="fill">
             <mat-label>Age
             </mat-label>
@@ -38,7 +36,6 @@
             </mat-error>
           </mat-form-field>
   
-          <!-- Email -->
           <mat-form-field appearance="fill">
             <mat-label>Email
             </mat-label>
@@ -49,7 +46,6 @@
             </mat-error>
           </mat-form-field>
   
-          <!-- Date of Birth -->
           <mat-form-field appearance="fill">
             <mat-label>Date of Birth
             </mat-label>
@@ -62,7 +58,6 @@
             </mat-error>
           </mat-form-field>
   
-          <!-- Phone Number -->
           <mat-form-field appearance="fill">
             <mat-label>Phone Number
 
@@ -74,7 +69,6 @@
             </mat-error>
           </mat-form-field>
   
-          <!-- Alternative Phone Number -->
           <mat-form-field appearance="fill">
        <mat-label>Alternative Phone Number</mat-label> 
             
@@ -98,9 +92,8 @@
             
         </div>
   
-        <!-- Submit Button -->
         <div class="button-container">
-          <button mat-raised-button color="primary" type="submit" [disabled]="customerForm.invalid">
+          <button mat-raised-button color="primary" type="submit"  [disabled]="customerForm.invalid || (isEditMode && !isEditEnabled)">
             {{ isEditMode ? 'Update Customer' : 'Add Customer' }}
           </button>
         </div>
