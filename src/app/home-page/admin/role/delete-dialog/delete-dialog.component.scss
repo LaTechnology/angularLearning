@@ -1,0 +1,18 @@
+.dialog-title {
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .dialog-content {
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  .dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 10px;
+  }
+  

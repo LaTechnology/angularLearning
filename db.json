@@ -62,7 +62,7 @@
       "firstName": "presanna",
       "lastName": "kumar",
       "age": 23,
-      "email": "presanna@gmail.com",
+      "email": "gopi.k@gmail.com",
       "dateOfBirth": "2025-02-03T18:30:00.000Z",
       "phoneNumber": "8776523458",
       "alternativePhoneNumber": "23456789",
@@ -225,6 +225,17 @@
       "landMark": "mark",
       "phoneNumber": "0989898787",
       "addressType": "Work"
+    }
+  ],
+  "role": [
+    {
+      "name": "Gopi",
+      "email": "gopi@gmail.com",
+      "selectedRoles": [
+        "Admin",
+        "General"
+      ],
+      "id": "9537"
     }
   ]
 }
