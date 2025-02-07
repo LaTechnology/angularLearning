@@ -1,17 +1,16 @@
 <section class="container-fluid mt-3">
-    <div class="row">
-      <div class="col-12 col-md-2">
+    <div class="row col-12 justify-content-between">
+      <div class="col-6">
         <img src="assets/images/logo-ladera-1024x261.png" width="180">
       </div>
-      <div class="col-12 col-md-10">
-        <div class="row">
-          <div class="col-12 col-md-10">
+      <div class="col-6">
+        <div class="row d-flex">
+          <div class="col-10">
             <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="end" [(selectedIndex)]="activeTabIndex" (selectedIndexChange)="onTabChange($event)">
               <mat-tab *ngFor="let tab of tabs" [label]="tab.label"></mat-tab>
             </mat-tab-group>
-            <router-outlet></router-outlet>
           </div>
-          <div class="col-12 col-md-2">
+          <div class="col-2">
             <div class="dropdown">
               <button type="button" class="btn btn-light mt-1 dropdown-toggle" data-bs-toggle="dropdown">
                 Admin
@@ -20,7 +19,7 @@
                 <li><a (click)="onDropdownSelect('/customer', 'Customer')">Customer</a></li>
                 <li><a (click)="onDropdownSelect('/products', 'Product')">Product</a></li>
                 <li><a (click)="onDropdownSelect('/address/list', 'Address')">Address</a></li>
-                <li><a (click)="onDropdownSelect('/client', 'Client')">User</a></li>
+                <li><a (click)="onDropdownSelect('/client', 'Client')">Client</a></li>
                 <li><a class="dropdown-item" routerLink="listrole">Roles</a></li>
               </ul>
             </div>
