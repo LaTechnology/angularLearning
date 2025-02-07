@@ -33,7 +33,7 @@ export class CustomerListComponent implements OnInit {
     this.customers$.subscribe(customers => {
       this.dataSource.data = customers;
     });
-    }
+  }
 
 
   editCustomer(customerId: string) {

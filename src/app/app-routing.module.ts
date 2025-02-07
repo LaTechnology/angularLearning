@@ -9,7 +9,9 @@ import { CreateAddressComponent } from './home-page/admin/address/create-address
 import { AddressListComponent } from './home-page/admin/address/address-list/address-list.component';
 import { InventoryComponent } from './home-page/inventory/inventory.component';
 import { OrdersComponent } from './home-page/orders/orders.component';
-
+import { AddroleComponent } from './home-page/admin/role/addrole/addrole.component';
+import { ListRoleComponent } from './home-page/admin/role/list-role/list-role.component';
+import { UpdateRoleComponent } from './home-page/admin/role/update-role/update-role.component';
 const routes: Routes = [
     { path: 'customer/edit/:customerId', component: AddCustomerComponent, canActivate: [AuthGuard] },
     { path: 'customer/add', component: AddCustomerComponent, canActivate: [AuthGuard] },
@@ -22,6 +24,9 @@ const routes: Routes = [
     { path: 'address/list', component: AddressListComponent, canActivate: [AuthGuard] },
     { path: 'order', component: OrdersComponent, canActivate: [AuthGuard] },
     { path: 'inventory', component: InventoryComponent, canActivate: [AuthGuard] },
+    { path: 'addrole', component: AddroleComponent, canActivate: [AuthGuard]},
+    { path: 'listrole', component: ListRoleComponent, canActivate: [AuthGuard]},
+    { path: 'role/edit/:id', component: UpdateRoleComponent, canActivate: [AuthGuard]},
     { path: '', redirectTo: 'inventory', pathMatch: 'full' },
 ];
 

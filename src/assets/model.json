@@ -1,0 +1,45 @@
+{
+  "users": [
+    {
+      "name": "Gopi",
+      "email": "gopi@gmail.com",
+      "roles": []
+    },
+    {
+      "name": "kannan",
+      "email": "kannan@gmail.com",
+      "roles": []
+    },
+    {
+      "name": "kumar",
+      "email": "kumar@gmail.com",
+      "roles": []
+    },
+    {
+      "name": "suriya",
+      "email": "suriya@gmail.com",
+      "roles": []
+    },
+    {
+      "name": "qqq",
+      "email": "qqq@gmail.com",
+      "roles": []
+    },
+    {
+      "name": "sss",
+      "email": "sss@gmail.com",
+      "roles": []
+    },
+    {
+      "name": "hhh",
+      "email": "hhh@gmail.com",
+      "roles": []
+    }
+  ],
+  "roles": [
+    "Admin",
+    "general",
+    "inventory",
+    "orders"
+  ]
+}

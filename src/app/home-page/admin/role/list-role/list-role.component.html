@@ -1,0 +1,58 @@
+<div class="container mt-4">
+  <h3 class="mb-3"><b>User Role List</b></h3>
+
+  <div class="d-flex align-items-center gap-2 mb-3">
+    <input type="text" class="form-control flex-grow-1" [(ngModel)]="searchQuery" (input)="onSearchChange()"
+      placeholder="Search users..." />
+    <button class="btn btn-success" (click)="addRole()">Add Role</button>
+    <button class="btn btn-warning" (click)="bulkEdit()" [disabled]="!selectedUsers().length">
+      Bulk Edit
+    </button>
+  </div>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>
+          <input type="checkbox" (change)="toggleSelectAll($event)" />
+        </th>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Roles</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of paginatedUsers; let i = index">
+        <td>
+          <input type="checkbox" [(ngModel)]="user.selected" />
+        </td>
+        <td>{{ i + 1 + (currentPage * pageSize) }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <span *ngFor="let role of user.selectedRoles" class="badge bg-primary me-1">
+            {{ role }}
+          </span>
+        </td>
+        <td>
+          <button mat-icon-button color="primary" (click)="editRole(user.id)" [disabled]="isAnyUserSelected()">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button mat-icon-button color="primary" (click)="openDeleteDialog(user.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf="paginatedUsers.length === 0">
+        <td colspan="6" class="text-center text-muted">No user data available</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <mat-paginator [length]="filteredUsers().length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]"
+    (page)="onPageChange($event)">
+  </mat-paginator>
+</div>

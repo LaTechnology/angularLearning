@@ -1,14 +1,14 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { InventoryComponent } from './home-page/inventory/inventory.component';
 import { OrdersComponent } from './home-page/orders/orders.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -36,6 +36,13 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSort } from '@angular/material/sort';
 import { CreateAddressComponent } from './home-page/admin/address/create-address/create-address.component';
 import { AddressListComponent } from './home-page/admin/address/address-list/address-list.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ListRoleComponent } from './home-page/admin/role/list-role/list-role.component';
+import { UpdateRoleComponent } from './home-page/admin/role/update-role/update-role.component';
+import { DeleteDialogComponent } from './home-page/admin/role/delete-dialog/delete-dialog.component';
+import { BulkEditDialogComponent } from './home-page/admin/role/bulk-edit-dialog/bulk-edit-dialog.component';
+import { AddroleComponent } from './home-page/admin/role/addrole/addrole.component';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +55,12 @@ import { AddressListComponent } from './home-page/admin/address/address-list/add
     AddProductComponent,
     ProductListComponent,
     CreateAddressComponent,
-    AddressListComponent
+    AddressListComponent,
+    AddroleComponent,
+    ListRoleComponent,
+    UpdateRoleComponent,
+    DeleteDialogComponent,
+    BulkEditDialogComponent,
   ],
   imports: [
     MatSort,
@@ -60,25 +72,27 @@ import { AddressListComponent } from './home-page/admin/address/address-list/add
     AppRoutingModule,
     MatTabsModule,
     MatFormFieldModule,
-     MatSelectModule,
-      MatInputModule,
-       FormsModule,
-      CommonModule,
-     FormsModule,
-     ReactiveFormsModule,
-     MatInputModule,
-     MatDatepickerModule,
-     MatNativeDateModule,
-     MatCardModule,
-     MatTableModule,
-     MatSortModule,
-     MatPaginatorModule,
-     MatButtonModule,
-     MatIconModule,
-     HttpClientModule,
-     StoreModule.forRoot({customers: customerReducer}),
-     EffectsModule.forRoot([CustomerEffects]),
-     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    MatSelectModule,
+    MatInputModule,
+    FormsModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule,
+    MatDialogModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatButtonModule,
+    MatIconModule,
+    HttpClientModule,
+    StoreModule.forRoot({ customers: customerReducer }),
+    EffectsModule.forRoot([CustomerEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [
     provideClientHydration(),
