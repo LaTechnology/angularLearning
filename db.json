@@ -1,18 +1,18 @@
 {
   "customers": [
     {
+      "id": "1519",
       "customerId": "1a2b3c4d5e",
       "firstName": "John",
       "lastName": "Doe",
       "age": 30,
       "email": "johndoe@example.com",
       "dateOfBirth": "1994-02-15",
-      "address": "123 Main St, Springfield, IL",
-      "phoneNumber": "9989898999",
+      "phoneNumber": "9989898998",
       "alternativePhoneNumber": "987-654-3210",
       "isActive": true,
-      "gender": "Male",
-      "id": "1519"
+      "customerType": "",
+      "gender": "Male"
     },
     {
       "id": "302d",
@@ -69,6 +69,85 @@
       "isActive": true,
       "customerType": "",
       "gender": "Male"
+    },
+    {
+      "id": "8f1e",
+      "customerId": null,
+      "firstName": "test",
+      "lastName": "n",
+      "age": 21,
+      "email": "re@gmail.com",
+      "dateOfBirth": "2001-11-01T18:30:00.000Z",
+      "phoneNumber": "1212222222",
+      "alternativePhoneNumber": "1112121",
+      "isActive": true,
+      "customerType": "",
+      "gender": "Female"
+    }
+  ],
+  "products": [
+    {
+      "productName": "Shirts",
+      "size": "S",
+      "brand": "Nike",
+      "color": "RED",
+      "code": "NIKE123",
+      "quantity": 12,
+      "id": "f1e2"
+    },
+    {
+      "productName": "Casual Shirts",
+      "size": "L",
+      "brand": "Allen Solly",
+      "color": "Blue",
+      "code": "A3455",
+      "quantity": 52,
+      "id": "4a3f"
+    },
+    {
+      "productName": "Formal Shirt",
+      "size": "XL",
+      "brand": "Allen Solly",
+      "color": "Green",
+      "code": "F9876",
+      "quantity": 3,
+      "id": "cf5e"
+    },
+    {
+      "id": "9d2d",
+      "productName": "Shirts",
+      "size": "M",
+      "brand": "OTTO",
+      "color": "Full Sleeves White",
+      "code": "OT456",
+      "quantity": 4
+    },
+    {
+      "id": "e0bd",
+      "productName": "T-Shirt",
+      "size": "S",
+      "brand": "PUMA",
+      "color": "Half Sleeves Black",
+      "code": "PUMA22",
+      "quantity": 5
+    },
+    {
+      "id": "d894",
+      "productName": "Formal Shirts",
+      "size": "L",
+      "brand": "Van Heusen",
+      "color": "Slim Fit - Yellow",
+      "code": "VAN55",
+      "quantity": 5
+    },
+    {
+      "productName": "Demo1",
+      "size": "L",
+      "brand": "Demo1",
+      "color": "Demo1",
+      "code": "DEMO121",
+      "quantity": 51,
+      "id": "075a"
     }
   ],
   "addresses": [
