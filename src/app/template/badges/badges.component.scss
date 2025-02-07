@@ -1,0 +1,82 @@
+
+.outlined-badge-default {
+    background: white;
+    border: 1px solid #ffbf9d;
+    border-radius: 8px;
+    letter-spacing: 0.2px;
+    color: #f45600;
+    font-size: 11px;
+    padding: 0px 6px;
+    font-weight: 500;
+    line-height: 10px;
+  }
+  
+  .badge-text {
+    padding: 1px 3px;
+    font-weight: 400;
+    font-size: 0.813rem;
+    width: max-content;
+    background: aliceblue;
+    border-radius: 20px;
+    align-items: center;
+    display: inline-flex;
+  
+    .text {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 0 4px;
+      line-height: 13px;
+      letter-spacing: 0em;
+      text-align: center;
+    }
+  
+    .active-icon {
+      border: none;
+    }
+  }
+  
+  .badge-number {
+    padding: 5px 8px;
+    line-height: 12px;
+    font-weight: 400;
+    font-size: 0.813rem;
+    width: max-content;
+    height: 23px !important;
+    border-radius: 43px;
+    align-items: center;
+    display: flex;
+  
+    .active-icon {
+      border: none;
+    }
+  
+    .number {
+      font-size: 12px;
+      padding: 0 3px;
+    }
+  }
+  
+  .orange-badge {
+    background: rgba(244, 86, 0, 0.05) !important;
+    color: rgb(244, 86, 0) !important;
+    border: 1px solid rgb(244, 86, 0) !important;
+    height: 20px !important;
+    padding: 9px 5px;
+    line-height: 0;
+  
+    .active-icon {
+      display: none;
+    }
+  }
+  
+  
+  .horizontal-badges {
+    display: inline-flex;
+    gap: 10px;
+  }
+  
+  .table-draft-badge {
+    position: relative;
+    top: -10px;
+  }
+  

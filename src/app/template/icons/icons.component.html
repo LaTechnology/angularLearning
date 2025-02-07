@@ -1,0 +1,71 @@
+<ng-container [ngSwitch]="type">
+  <!-- default icon -->
+  <ng-container *ngSwitchCase="'default'">
+    <div class="{{ customClass }}">
+      <img class="custom-icon {{ iconClass}}" [class.active]="active" src="assets/images/icons/{{ name }}.svg" >
+    </div>
+  </ng-container>
+ 
+  <!-- custom path -->
+  <ng-container *ngSwitchCase="'custom'">
+    <div class="{{ customClass }}">
+      <img class="custom-icon {{ iconClass}}" [class.active]="active" src="{{ name }}" >
+    </div>
+  </ng-container>
+
+  <!-- grouped icon -->
+  <ng-container *ngSwitchCase="'group'">
+     <div class="wz-icon-group d-flex " class="{{ customClass }}">
+      <ng-container *ngFor="let icon of icons;index as i">
+        <img src="assets/images/icons/{{ icon }}.svg" class="custom-icon {{ iconClass }} {{ 'button-icon-' + i }}" (click)="iconClick(icon)">
+      </ng-container>
+    </div>
+  </ng-container>
+  <!-- mat-icon -->
+  <ng-container *ngSwitchCase="'mat-icon'">
+    <div class="wz-icon" class="{{ customClass }}">
+      <mat-icon class="custom-icon {{ iconClass }}">{{ name }}</mat-icon>
+    </div>
+  </ng-container>
+  <!-- font-awesome icon -->
+  <ng-container *ngSwitchCase="'font-awesome'">
+    <div class="wz-icon" class="{{ customClass }}">
+      <i class="{{ name }} custom-icon {{ iconClass }}"></i>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'loader'">
+    <div class="{{ customClass }} d-center" title="7">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px" y="0px" width="10px" height="20px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;"
+        xml:space="preserve">
+        <rect x="0" y="8" width="2" height="6" [attr.fill]="fill()" opacity="0.2">
+          <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0s" dur="0.6s"
+            repeatCount="indefinite" />
+          <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0s" dur="0.6s"
+            repeatCount="indefinite" />
+          <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0s" dur="0.6s"
+            repeatCount="indefinite" />
+        </rect>
+        <rect x="6" y="8" width="2" height="6" [attr.fill]="fill()" opacity="0.2">
+          <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.15s" dur="0.6s"
+            repeatCount="indefinite" />
+          <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.15s" dur="0.6s"
+            repeatCount="indefinite" />
+          <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.15s" dur="0.6s"
+            repeatCount="indefinite" />
+        </rect>
+        <rect x="12" y="8" width="2" height="6" [attr.fill]="fill()" opacity="0.2">
+          <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.3s" dur="0.6s"
+            repeatCount="indefinite" />
+          <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.3s" dur="0.6s"
+            repeatCount="indefinite" />
+          <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.3s" dur="0.6s"
+            repeatCount="indefinite" />
+        </rect>
+      </svg>
+    </div>
+  </ng-container>
+   
+  
+</ng-container>

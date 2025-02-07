@@ -42,7 +42,7 @@ import { UpdateRoleComponent } from './home-page/admin/role/update-role/update-r
 import { DeleteDialogComponent } from './home-page/admin/role/delete-dialog/delete-dialog.component';
 import { BulkEditDialogComponent } from './home-page/admin/role/bulk-edit-dialog/bulk-edit-dialog.component';
 import { AddroleComponent } from './home-page/admin/role/addrole/addrole.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -63,6 +63,7 @@ import { AddroleComponent } from './home-page/admin/role/addrole/addrole.compone
     BulkEditDialogComponent,
   ],
   imports: [
+    NgbModule,
     MatSort,
     MatCheckboxModule,
     CustomerModule,
@@ -90,6 +91,7 @@ import { AddroleComponent } from './home-page/admin/role/addrole/addrole.compone
     MatButtonModule,
     MatIconModule,
     HttpClientModule,
+    MatDatepickerModule,
     StoreModule.forRoot({ customers: customerReducer }),
     EffectsModule.forRoot([CustomerEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
@@ -97,7 +99,6 @@ import { AddroleComponent } from './home-page/admin/role/addrole/addrole.compone
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
-    MatDatepickerModule,
     provideHttpClient(withFetch()),
     provideAnimationsAsync('noop')
   ],

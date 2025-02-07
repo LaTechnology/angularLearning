@@ -1,0 +1,11 @@
+<div class="{{customClass}} search" (mouseleave)="!isInputFocused && !input ? isInputHover = false : null">
+  <div class="input-wrapper" [ngStyle]="{'background': background}"
+    [ngClass]="isInputHover ? 'leave-input' : 'fill-input'"></div>
+  <input type="text" placeholder="{{placeHolder}}" style="width: 200px;"
+    [ngStyle]="{'opacity': isInputHover ? '1' : '0'}" (ngModelChange)="onSearch($event)" autocomplete="off"
+    #searchInputRef [ngModel]="input" (focus)="isInputHover = true; isInputFocused = true"
+    (blur)="!input ? isInputHover = isInputFocused = false : null">
+  <img src="assets/images/icons/close.svg" class="clear-icon" *ngIf="input" (click)="clickCloseIcon()">
+  <wz-icon [name]="'search'" [ngStyle]="{'transform': isInputHover ? 'translateX(-174px)' : 'translateX(0)'}"
+    (mouseover)="isInputHover = true" [iconClass]="'icon-23'"></wz-icon>
+</div>

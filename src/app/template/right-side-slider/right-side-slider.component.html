@@ -1,0 +1,7 @@
+<div class="grey-out-background" [@backgroundFlyInOut]="displayPanel" *ngIf="displayPanel"></div>
+<aside class="right-sidebar {{customClass}}" [@sidebarFlyInOut]="displayPanel" *ngIf="displayPanel">
+  <div class="invite-arrow-container click-enabled" (click)="closeRightSidebar()">
+    <img src="assets\images\icons\blue-arrow.svg">
+  </div>
+  <ng-content></ng-content>
+</aside>

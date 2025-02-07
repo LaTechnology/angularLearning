@@ -1,0 +1,52 @@
+
+.modal-header {
+    div {
+        margin: 10px auto;
+        text-align: center;
+    }
+    span {
+        font-weight: 500;
+        font-size: 1.125rem;
+        line-height: 28px;
+        color: var(--wz-gray-900);
+    }
+}
+.content {
+    margin: 20px 0px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.83rem;
+    line-height: 23px;
+    color: var(--wz-gray-900);
+    span {
+        color: var(--wz-deep-orange);
+    }
+}
+.filter-background {
+    width: 32px !important;
+    height: 33px !important;
+    border-radius: 50%;
+    top: -3px !important;
+    z-index: 0;
+    left: 164px !important;
+}
+.action-buttons {
+    text-align: center;
+    .cancel-button,
+    .confirm-button {
+        border-radius: 8px;
+        padding: 10px;
+        width: 100%;
+        color: var(--wz-white);
+    }
+    .cancel-button {
+        border: 1px solid var(--wz-gray-200);
+        box-shadow: 0px 1px 2px var(--wz-gray-500) !important;
+    }
+    .confirm-button {
+        background: var(--wz-deep-orange);
+        border: 1px solid var(--wz-deep-orange);
+        box-shadow: 0px 1px 2px var(--wz-gray-800);
+    }
+    
+}

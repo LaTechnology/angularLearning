@@ -1,0 +1,57 @@
+.api-loading {
+    filter: blur(2px) saturate(0.5);
+    user-select: none;
+    pointer-events: none;
+}
+
+.grey-out-background  {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2.5px) !important;
+  background-color: rgba(181, 181, 181, 0.7) !important;
+  z-index: 9996 !important;
+  transition: 0.5s;
+}
+
+.right-sidebar {
+    width: auto;
+    position: fixed;
+    top: 0 !important;
+    right: 0;
+    height: 100vh !important;
+    z-index: 9997 !important;
+    top: 50px;
+    background: white;
+    box-shadow: none;
+    .invite-arrow-container {
+      position: absolute;
+      left: -2.5em;
+      top: 52%;
+      text-align: center;
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+      z-index: -1;
+      img {
+        position: absolute;
+        top: 40%;
+        right: 55%;
+      }
+    }
+    //overflow-y: scroll; // changes done for property input form
+    transition: 0.5s;
+    &.open {
+      right: 0;
+      box-shadow :(-2px 2px 5px rgba(0, 0, 0, 0.1));
+    }
+  
+    .rightSidebarClose {
+      cursor: pointer;
+      text-align: center;
+    }
+  }

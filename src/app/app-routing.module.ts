@@ -28,6 +28,10 @@ const routes: Routes = [
     { path: 'listrole', component: ListRoleComponent, canActivate: [AuthGuard]},
     { path: 'role/edit/:id', component: UpdateRoleComponent, canActivate: [AuthGuard]},
     { path: '', redirectTo: 'inventory', pathMatch: 'full' },
+    {
+      path: 'client',
+      loadChildren: () => import('../app/home-page/admin/client/client.module').then((m) => m.ClientModule),
+    },
 ];
 
 @NgModule({

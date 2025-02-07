@@ -1,0 +1,390 @@
+﻿/*
+ *  Document   : _tooltippopovers.scss
+ *  Author     : RedStar Template
+ *  Description: This scss file for tooltip pop overs style classes
+ */
+
+.popover {
+  @include border-radius(0);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  .popover-title {
+    font-weight: bold;
+    @include border-radius(0);
+    background-color: #e9e9e9;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .popover-content {
+    font-size: 0.813rem;
+    color: #777;
+    @include border-radius(0);
+  }
+}
+
+.mat-tooltip {
+  background-color: $primary !important;
+  font-size: 0.875rem;
+  padding: 5px !important;
+  overflow: visible !important;
+}
+
+.mat-tooltip-panel-right {
+  .mat-tooltip {
+    margin-left: 20px !important;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 45%;
+      right: 100%;
+      margin-top: -6px;
+      border-width: 7px;
+      border-style: solid;
+      border-color: transparent $primary transparent transparent;
+      /* filter: drop-shadow(-0.25px 1px 0.75px white); */
+    }
+  }
+}
+
+.mat-tooltip-panel-left {
+  .mat-tooltip {
+    margin-right: 20px !important;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 45%;
+      left: 100%;
+      margin-top: -6px;
+      margin-right: 5px;
+      border-width: 7px;
+      border-style: solid;
+      border-color: transparent transparent transparent $primary;
+      /* filter: drop-shadow(-0.25px 1px 0.75px white); */
+    }
+  }
+}
+
+.mat-tooltip-panel-above {
+  .mat-tooltip {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 0;
+      border-width: 7px;
+      border-style: solid;
+      border-color: $primary transparent transparent transparent;
+    }
+  }
+}
+
+.mat-tooltip {
+  font-size: 0.875rem;
+  padding: 5px 10px !important;
+  box-shadow: 3px 3px 8px #0000004d;
+  position: relative;
+  &:before {
+    position: absolute;
+    content: "";
+  }
+  &.error-tooltip {
+    background-color: $secondary-bg !important;
+    border: 1px solid $secondary;
+    color: $secondary;
+    &:before {
+      border-color: #f44336 transparent transparent transparent !important;
+    }
+  }
+
+  &.info-tooltip {
+    background-color: $quaternary-bg !important;
+    border: 1px solid $quaternary;
+    color: $quaternary;
+    &:before {
+      border-color: $quaternary transparent transparent transparent !important;
+    }
+  }
+
+  &.warning-tooltip {
+    background-color: $tertiary-bg !important;
+    border: 1px solid $tertiary;
+    color: $tertiary;
+    &:before {
+      border-color: $tertiary transparent transparent transparent !important;
+    }
+  }
+}
+
+/* ngb-tooltip */
+.tooltip {
+  z-index: 9999 !important;
+  .tooltip-inner {
+    font-size: 0.875rem;
+    box-shadow: 3px 3px 8px #0000004d;
+    border-radius: 4px;
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+  }
+  // .tooltip-arrow {
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   display: inline-block! important;
+  //   border-width: 7px;
+  //   border-style: solid;
+  // }
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   display: inline-block!important;
+  //   border-width: 6px;
+  //   border-style: solid;
+  // }
+  //}
+}
+
+.mdc-tooltip__surface::before {
+  border-color: $tertiary transparent transparent transparent !important;
+}
+
+.bs-tooltip-top {
+  margin: 2px 0 !important;
+  .tooltip-arrow {
+    &::before {
+      top: -1px;
+      right: 0px;
+    }
+    &::after {
+      top: -1px;
+      right: 1px;
+    }
+  }
+  // &.ng-tooltip-light {
+  //   @include tooltip-border-top-color($gray-600, $gray-500, $white);
+  // }
+  // &.ng-tooltip-success {
+  //   @include tooltip-border-top-color($quaternary, $quaternary, $quaternary-bg);
+  // }
+  // &.ng-tooltip-info {
+  //   @include tooltip-border-top-color($primary, $primary, $primary-bg);
+  // }
+  // &.ng-tooltip-warning {
+  //   @include tooltip-border-top-color($tertiary, $tertiary, $tertiary-bg);
+  // }
+  // &.ng-tooltip-error {
+  //   @include tooltip-border-top-color($secondary, $secondary, $secondary-bg);
+  // }
+}
+
+.bs-tooltip-end {
+  margin: 0 2px !important;
+  .tooltip-arrow {
+    &::before {
+      top: 0px;
+      right: -1px;
+    }
+    &::after {
+      top: -1px;
+      right: -1px;
+    }
+  }
+  // &.ng-tooltip-light {
+  //   @include tooltip-border-right-color($gray-600, $gray-500, $white);
+  // }
+  // &.ng-tooltip-success {
+  //   @include tooltip-border-right-color(
+  //     $quaternary,
+  //     $quaternary,
+  //     $quaternary-bg
+  //   );
+//   }
+//   &.ng-tooltip-info {
+//     @include tooltip-border-right-color($primary, $primary, $primary-bg);
+//   }
+//   &.ng-tooltip-warning {
+//     @include tooltip-border-right-color($tertiary, $tertiary, $tertiary-bg);
+//   }
+//   &.ng-tooltip-error {
+//     @include tooltip-border-right-color($secondary, $secondary, $secondary-bg);
+//   }
+ }
+
+.bs-tooltip-bottom {
+  margin: 0 2px !important;
+  .tooltip-arrow {
+    &::before {
+      top: -7px;
+      right: -1px;
+    }
+    &::after {
+      top: -5px;
+      right: 0px;
+    }
+  }
+  // &.ng-tooltip-light {
+  //   @include tooltip-border-bottom-color($gray-600, $gray-500, $white);
+  // }
+  // &.ng-tooltip-success {
+  //   @include tooltip-border-bottom-color(
+  //     $quaternary,
+  //     $quaternary,
+  //     $quaternary-bg
+  //   );
+  // }
+  // &.ng-tooltip-info {
+  //   @include tooltip-border-bottom-color($primary, $primary, $primary-bg);
+  // }
+  // &.ng-tooltip-warning {
+  //   @include tooltip-border-bottom-color($tertiary, $tertiary, $tertiary-bg);
+  // }
+  // &.ng-tooltip-error {
+  //   @include tooltip-border-bottom-color($secondary, $secondary, $secondary-bg);
+  // }
+}
+
+.mat-mdc-tooltip .mdc-tooltip__surface {
+  overflow: visible;
+  position: relative;
+}
+
+.matTooltip-top-light {
+  .mdc-tooltip__surface::before {
+    position: absolute;
+    width: 8px !important;
+    height: 10px !important;
+    display: inline-block !important;
+    border-width: 6px !important;
+    top: -8px !important;
+    clip-path: polygon(52% 29%, 134% 109%, -5% 88%);
+    background: inherit !important;
+    left: 50% !important;
+    border-radius: inherit !important;
+  }
+}
+
+.bs-tooltip-start {
+  margin: 0 2px !important;
+  .tooltip-arrow {
+    &::before {
+      top: 0px;
+      right: 0px;
+    }
+    &::after {
+      top: -1px;
+      right: -4px;
+    }
+  }
+  // &.ng-tooltip-light {
+  //   @include tooltip-border-left-color($gray-600, $gray-500, $white);
+  // }
+  // &.ng-tooltip-success {
+  //   @include tooltip-border-left-color(
+  //     $quaternary,
+  //     $quaternary,
+  //     $quaternary-bg
+  //   );
+  // }
+  // &.ng-tooltip-info {
+  //   @include tooltip-border-left-color($primary, $primary, $primary-bg);
+  // }
+  // &.ng-tooltip-warning {
+  //   @include tooltip-border-left-color($tertiary, $tertiary, $tertiary-bg);
+  // }
+  // &.ng-tooltip-error {
+  //   @include tooltip-border-left-color($secondary, $secondary, $secondary-bg);
+  // }
+}
+
+.tooltip-desc {
+  .tooltip-inner {
+    max-width: 500px;
+  }
+}
+
+.tooltip-desc-access {
+  .tooltip-inner {
+    max-width: 200px;
+  }
+}
+
+.ng-inputfield-error {
+  .tooltip-inner {
+    width: 200px;
+  }
+}
+
+[tooltip] {
+  display: inline-block;
+}
+
+.ng-tooltip {
+  position: absolute;
+  min-width: 50px;
+  max-width: 420px;
+  min-height: 10px;
+  max-height: auto;
+  text-wrap: wrap;
+  font-size: 0.875rem;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3019607843);
+  text-align: center;
+  padding: 3px 8px;
+  border-radius: 4px;
+  z-index: 9998;
+}
+
+.ng-tooltip-show {
+  opacity: 1;
+}
+
+.tooltip-arrow-top,
+.tooltip-arrow-bottom,
+.tooltip-arrow-left,
+.tooltip-arrow-right {
+  display: block;
+  height: 0.8em;
+  width: 0.8em;
+  background: inherit;
+  border: inherit;
+  position: absolute;
+}
+.tooltip-arrow-top {
+  clip-path: polygon(0% 19%, 100% 121%, 0% 100%);
+}
+.tooltip-arrow-right {
+  clip-path: polygon(0% 8%, 92% 100%, 0% 100%);
+}
+.tooltip-arrow-bottom {
+  clip-path: polygon(-8% 0%, 100% 110%, 0% 100%);
+}
+.tooltip-arrow-left {
+  clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+}
+
+.tooltip-arrow-top {
+  transform: rotate(-45deg);
+  bottom: -0.28em;
+  left: calc(50% - 0.8em);
+}
+
+.tooltip-arrow-bottom {
+  left: calc(50% - 0.4em);
+  top: -0.35em;
+  transform: rotate(135deg);
+}
+
+.tooltip-arrow-left {
+  right: -0.4em;
+  bottom: calc(50% - 0.4em);
+  transform: rotate(225deg);
+}
+
+.tooltip-arrow-right {
+  right: calc(100% - 0.475em);
+  bottom: calc(50% - 0.4em);
+  transform: rotate(45deg);
+}

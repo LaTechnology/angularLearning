@@ -1,0 +1,103 @@
+.snackbar-success.mat-mdc-snack-bar-container {
+    .mdc-snackbar__surface {
+      background-color: $snack-success-bg;
+      .mdc-snackbar__label {
+        color: $snack-success;
+      }
+    }
+  }
+  
+  .snackbar-info.mat-mdc-snack-bar-container {
+    .mdc-snackbar__surface {
+      background-color: $primary-bg;
+      .mdc-snackbar__label {
+        color: $snack-info;
+      }
+    }
+  }
+  
+  .snackbar-warning.mat-mdc-snack-bar-container {
+    .mdc-snackbar__surface {
+      background-color: $snack-warning-bg;
+      .mdc-snackbar__label {
+        color: $snack-warning;
+      }
+    }
+  }
+  
+  .snackbar-danger.mat-mdc-snack-bar-container {
+    .mdc-snackbar__surface {
+      background-color: $snack-danger-bg;
+      .mdc-snackbar__label {
+        color: $snack-danger;
+      }
+    }
+  }
+  
+  .mat-mdc-snack-bar-container {
+    .mdc-snackbar__surface {
+      border-radius: 6px !important;
+    }
+  }
+  
+  /* snackbar component */
+  .notification-content {
+    position: fixed;
+    top: -2px;
+    right: -3px;
+    z-index: 999999;
+    background: white;
+    border: 0.8px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 26px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    min-height: 90px;
+    // max-height: 110px;
+    width: 23rem;
+    font-size: 0.8125rem;
+    color: rgba(129, 127, 127, 0.822);
+    color: black;
+    overflow: hidden;
+    .close-icon {
+      right: 18px;
+      top: 3px;
+      padding: 5px;
+    }
+    .notification-text {
+      line-height: 13px;
+      font-size: 0.7rem;
+    }
+    .notification-body {
+      width: -webkit-fill-available;
+    }
+    .icon-container {
+      .notification-bg {
+        width: 73px;
+        height: 59%;
+        position: absolute;
+        left: -9px;
+        bottom: -2px;
+        transform: rotate(-2deg);
+      }
+      .action-icon {
+        border-radius: 50%;
+        height: 42px;
+        width: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+        position: absolute;
+        left: 3px;
+        bottom: 46%;
+        img {
+          height: 22px;
+        }
+      }
+    }
+    .notifcation-text {
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 400;
+    }
+  }

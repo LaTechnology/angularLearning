@@ -1,0 +1,26 @@
+<mat-form-field class="full-width box-input" appearance="outline">
+  <mat-label> {{ label }} </mat-label>
+  <input type="text" #input matInput [formControl]="control" placeholder="{{placeHolder}}" [required]="required"
+    [matAutocomplete]="autoComplete" (input)="onSearch($event.target)" (focusout)="focusOutState($event)" (keydown)="onKeyDown($event)">
+
+  <mat-autocomplete class="drive-scroller" #autoComplete="matAutocomplete"  (opened)="onAutocompleteOpened()" (optionSelected)="onSelectionChange($event)">
+    <ng-container *ngIf="filteredItems?.length === 0">
+      <mat-option class="w-100 bg-white pointer-none">
+        <div class="applicable-note px-3 py-2 h-auto w-100">
+          <div class="d-flex">
+            <wz-icon [iconClass]="'icon-18'" class="mat-2" [name]="'info_round_yellow'"></wz-icon>
+            <span class="subtitle pal-10 font-weight-5 pab-4">No DataFound!</span>
+          </div>
+        </div>
+      </mat-option>
+    </ng-container>
+    <mat-option *ngFor="let city of filteredItems" [value]="city?.name">
+      {{city?.name}}
+    </mat-option>
+  </mat-autocomplete>
+
+  <mat-error *ngIf="control?.touched && control?.hasError('required')">This field is required</mat-error>
+  <mat-error
+    *ngIf="control?.hasError('customFieldValidationError')">{{control.errors?.['customFieldValidationError']}}</mat-error>
+  <mat-error *ngIf="control?.hasError('customError')">{{ control.errors?.['customError'] }}</mat-error>
+</mat-form-field>

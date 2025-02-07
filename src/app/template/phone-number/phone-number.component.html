@@ -1,0 +1,18 @@
+<mat-form-field  class="full-width phone_input box-input" [ngClass]="{'readonly-phone-field': readonly}" appearance="outline">
+    <mat-label> {{label}} </mat-label>
+    <ngx-mat-intl-tel-input 
+        [preferredCountries]="['in', 'us']" 
+        [enablePlaceholder]="true"
+        [enableSearch]="true"  
+        [formControl]="control"
+        [required]="required"
+        (input)="allowDigit15($event.target); onchange($event)"
+        (change)="onchange($event)"
+        (focusout)="isFocusOut ? focusOutInput($event) : false"
+        >
+    </ngx-mat-intl-tel-input>
+
+    <mat-error *ngIf="control?.touched && control?.hasError('required') && !control?.errors?.['validatePhoneNumber']">This field is required</mat-error>
+    <mat-error *ngIf="control?.touched && control?.errors?.['validatePhoneNumber']">  Please enter valid phone number </mat-error>  
+    <mat-error *ngIf="control?.hasError('customError')"> {{ control?.errors?.['customError'] }}</mat-error> 
+</mat-form-field>
