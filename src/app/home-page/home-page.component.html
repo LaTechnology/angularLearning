@@ -1,42 +1,31 @@
 <section class="container-fluid mt-3">
     <div class="row">
-        <div class="col-12 col-md-2">
-            <img src="assets/images/logo-ladera-1024x261.png" width="180">
-        </div>
-        <div class="col-12 col-md-10">
-            <div class="row">
-                <div class="col-12 col-md-10">
-                    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="end">
-                        <mat-tab label="Inventory"> 
-                            <app-inventory></app-inventory> 
-                        </mat-tab>
-                        <mat-tab label="Order"> 
-                            <app-orders></app-orders>
-                        </mat-tab>
-                    </mat-tab-group> 
-                </div>
-                <div class="col-12 col-md-2">
-                    <div class="dropdown">
-                        <button type="button" class="btn btn-light mt-1 dropdown-toggle" data-bs-toggle="dropdown">
-                            Admin
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li routerLink="/customer"> <a>
-                                Customer
-                            </a></li>
-                            <li routerLink="/products"> <a>
-                                Product
-                            </a></li>
-                        
-                          <li> <a routerLink="/address/list" >
-                            Address
-                          </a></li>
-                          <li><a class="dropdown-item" href="#">User</a></li>
-                        <li><a class="dropdown-item" href="#">Roles</a></li>
-                        </ul>
-                    </div>
-                </div>
+      <div class="col-12 col-md-2">
+        <img src="assets/images/logo-ladera-1024x261.png" width="180">
+      </div>
+      <div class="col-12 col-md-10">
+        <div class="row">
+          <div class="col-12 col-md-10">
+            <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="end" [(selectedIndex)]="activeTabIndex" (selectedIndexChange)="onTabChange($event)">
+              <mat-tab *ngFor="let tab of tabs" [label]="tab.label"></mat-tab>
+            </mat-tab-group>
+            <router-outlet></router-outlet>
+          </div>
+          <div class="col-12 col-md-2">
+            <div class="dropdown">
+              <button type="button" class="btn btn-light mt-1 dropdown-toggle" data-bs-toggle="dropdown">
+                Admin
+              </button>
+              <ul class="dropdown-menu">
+                <li><a (click)="onDropdownSelect('/customer', 'Customer')">Customer</a></li>
+                <li><a (click)="onDropdownSelect('/products', 'Product')">Product</a></li>
+                <li><a (click)="onDropdownSelect('/address/list', 'Address')">Address</a></li>
+                <li><a class="dropdown-item" href="#">User</a></li>
+                <li><a class="dropdown-item" href="#">Roles</a></li>
+              </ul>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</section> 
+  </section>
