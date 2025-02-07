@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'product/edit', component: AddProductComponent, canActivate: [AuthGuard] },
     {path: 'address/add', component:CreateAddressComponent, canActivate: [AuthGuard]},
   {path: 'address/edit/:id', component:CreateAddressComponent, canActivate: [AuthGuard]},
-  {path:'address/list',component:AddressListComponent, canActivate: [AuthGuard]}
+  {path:'address/list',component:AddressListComponent, canActivate: [AuthGuard]},
   { path: 'addrole', component: AddroleComponent},
   { path: 'listrole', component: ListRoleComponent},
   { path: 'role/edit/:id', component: UpdateRoleComponent}, // For update

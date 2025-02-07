@@ -37,11 +37,11 @@ import { MatSort } from '@angular/material/sort';
 import { CreateAddressComponent } from './home-page/admin/address/create-address/create-address.component';
 import { AddressListComponent } from './home-page/admin/address/address-list/address-list.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { AddroleComponent } from './home-page/admin/role/addrole/addrole.component';
 import { ListRoleComponent } from './home-page/admin/role/list-role/list-role.component';
 import { UpdateRoleComponent } from './home-page/admin/role/update-role/update-role.component';
 import { DeleteDialogComponent } from './home-page/admin/role/delete-dialog/delete-dialog.component';
 import { BulkEditDialogComponent } from './home-page/admin/role/bulk-edit-dialog/bulk-edit-dialog.component';
+import { AddroleComponent } from './home-page/admin/role/addrole/addrole.component';
 
 
 @NgModule({
@@ -55,7 +55,7 @@ import { BulkEditDialogComponent } from './home-page/admin/role/bulk-edit-dialog
     AddProductComponent,
     ProductListComponent,
     CreateAddressComponent,
-    AddressListComponent
+    AddressListComponent,
     AddroleComponent,
     ListRoleComponent,
     UpdateRoleComponent,
