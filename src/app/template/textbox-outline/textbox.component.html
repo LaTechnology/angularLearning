@@ -1,0 +1,39 @@
+<mat-form-field appearance="outline" class="full-width box-input {{ customClass }}">
+  <mat-label class="text-capitalize">{{label ? label : type}}</mat-label>
+  
+    <input  
+        matInput 
+        #textBox 
+        name="inputTxt" 
+        type="{{type}}"
+        [min]="minValue"
+        [max]="maxValue"
+        [minlength]="minLength"
+        [maxlength]="maxLength"
+        [step]="decimal" 
+        placeholder="{{placeHolder}}" 
+        [readonly]="readonly" 
+        [required]="required"      
+        (click)="onSelectInputValue()" 
+        (keyup)="onchange($event)"
+        (keydown)="keyDownEvent($event)"
+        (input)="inputValueChange($event)"
+        (focusout)="isFocusOut ? focusOutInput($event) : false"
+        [formControl]="control"
+        (paste)="onPaste($event)"
+        (onSelect)="onValueSelect($event)"
+        autocomplete="{{autoComplete}}"
+        >
+          <mat-icon matSuffix *ngIf="showSuffix" (click)="$event.stopPropagation(); iconClicked()" class="icon cursor-pointer {{ iconClass }}" tooltipClass="{{ tooltipClass }}" [ngbTooltip]="message">{{suffixIcon}}</mat-icon>  
+          <mat-icon matPrefix  *ngIf="showPrefix" class="icon {{ iconClass }}">{{prefixIcon}}</mat-icon> 
+          <span class="textbox-suffix-text" matSuffix *ngIf="suffixText">{{suffixText}}</span>
+        
+    <mat-error *ngIf="(control?.touched) && control?.hasError('required')">This field is required</mat-error>
+    <mat-error *ngIf="control?.hasError('min') && minValueMessage !=''">{{ minValueMessage }}</mat-error>
+    <mat-error *ngIf="control?.hasError('max')&& maxValueMessage !=''">{{ maxValueMessage ? maxValueMessage : control?.errors?.['customError'] }}</mat-error>
+    <mat-error *ngIf="control?.hasError('minlength')&& minLengthMessage !=''">{{ minLengthMessage }}</mat-error>
+    <mat-error *ngIf="control?.hasError('maxlength')&& maxLengthMessage !=''">{{ maxLengthMessage }}</mat-error> 
+    <mat-error *ngIf="control?.hasError('customFieldValidationError') && !control?.hasError('required')"> {{ control?.errors?.['customFieldValidationError'] }}</mat-error>  
+    <mat-error *ngIf="control?.hasError('customError')"> {{ control?.errors?.['customError'] }}</mat-error>
+    <mat-hint align="end" *ngIf="matHind">{{textBox.value.length}} / {{maxLength}}</mat-hint>
+</mat-form-field>

@@ -4,7 +4,7 @@
       "id": "1519",
       "customerId": "1a2b3c4d5e",
       "firstName": "John",
-      "lastName": "Doe",
+      "lastName": "Doe1",
       "age": 30,
       "email": "johndoe@example.com",
       "dateOfBirth": "1994-02-15",
@@ -62,7 +62,7 @@
       "firstName": "presanna",
       "lastName": "kumar",
       "age": 23,
-      "email": "presanna@gmail.com",
+      "email": "gopi.k@gmail.com",
       "dateOfBirth": "2025-02-03T18:30:00.000Z",
       "phoneNumber": "8776523458",
       "alternativePhoneNumber": "23456789",
@@ -83,6 +83,20 @@
       "isActive": true,
       "customerType": "",
       "gender": "Female"
+    },
+    {
+      "id": "a658",
+      "customerId": null,
+      "firstName": "yuva",
+      "lastName": "yyy",
+      "age": 34,
+      "email": "ertyu@dfghj",
+      "dateOfBirth": "2025-02-04T18:30:00.000Z",
+      "phoneNumber": "9876543235",
+      "alternativePhoneNumber": "8765432345",
+      "isActive": true,
+      "customerType": "",
+      "gender": "Female"
     }
   ],
   "products": [
@@ -92,7 +106,7 @@
       "brand": "Nike",
       "color": "RED",
       "code": "NIKE123",
-      "quantity": 12,
+      "quantity": 1,
       "id": "f1e2"
     },
     {
@@ -110,7 +124,7 @@
       "brand": "Allen Solly",
       "color": "Green",
       "code": "F9876",
-      "quantity": 3,
+      "quantity": 31,
       "id": "cf5e"
     },
     {
@@ -225,6 +239,17 @@
       "landMark": "mark",
       "phoneNumber": "0989898787",
       "addressType": "Work"
+    }
+  ],
+  "role": [
+    {
+      "name": "Gopi",
+      "email": "gopi@gmail.com",
+      "selectedRoles": [
+        "Admin",
+        "General"
+      ],
+      "id": "9537"
     }
   ]
 }

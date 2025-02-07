@@ -1,0 +1,29 @@
+
+.horizontal-splitter {
+    text-transform: capitalize !important;
+  
+    .tittle_text {
+      font-size: 0.875rem;
+      line-height: 20px;
+      font-weight: 500;
+      color: black;
+    }
+  
+    .form-splitter {
+      height: 4px;
+      display: flex;
+  
+      .splitter-line {
+        width: 34px;
+        border-radius: 15px;
+        background: orange;
+      }
+  
+      .splitter-dot {
+        margin-left: 4px;
+        width: 4px;
+        border-radius: 50%;
+        background: rgb(0, 0, 31);
+      }
+    }
+  }

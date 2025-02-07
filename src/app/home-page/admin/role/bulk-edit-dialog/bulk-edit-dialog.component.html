@@ -1,0 +1,19 @@
+<div class="role-selection-container">
+  <h2 class="title">Select Roles</h2>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Roles</mat-label>
+    <mat-select [(ngModel)]="selectedRoles" multiple>
+      <mat-option *ngFor="let role of availableRoles" [value]="role">
+        {{ role }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="button-container">
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button color="primary" (click)="onSave()" [disabled]="!selectedRoles || selectedRoles.length === 0">
+      Save
+    </button>
+  </div>
+</div>

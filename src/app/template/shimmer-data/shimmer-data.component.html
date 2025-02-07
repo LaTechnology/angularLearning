@@ -1,0 +1,140 @@
+<ng-container [ngSwitch]="shimmerType">
+    <ng-container *ngSwitchCase="'inline'" [ngTemplateOutlet]="inlineShimmer"></ng-container>
+    <ng-container *ngSwitchCase="'table'" [ngTemplateOutlet]="table"></ng-container>
+    <ng-container *ngSwitchCase="'block'" [ngTemplateOutlet]="blockCustom"></ng-container>
+    <ng-container *ngSwitchCase="'settingsCard'" [ngTemplateOutlet]="settingsCardShimmer"></ng-container>
+    <ng-container *ngSwitchCase="'cards'" [ngTemplateOutlet]="cardsShimmer"></ng-container>
+    <ng-container *ngSwitchCase="'history'" [ngTemplateOutlet]="versionHistory"></ng-container>
+</ng-container>
+
+<ng-template #table>
+  <ng-container *ngIf="isDataLoading; else dataLoaded">
+    <div class="table-responsive shimmer-table {{ customClass }}">
+      <table mat-table [dataSource]="shimmerTableData">
+        <ng-container *ngFor="let header of shimmerHeaders">
+          <ng-container matColumnDef="{{header}}">
+            <th mat-header-cell *matHeaderCellDef class="text-center p-0 px-6">
+              <ng-container [ngTemplateOutlet]="shimmers"></ng-container>
+            </th>
+            <td mat-cell *matCellDef="let element" class="shimmerCells px-8">
+              <ng-container [ngTemplateOutlet]="shimmers"></ng-container>
+            </td>
+          </ng-container>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="shimmerHeaders; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: shimmerHeaders; index as i"></tr>
+      </table>
+    </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #inlineShimmer>
+  <div class="{{ customClass }}">
+    <ng-container *ngIf="isDataLoading; else dataLoaded">
+      <ng-container [ngTemplateOutlet]="shimmers"></ng-container>
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #blockCustom>
+  <div class="{{customClass}} overflow-hidden" *ngIf="isDataLoading; else dataLoaded" #blockShimmer>
+    <ng-container *ngFor="let shimmer of shimmerData">
+      <div class="{{shimmerClass}} block-shimmer bg-white py-2">
+        <div class="row">
+          <div class="col-8">
+            <div class="shimmer h-px-20 w-90"></div>
+          </div>
+          <div class="col-4">
+            <div class="pull-right">
+              <div class="shimmer h-px-20 w-px-20 ms-0 ps-0 border-radius-50"></div>
+              <div class="shimmer h-px-20 w-px-20 ms-0 ps-0 border-radius-50"></div>
+              <div class="shimmer h-px-20 w-px-20 ms-0 ps-0 border-radius-50"></div>
+            </div>
+          </div>
+          <div class="col-12 py-1">
+            <div class="shimmer h-px-20 w-80"></div>
+          </div>
+        </div>
+        <div class="row pt-2 align-items-center">
+          <div class="col-8">
+            <div class="shimmer h-px-20 w-90 py-1"></div>
+            <div class="shimmer h-px-20 w-80 py-1"></div>
+            <div class="shimmer h-px-20 w-70 py-1"></div>
+          </div>
+          <div class="col-4">
+            <div class="pull-right">
+              <div class="shimmer h-px-70 w-px-70 border-radius-50"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #settingsCardShimmer>
+  <div class="{{customClass}} overflow-hidden" *ngIf="isDataLoading; else dataLoaded">
+      <ng-container *ngFor="let shimmer of shimmerData">
+          <div class="{{shimmerClass}} block-shimmer bg-white">
+            <div class="row">
+              <div class="col-8 d-flex pe-1 gap-10">
+                <span class="shimmer h-px-20 w-70"></span>
+                <span class="shimmer h-px-20 w-30"></span>
+              </div>
+              <div class="col-4">
+                <div class="pull-right">
+                  <div class="shimmer h-px-20 w-px-20 ms-0 ps-0 border-radius-50"></div>
+                  <div class="shimmer h-px-20 w-px-20 ms-0 ps-0 border-radius-50"></div>
+                  <div class="shimmer h-px-20 w-px-20 ms-0 ps-0 border-radius-50"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-8">
+              <div class="shimmer h-px-20"></div>
+            </div>
+            <div class="row">
+              <div class="col-8 d-flex">
+                <div class="shimmer h-px-20 w-70"></div>
+                <div class="ms-2">
+                  <span class="shimmer h-px-20 w-px-20 ms-0 ps-0 border-radius-50"></span>
+                  <span class="shimmer h-px-20 w-px-20 ms-0 ps-0 border-radius-50"></span>
+                  <span class="shimmer h-px-20 w-px-20 ms-0 ps-0 border-radius-50"></span>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="pull-right">
+                  <div class="shimmer h-px-20 w-px-80"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </ng-container>
+    </div>
+</ng-template>
+
+<ng-template #cardsShimmer>
+  <div class="{{customClass}} overflow-hidden">
+    <ng-container [ngTemplateOutlet]="dataLoaded"></ng-container>
+  </div>
+</ng-template>
+
+<ng-template #shimmers>
+  <div class="{{shimmerClass}} shimmer" #shimmer></div>
+</ng-template>
+
+<ng-template #dataLoaded>
+  <ng-content></ng-content>
+</ng-template>
+
+<ng-template #versionHistory>
+  @if(isDataLoading) {
+  @for(history of shimmerTableData.slice(count); track history; let i = $index) {
+  <div class="d-center gap-30 pb-20 pl-32 w-96 {{ i === 0 ? 'pt-20' : 'pt-0'}} {{ shimmerClass }} ">
+    <div class="history-line-shimmer position-relative h-min-15 w-min-15 h-max-15 w-max-15 rounded-circle shimmer"></div>
+    <div class="shimmer h-px-79 w-100"></div>
+  </div>
+  }
+  }@else {
+  <ng-container [ngTemplateOutlet]="dataLoaded"></ng-container>
+  }
+</ng-template>

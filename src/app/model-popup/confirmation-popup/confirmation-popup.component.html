@@ -1,0 +1,89 @@
+<ng-container [ngSwitch]="type">
+
+    <ng-container *ngSwitchDefault>
+        <div class="modal-header d-block">
+            <div class="col-12 confirmation-popup-icon position-relative"><img [src]="data.img" class="position-relative z-index-2">
+                <span class="filter-background position-absolute z-index-1"></span>
+            </div>
+            <div class="align-center">
+                <span class="header-text">{{ data.title }}</span>
+            </div>
+        </div>
+        <div class="content">{{ data.body }}</div>
+        <div class="modal-body row action-buttons" [ngClass]="data.cancelButton ? '' : 'd-flex justify-content-center'">
+            <div *ngIf="data.cancelButton" class="col-6">
+                <wz-button [btnType]="'light-button'" [customClass]="'w-100'" (click)="cancelPopup()">{{data?.cancelText ? data.cancelText : 'Cancel'}}</wz-button>
+            </div>
+            <div  class="col-6">
+                <wz-button  [customClass]="'w-100'" (click)="confirmPopup()" >{{data?.saveText ? data.saveText : 'Confirm'}}</wz-button>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'box'">
+        <div class="d-grid gap-10 align-content-between">
+            <div class="d-between">
+                <div class="header-text">{{ data.title }}</div>
+                <div class="filter-notification-animation-out"><img [src]="data.img" class="position-relative top--4 z-index-2"></div>
+            </div>
+            <div class="text-start font-weight-4 text-13 col-gray-700">{{ data.body }}</div>
+            <div class="modal-body row action-buttons" [ngClass]="data.cancelButton ? '' : 'd-flex justify-content-center'">
+                <div *ngIf="data.cancelButton" class="col-6">
+                    <wz-button [btnType]="'light-button'" [customClass]="'w-100'" (click)="cancelPopup()">{{ data?.cancelText ? data.cancelText : 'Cancel' }}</wz-button>
+                </div>
+                <div  class="col-6">
+                    <wz-button  [customClass]="'w-100'" (click)="confirmPopup()" >{{ data?.saveText ? data.saveText : 'Confirm' }}</wz-button>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    
+<ng-container *ngSwitchCase="'container'">
+    <div class="d-grid gap-10 align-content-between">
+        <div class="d-between">
+            <div class="d-flex gap-5">
+                <div class="filter-notification"><img [src]="data.img" class="position-relative h-px-18 w-px-26 top--2 left--3 z-index-2"></div>
+                <div class="col-gray-700 text-15 font-weight-5">{{ data.title }}</div>
+            </div>
+            <div class="bg-col-gray-200 rounded-1 p-10">
+                <p class="font-wight-5 mb-0 text-center text-18">{{ _matData.employees?.length }} </p>
+                <p class="text-13 text-center mb-0 col-gray-600">Total Request Selected</p>
+            </div>
+        </div>
+        <div class="d-flex align-items-center gap-10">
+            <div class="d-flex">
+                @for(employee of employees;track employee; let i = $index) {
+                @if(i < 5) { <img class="position-relative border-1 border-color-background border-solid  z-index-{{ employees?.length - i}} left--{{ i !== 0 ? i * 8 : 0}}"
+                    src="{{ employee?.profile_url }}" alt="Profile Image"
+                    style="width: 30px; height: 30px; border-radius: 50%;">
+                    }
+                    @if(employees?.length && i === employees.length -1 && employees.length > 4) {
+                    <div class="more-leaves font-10 w-px-30 h-px-30 left--40 top-1 position-relative"> +{{
+                        employees.length - 4 }}</div>
+                    }
+                    }
+            </div>
+            <p class="mb-0 font-weight-5 text-13">{{ employees.length}}</p>
+             <span class="font-weight-4 ml-6 text-13">People</span>
+        </div>
+        <div class="text-13 col-gray-600">
+            Please make sure once a request is approved or rejected, it cannot be undone.
+        </div>
+        <wz-textbox-outline [control]="comments" [required]="data?.is_comments_required"
+            [label]="'Add Comments'"></wz-textbox-outline>
+
+        <div class="modal-body row action-buttons" [ngClass]="data.cancelButton ? '' : 'd-flex justify-content-center'">
+            <div *ngIf="data.cancelButton" class="col-6">
+                <wz-button [btnType]="'light-button'" [customClass]="'w-100'" (click)="cancelPopup()">{{
+                    data?.cancelText ? data.cancelText : 'Cancel' }}</wz-button>
+            </div>
+            <div class="col-6">
+                <wz-button [customClass]="'w-100'" (click)="confirmPopup()">{{ data?.saveText ? data.saveText :
+                    'Confirm' }}</wz-button>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+</ng-container>
+

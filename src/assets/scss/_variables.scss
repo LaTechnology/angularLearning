@@ -1,0 +1,514 @@
+// Prefix for :root CSS variables
+
+$wz-prefix: wz- !default;
+$wz-header-height: 50px !default;
+
+//Fonts Family
+$navbar-font-family: 'Roboto', sans-serif;
+$sidebar-font-family: 'Roboto', sans-serif;
+$roboto:'Roboto';
+
+//Walkzero theme colors
+$primary: #1a2d48;
+$primary-bg: #f1f6fd;
+$secondary: #f45600;
+$secondary-bg: #fff1f0;
+$tertiary: #c5a35b;
+$tertiary-bg: #fff8ea;
+$quaternary: #00b2a9;
+$quaternary-bg: #e8f9f8;
+$snack-success-bg: #E3FCEF;
+$snack-success: #006644;
+$snack-danger-bg: #ffebe6;
+$snack-danger: #de350b;
+$snack-warning-bg: #fffae6;
+$snack-warning: #ff991f;
+$snack-info: #6777ef;
+$snack-info-bg: #6777ef1a;
+$background: #f9f9f9;
+$hover: #ddd;
+$sidebar-hover: #374b66;
+$header-background: #fff;
+$divider-color: #eee;
+$delete: #ff4842;
+$card-active:#fee9d329;
+//Input Color
+$input: $secondary;
+$input-border: #0000001f;
+$input-hover: $primary;
+$text-input: $tertiary;
+$secondary-hover: #df5206;
+$row-hover: #f7f8fa;
+$error:#f44336;
+
+//Icon Button
+$icon-button: $primary;
+$icon-button-bg: #F5F5F5;
+$icon-button-hover: #F5F5F5;
+$icon-button-hover-dark: $hover;
+$icon-button-font-size: 1.25rem;
+$icon-button-width: 2.188rem;
+$icon-button-height: $icon-button-width;
+$icon-button-line-height: $icon-button-width;
+
+
+$icon-button-secondary : $secondary;
+$icon-button-secondary-bg : #ffebe8;
+$icon-button-secondary-hover : #ffebe8;
+$icon-button-secondary-bg-hover : $secondary;
+$icon-button-secondary-font-size: 1.25rem;
+$icon-button-secondary-width: $icon-button-width;
+$icon-button-secondary-height: $icon-button-secondary-width;
+$icon-button-secondary-line-height: 1.3;
+
+// badge-random-colors
+$badge-color-1: #AA00FF;
+$badge-color-2: #F50057;
+$badge-color-3: #00BFA5;
+$badge-color-4: #E69200;
+$badge-color-5: #795548;
+
+//emp profile random-colors
+$emp-color-1:#692541de;
+$emp-color-2:#6a9225de;
+$emp-color-3:#f44708e7;
+$emp-color-4:#a10702e1;
+$emp-color-5:#64c132ee;
+$emp-color-6:#358600;
+$emp-color-7:#af125a;
+$emp-color-8:#582b11;
+$emp-color-9:#61a0af;
+$emp-color-10:#f06c9b;
+$emp-color-11:#23c9ff;
+$emp-color-12:#c884a6;
+$emp-color-13:#ff101f;
+$emp-color-14:#4cb5ae;
+$emp-color-15:#2e29e1;
+$emp-color-16:#8661c1;
+$emp-color-17:#4B5267;
+
+// employee pop-up text-shadow
+$text-shadow:#00000085;
+
+
+
+//Colors
+$white: #fff;
+$transparent-white:rgba(255,255,255,0.7);
+$dirty-white:  rgba(255, 255, 255, 0.5);
+$red: #f44336;
+$error-color:#ff0b0b;
+$pink: #e91e63;
+$purple: #9c27b0;
+$deep-purple: #673ab7;
+$indigo: #3f51b5;
+$material-blue:#3f51b5;
+$blue: #2196f3;
+$light-blue: #03a9f4;
+$dark-blue:#4161a1;
+$chip-blue:#8bceff33;
+$chip-bg-white:#ffffff;
+$cyan: #00bcd4;
+$teal: #009688;
+$green: #4caf50;
+$approval-green:#0caf60;
+$success:rgb(20, 157, 82);
+$warning:#F1C21B;
+$default-bg-green:#ECFDF3;
+$default-text-green:#027a48;
+$green-200:#ECFDF3;
+$dark-green:#027A48;
+$light-green: #8bc34a;
+$lime: #cddc39;
+$bright-yellow: rgba(242, 215, 69, 1);
+$light-yellow: rgba(241, 158, 65, 0.20);
+$dark-yellow:#F19E41;
+$yellow: #ffe821;
+$amber: #ffc107;
+$orange: #ff9800;
+$deep-orange: #ff5722;
+$table-top:#fa3933;
+$brown: #795548;
+$gray: #9e9e9e;
+$blue-gray: #607d8b;
+$light-blue-gray:#F6F9FC;
+$gray-green:#F1F9F5;
+$black: #000000;
+$wz-black: rgba(0, 0, 0, 0.87);
+$wz-light-black: rgba(0, 0, 0, 0.60);
+$white: $white;
+$medium-gray: #838383;
+$dark-gray-1:#969696;
+$dark-gray: #888888;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-333: #ededed;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #00000099;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$gray-555: #c4c8cb;
+$gray-666: #666;
+$gray-777: #777;
+$gray-888: #888;
+$gray-999:#484848;
+$table-header:rgb(248,248,248);
+$table-header-light:#f9f9fb;
+$gray-light:#7676768F;
+$navy-blue-gray: #96a2b4;
+$red-gray: #adabab;
+$aqua-blue: #F2F7FA;
+$onboard-shimmer:#e6e6e7bf;
+
+/* attendance status colors */ 
+$present: #00A3FF;
+$wfh: #FFB995;
+$od: #B08BBB;
+$ot: #4161A1;
+$leave: #F8F9FA;
+$absent: #FF4144;
+$holiday: #4CAF50;
+$regularize: #CB00F4;
+
+$wz-colors: (
+  'transparent-white':$transparent-white,
+  'red': $red,
+  'aqua-blue': $aqua-blue,
+  'red-100': #{$red}1a,
+  'red-200': #{$red}2a,
+  'red-300': #{$red}3a,
+  'red-400': #{$red}4a,
+  'red-500': #{$red}5a,
+  'red-600': #{$red}6a,
+  'red-700': #{$red}7a,
+  'red-800': #{$red}8a,
+  'red-900': #{$red}9a,
+  'pink': $pink,
+  'pink-100': #{$pink}1a,
+  'pink-200': #{$pink}2a,
+  'pink-300': #{$pink}3a,
+  'pink-400': #{$pink}4a,
+  'pink-500': #{$pink}5a,
+  'pink-600': #{$pink}6a,
+  'pink-700': #{$pink}7a,
+  'pink-800': #{$pink}8a,
+  'pink-900': #{$pink}9a,
+  'dirty-white': $dirty-white,
+  'purple': $purple,
+  'deep-purple': $deep-purple,
+  'indigo': $indigo,
+  'table-top-text':$table-top,
+  'approval-green':$approval-green,
+  'error-color':$error-color,
+  'onboard-shimmer':$onboard-shimmer,
+  'blue': $blue,
+  'dark-blue': $dark-blue,
+  'blue-100': #{$blue}1a,
+  'blue-200': #{$blue}2a,
+  'blue-300': #{$blue}3a,
+  'blue-400': #{$blue}4a,
+  'blue-500': #{$blue}5a,
+  'blue-600': #{$blue}6a,
+  'blue-700': #{$blue}7a,
+  'blue-800': #{$blue}8a,
+  'blue-900': #{$blue}9a,
+  'light-blue': $light-blue,
+  'lighter-blue': rgba(234, 241, 251, 0.9),
+  'light-blue-100': #{$light-blue}1a,
+  'light-blue-200': #{$light-blue}2a,
+  'light-blue-300': #{$light-blue}3a,
+  'light-blue-400': #{$light-blue}4a,
+  'light-blue-500': #{$light-blue}5a,
+  'light-blue-600': #{$light-blue}6a,
+  'light-blue-700': #{$light-blue}7a,
+  'light-blue-800': #{$light-blue}8a,
+  'light-blue-900': #{$light-blue}9a,
+  'cyan': $cyan,
+  'cyan-100': #{$cyan}1a,
+  'cyan-200': #{$cyan}2a,
+  'cyan-300': #{$cyan}3a,
+  'cyan-400': #{$cyan}4a,
+  'cyan-500': #{$cyan}5a,
+  'cyan-600': #{$cyan}6a,
+  'cyan-700': #{$cyan}7a,
+  'cyan-800': #{$cyan}8a,
+  'cyan-900': #{$cyan}9a,
+  'teal': $teal,
+  'dark-green':#{$dark-green},
+  'green': $green,
+  'green-100': #{$green}1a,
+  'green-200': #{$green-200},
+  'green-300': #{$green}3a,
+  'green-400': #{$green}4a,
+  'green-500': #{$green}5a,
+  'green-600': #{$green}5a,
+  'green-700': #{$green}7a,
+  'green-800': #{$green}8a,
+  'green-900': #{$green}9a,
+  'default-bg-green': $default-bg-green,
+  'default-text-green':$default-text-green,
+  'light-green': $light-green,
+  'light-green-100': #{$light-green}1a,
+  'light-green-200': #{$light-green}2a,
+  'light-green-300': #{$light-green}3a,
+  'light-green-400': #{$light-green}4a,
+  'light-green-500': #{$light-green}5a,
+  'light-green-600': #{$light-green}6a,
+  'light-green-700': #{$light-green}7a,
+  'light-green-800': #{$light-green}8a,
+  'light-green-900': #{$light-green}9a,
+  'lime': $lime,
+  'bright-yellow': $bright-yellow,
+  'yellow': $yellow,
+  'yellow-100': #{yellow}1a,
+  'yellow-200': #{$yellow}2a,
+  'yellow-300': #{$yellow}3a,
+  'yellow-400': #{$yellow}4a,
+  'yellow-500': #{$yellow}5a,
+  'yellow-600': #{$yellow}6a,
+  'yellow-700': #{$yellow}7a,
+  'yellow-800': #{$yellow}8a,
+  'yellow-900': #{$yellow}9a,
+  'amber': $amber,
+  'orange': $orange,
+  'orange-100': #{$orange}1a,
+  'orange-200': #{$orange}2a,
+  'orange-300': #{$orange}3a,
+  'orange-400': #{$orange}4a,
+  'orange-500': #{$orange}5a,
+  'orange-600': #{$orange}6a,
+  'orange-700': #{$orange}7a,
+  'orange-800': #{$orange}8a,
+  'orange-900': #{$orange}9a,
+  'deep-orange': $deep-orange,
+  'deep-orange-100': #{$deep-orange}1a,
+  'deep-orange-200': #{$deep-orange}2a,
+  'deep-orange-300': #{$deep-orange}3a,
+  'deep-orange-400': #{$deep-orange}4a,
+  'deep-orange-500': #{$deep-orange}5a,
+  'deep-orange-600': #{$deep-orange}6a,
+  'deep-orange-700': #{$deep-orange}7a,
+  'deep-orange-800': #{$deep-orange}8a,
+  'deep-orange-900': #{$deep-orange}9a,
+  'brown': $brown,
+  'grey': $gray,
+  'blue-gray': $blue-gray,
+  'blue-gray-100': #{$blue-gray}1a,
+  'blue-gray-200': #{$blue-gray}2a,
+  'blue-gray-300': #{$blue-gray}3a,
+  'blue-gray-400': #{$blue-gray}4a,
+  'blue-gray-500': #{$blue-gray}5a,
+  'blue-gray-600': #{$blue-gray}6a,
+  'blue-gray-700': #{$blue-gray}7a,
+  'blue-gray-800': #{$blue-gray}8a,
+  'blue-gray-900': #{$blue-gray}9a,
+  'black': $black,
+  'white': $white,
+  'medium-gray': $medium-gray,
+  'dark-gray': $dark-gray,
+  'gray-100': $gray-100,
+  'gray-200': $gray-200,
+  'gray-300': $gray-300,
+  'gray-333': $gray-333,
+  'gray-400': $gray-400,
+  'gray-500': $gray-500,
+  'gray-600': $gray-600,
+  'gray-700': $gray-700,
+  'gray-800': $gray-800,
+  'gray-900': $gray-900,
+  'gray-555': $gray-555,
+  'gray-999': $gray-999,
+  'row-hover': $row-hover,
+  'gray-light' :$gray-light,
+  'navy-blue-gray': $navy-blue-gray,
+  'red-gray': $red-gray,
+  'quartenary-bg': $quaternary-bg,
+  'light-blue-gray': $light-blue-gray,
+  'card-active': $card-active,
+  'material-blue':$material-blue,
+  'table-header':$table-header,
+  'table-header-light':$table-header-light,
+  'present': $present,
+  'absent': $absent,
+  'holiday': $holiday,
+  'regularize': $regularize,
+  'wfh': $wfh,
+  'ot': $ot,
+  'od': $od,
+  'leave': $leave,
+) !default;
+
+$wz-theme-colors: (
+  'primary': $primary,
+  'primary-100': #{$primary}1a,
+  'primary-200': #{$primary}2a,
+  'primary-300': #{$primary}3a,
+  'primary-400': #{$primary}4a,
+  'primary-500': #{$primary}5a,
+  'primary-600': #{$primary}6a,
+  'primary-700': #{$primary}7a,
+  'primary-800': #{$primary}8a,
+  'primary-900': #{$primary}9a,
+  'secondary': $secondary,
+  'secondary-50': rgba(244, 86, 0, 0.05),
+  'secondary-100': #{$secondary}1a,
+  'secondary-150': #F4560026,
+  'secondary-200': #{$secondary}2a,
+  'secondary-300': #{$secondary}3a,
+  'secondary-400': #{$secondary}4a,
+  'secondary-500': #{$secondary}5a,
+  'secondary-600': #{$secondary}6a,
+  'secondary-700': #{$secondary}7a,
+  'secondary-800': #{$secondary}8a,
+  'secondary-900': #{$secondary}9a,
+  'tertiary': $tertiary,
+  'tertiary-100': #{$tertiary}1a,
+  'tertiary-200': #{$tertiary}2a,
+  'tertiary-300': #{$tertiary}3a,
+  'tertiary-400': #{$tertiary}4a,
+  'tertiary-500': #{$tertiary}5a,
+  'tertiary-600': #{$tertiary}6a,
+  'tertiary-700': #{$tertiary}7a,
+  'tertiary-800': #{$tertiary}8a,
+  'tertiary-900': #{$tertiary}9a,
+  'tertiary-bg': #{$tertiary-bg},
+  'quaternary': $quaternary,
+  'quaternary-100': #{$quaternary}1a,
+  'quaternary-200': #{$quaternary}2a,
+  'quaternary-300': #{$quaternary}3a,
+  'quaternary-400': #{$quaternary}4a,
+  'quaternary-500': #{$quaternary}5a,
+  'quaternary-600': #{$quaternary}6a,
+  'quaternary-700': #{$quaternary}7a,
+  'quaternary-800': #{$quaternary}8a,
+  'quaternary-900': #{$quaternary}9a,
+  'gray-100': $gray-100,
+  'gray-200': $gray-200,
+  'gray-300': $gray-300,
+  'gray-400': $gray-400,
+  'gray-500': $gray-500,
+  'gray-600': $gray-600,
+  'gray-700': $gray-700,
+  'gray-800': $gray-800,
+  'gray-900': $gray-900,
+  'deep-orange-100': #{$deep-orange}1a,
+  'deep-orange-200': #{$deep-orange}2a,
+  'deep-orange-300': #{$deep-orange}3a,
+  'deep-orange-400': #{$deep-orange}4a,
+  'deep-orange-500': #{$deep-orange}5a,
+  'deep-orange-600': #{$deep-orange}6a,
+  'deep-orange-700': #{$deep-orange}7a,
+  'deep-orange-800': #{$deep-orange}8a,
+  'deep-orange-900': #{$deep-orange}9a,
+  'purple-100': #{$purple}1a,
+  'purple-200': #{$purple}2a,
+  'purple-300': #{$purple}3a,
+  'purple-400': #{$purple}4a,
+  'purple-500': #{$purple}5a,
+  'purple-600': #{$purple}6a,
+  'purple-700': #{$purple}7a,
+  'purple-800': #{$purple}8a,
+  'purple-900': #{$purple}9a,
+  'red-100': #{$red}1a,
+  'red-200': #{$red}2a,
+  'red-300': #{$red}3a,
+  'red-400': #{$red}4a,
+  'red-500': #{$red}5a,
+  'red-600': #{$red}6a,
+  'red-700': #{$red}7a,
+  'red-800': #{$red}8a,
+  'red-900': #{$red}9a,
+  'regularize-100': #{$regularize}1a,
+  'regularize-200': #{$regularize}2a,
+  'regularize-300': #{$regularize}3a,
+  'regularize-400': #{$regularize}4a,
+  'regularize-500': #{$regularize}5a,
+  'regularize-600': #{$regularize}6a,
+  'regularize-700': #{$regularize}7a,
+  'regularize-800': #{$regularize}8a,
+  'regularize-900': #{$regularize}9a,
+  'background': $background,
+  'hover': $hover,
+  'header-background': $header-background,
+  'divider-color': $divider-color,
+  'input': $input,
+  'input-border':$input-border,
+  'input-hover': $input-hover,
+  'text-input': $text-input,
+  'secondary-hover': $secondary-hover,
+  'row-hover': $row-hover,
+  'icon-button': $icon-button,
+  'icon-button-bg': $icon-button-bg,
+  'icon-button-hover': $icon-button-hover,
+  'icon-button-hover-dark': $icon-button-hover-dark,
+  'icon-button-font-size': $icon-button-font-size,
+  'icon-button-width': $icon-button-width,
+  'icon-button-height': $icon-button-height,
+  'icon-button-line-height': $icon-button-line-height,
+  'icon-button-secondary': $icon-button-secondary,
+  'icon-button-secondary-bg': $icon-button-secondary-bg,
+  'icon-button-secondary-hover': $icon-button-secondary-hover,
+  'icon-button-secondary-bg-hover': $icon-button-secondary-bg-hover,
+  'icon-button-secondary-font-size': $icon-button-secondary-font-size,
+  'icon-button-secondary-width': $icon-button-secondary-width,
+  'icon-button-secondary-height': $icon-button-secondary-height,
+  'icon-button-secondary-line-height': $icon-button-secondary-line-height,
+  'text-shadow' : $text-shadow,
+  'light-yellow' : $light-yellow,
+  'dark-yellow' : $dark-yellow,
+  'gray-green' : $gray-green,
+  'black-87' : $wz-black,
+  'black-60' : $wz-light-black,
+  'success': $success,
+  'warning':$warning,
+) !default;
+
+$linear-colors: (
+  'green': linear-gradient(45deg, #9ce89d, #cdfa7e),
+  'orange': linear-gradient(135deg, #ffc480, #ff763b),
+  'cyan': linear-gradient(45deg, #72c2ff, #86f0ff),
+  'red': linear-gradient(316deg, #fc5286, #fbaaa2),
+  'purple': linear-gradient(230deg, #759bff, #843cf6),
+  'purple-dark': linear-gradient(45deg, #a52dd8, #e29bf1),
+  'card1': linear-gradient(to left, #3a7bd5, #3a6073),
+  'card2': linear-gradient(to right, #c33764, #1d2671),
+  'card3': linear-gradient(to left, #134e5e, #71b280),
+  'card4': linear-gradient(to left, #d38312, #a83279),
+) !default;
+
+$wz-badge-colors: (
+  'col-1': $badge-color-1,
+  'col-2': $badge-color-2,
+  'col-3': $badge-color-3,
+  'col-4': $badge-color-4,
+  'col-5': $badge-color-5
+) !default;
+
+$wz-border-styles: (
+  'solid': solid,
+  'dashed': dashed,
+  'dotted': dotted
+) !default;
+
+$wz-emp-badge-colors: (
+  'col-1': $emp-color-1,
+  'col-2': $emp-color-2,
+  'col-3': $emp-color-3,
+  'col-4': $emp-color-4,
+  'col-5': $emp-color-5,
+  'col-6': $emp-color-6,
+  'col-7': $emp-color-7,
+  'col-8': $emp-color-8,
+  'col-9': $emp-color-9,
+  'col-10': $emp-color-10,
+  'col-11': $emp-color-11,
+  'col-12': $emp-color-12,
+  'col-13': $emp-color-13,
+  'col-14': $emp-color-14,
+  'col-15': $emp-color-15,
+  'col-16': $emp-color-16,
+  'col-17': $emp-color-17,
+) !default;

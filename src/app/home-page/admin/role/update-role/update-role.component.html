@@ -1,0 +1,65 @@
+<h3 class="text-center mt-3">Update Role</h3>
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="container mt-4">
+    <div *ngIf="user">
+
+        <div class="row mb-3 align-items-center">
+            <label class="col-sm-2 col-form-label fw-bold">Name</label>
+            <div class="col-sm-6">
+                <input class="form-control" [value]="user.name" readonly />
+            </div>
+        </div>
+
+        <div class="row mb-3 align-items-center">
+            <label class="col-sm-2 col-form-label fw-bold">Email</label>
+            <div class="col-sm-6">
+                <input class="form-control" [value]="user.email" readonly />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label fw-bold">Existing Roles</label>
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 mb-2" *ngFor="let role of user.selectedRoles">
+                        <div class="border rounded p-3">
+                            <div class="form-check d-flex align-items-center">
+                                <input type="checkbox" class="form-check-input" [checked]="true" disabled />
+                                <label class="form-check-label ms-2 flex-grow-1">{{ role }}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label fw-bold">Add New Roles</label>
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 mb-2">
+                        <div class="border rounded p-3">
+                            <div class="form-check d-flex align-items-center" *ngFor="let role of newRoles">
+                                <input type="checkbox" class="form-check-input" [value]="role"
+                                    (change)="onRoleChange($event, role)">
+                                <label class="form-check-label ms-2 flex-grow-1">{{ role }}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-primary w-100" [disabled]="userForm.invalid || userForm.pristine">
+                    Update
+                </button>
+            </div>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-secondary w-100" (click)="viewRoles()">View Roles</button>
+            </div>
+        </div>
+    </div>
+</form>

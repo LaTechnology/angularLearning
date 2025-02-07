@@ -1,0 +1,12 @@
+.history-line-shimmer{
+    &::after {
+        content: "";
+        height: 105px;
+        width: 2px;
+        background-color: var(--wz-gray-333);
+        position: absolute;
+        z-index: -1;
+        transform: translateX(-50%);
+        left: 50%;
+    }
+}

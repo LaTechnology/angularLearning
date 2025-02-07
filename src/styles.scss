@@ -1,3 +1,11 @@
+@import 'bootstrap/scss/bootstrap';
+@import '../src/assets/scss/variables.scss';
+@import '../src/assets/scss/helpers.scss';
+@import '../src/assets/scss/formcomponents.scss';
+@import '../src/assets/scss/tooltippopovers.scss';
+@import'../src/assets/scss/button.scss';
+@import'../src/assets/scss/snackbar.scss';
+
 body { margin: 0; font-family: "Poppins", serif !important;
   background-color: #f8f8f8 !important;}
 .poppins-light {
