@@ -30,6 +30,12 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { customerReducer } from './home-page/admin/customer/store/customer.reducer';
 import { CustomerEffects } from './home-page/admin/customer/store/customer.effects';
+import { AddProductComponent } from './home-page/admin/product/add-product/add-product.component';
+import { ProductListComponent } from './home-page/admin/product/product-list/product-list.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSort } from '@angular/material/sort';
+import { CreateAddressComponent } from './home-page/admin/address/create-address/create-address.component';
+import { AddressListComponent } from './home-page/admin/address/address-list/address-list.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddroleComponent } from './home-page/admin/role/addrole/addrole.component';
 import { ListRoleComponent } from './home-page/admin/role/list-role/list-role.component';
@@ -46,6 +52,10 @@ import { BulkEditDialogComponent } from './home-page/admin/role/bulk-edit-dialog
     OrdersComponent,
     CustomerListComponent,
     AddCustomerComponent,
+    AddProductComponent,
+    ProductListComponent,
+    CreateAddressComponent,
+    AddressListComponent
     AddroleComponent,
     ListRoleComponent,
     UpdateRoleComponent,
@@ -53,7 +63,10 @@ import { BulkEditDialogComponent } from './home-page/admin/role/bulk-edit-dialog
     BulkEditDialogComponent,
   ],
   imports: [
+    MatSort,
+    MatCheckboxModule,
     CustomerModule,
+    // AddressModule,
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
@@ -85,7 +98,8 @@ import { BulkEditDialogComponent } from './home-page/admin/role/bulk-edit-dialog
     provideClientHydration(),
     provideAnimationsAsync(),
     MatDatepickerModule,
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch()),
+    provideAnimationsAsync('noop')
   ],
   bootstrap: [AppComponent]
 })

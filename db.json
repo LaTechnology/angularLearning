@@ -1,18 +1,18 @@
 {
   "customers": [
     {
+      "id": "1519",
       "customerId": "1a2b3c4d5e",
       "firstName": "John",
       "lastName": "Doe",
       "age": 30,
       "email": "johndoe@example.com",
       "dateOfBirth": "1994-02-15",
-      "address": "123 Main St, Springfield, IL",
-      "phoneNumber": "9989898999",
+      "phoneNumber": "9989898998",
       "alternativePhoneNumber": "987-654-3210",
       "isActive": true,
-      "gender": "Male",
-      "id": "1519"
+      "customerType": "",
+      "gender": "Male"
     },
     {
       "id": "302d",
@@ -69,6 +69,162 @@
       "isActive": true,
       "customerType": "",
       "gender": "Male"
+    },
+    {
+      "id": "8f1e",
+      "customerId": null,
+      "firstName": "test",
+      "lastName": "n",
+      "age": 21,
+      "email": "re@gmail.com",
+      "dateOfBirth": "2001-11-01T18:30:00.000Z",
+      "phoneNumber": "1212222222",
+      "alternativePhoneNumber": "1112121",
+      "isActive": true,
+      "customerType": "",
+      "gender": "Female"
+    }
+  ],
+  "products": [
+    {
+      "productName": "Shirts",
+      "size": "S",
+      "brand": "Nike",
+      "color": "RED",
+      "code": "NIKE123",
+      "quantity": 12,
+      "id": "f1e2"
+    },
+    {
+      "productName": "Casual Shirts",
+      "size": "L",
+      "brand": "Allen Solly",
+      "color": "Blue",
+      "code": "A3455",
+      "quantity": 52,
+      "id": "4a3f"
+    },
+    {
+      "productName": "Formal Shirt",
+      "size": "XL",
+      "brand": "Allen Solly",
+      "color": "Green",
+      "code": "F9876",
+      "quantity": 3,
+      "id": "cf5e"
+    },
+    {
+      "id": "9d2d",
+      "productName": "Shirts",
+      "size": "M",
+      "brand": "OTTO",
+      "color": "Full Sleeves White",
+      "code": "OT456",
+      "quantity": 4
+    },
+    {
+      "id": "e0bd",
+      "productName": "T-Shirt",
+      "size": "S",
+      "brand": "PUMA",
+      "color": "Half Sleeves Black",
+      "code": "PUMA22",
+      "quantity": 5
+    },
+    {
+      "id": "d894",
+      "productName": "Formal Shirts",
+      "size": "L",
+      "brand": "Van Heusen",
+      "color": "Slim Fit - Yellow",
+      "code": "VAN55",
+      "quantity": 5
+    },
+    {
+      "productName": "Demo1",
+      "size": "L",
+      "brand": "Demo1",
+      "color": "Demo1",
+      "code": "DEMO121",
+      "quantity": 51,
+      "id": "075a"
+    }
+  ],
+  "addresses": [
+    {
+      "id": "22tg5",
+      "addressId": "6t8t",
+      "addressLine1": "ambathur estate",
+      "addressLine2": "SIDCO",
+      "city": "ambatur",
+      "district": "chennai",
+      "pincode": "897098",
+      "state": "tamilnadu",
+      "country": "india",
+      "region": "asia",
+      "landMark": "ashok pillar",
+      "phoneNumber": "9898989898",
+      "addressType": "Work"
+    },
+    {
+      "addressId": "b14777a0-60ba-4f74-997a-81523ccb05cd",
+      "addressLine1": "updated dsd",
+      "addressLine2": "updated  dsd",
+      "city": "updated  sdsd",
+      "district": "updated  dsd",
+      "pincode": "updated  dsd",
+      "state": "updated  dsd",
+      "country": "updated  dsd",
+      "region": "updated  sds",
+      "landMark": "updated  dsds",
+      "phoneNumber": "9866766662",
+      "addressType": "Home",
+      "id": "22tg6"
+    },
+    {
+      "addressId": "1ed57ea8-6e6f-46c5-b15a-aa348100fab9",
+      "addressLine1": "dlf",
+      "addressLine2": "ramapuran",
+      "city": "chennai",
+      "district": "chennai",
+      "pincode": "98787",
+      "state": "tamilnadu",
+      "country": "india",
+      "region": "asia",
+      "landMark": "phoenix updated",
+      "phoneNumber": "9898987879",
+      "addressType": "Work",
+      "id": "22tg7"
+    },
+    {
+      "addressId": "4d276302-2f0b-4168-ba7e-4cab78b59562",
+      "addressLine1": "marina",
+      "addressLine2": "triplicane",
+      "city": "chennai",
+      "district": "chennai",
+      "pincode": "879799",
+      "state": "tamilnadu",
+      "country": "india",
+      "region": "asia",
+      "landMark": "titan ship",
+      "phoneNumber": "9808098808",
+      "addressType": "Home",
+      "id": "be05"
+    },
+    {
+      "id": "79ca",
+      "addressId": "9e6c497e-f99d-4237-ada5-d0c2c8085fb8",
+      "addressLine1": "park",
+      "addressLine2": "porur",
+      "city": "chennai",
+      "district": "chennai",
+      "pincode": "98787",
+      "state": "tamilnadu",
+      "country": "India",
+      "region": "asia",
+      "landMark": "mark",
+      "phoneNumber": "0989898787",
+      "addressType": "Work"
     }
   ],
   "role": [
