@@ -34,6 +34,8 @@ import { AddProductComponent } from './home-page/admin/product/add-product/add-p
 import { ProductListComponent } from './home-page/admin/product/product-list/product-list.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSort } from '@angular/material/sort';
+import { CreateAddressComponent } from './home-page/admin/address/create-address/create-address.component';
+import { AddressListComponent } from './home-page/admin/address/address-list/address-list.component';
 
 @NgModule({
   declarations: [
@@ -45,11 +47,14 @@ import { MatSort } from '@angular/material/sort';
     AddCustomerComponent,
     AddProductComponent,
     ProductListComponent,
+    CreateAddressComponent,
+    AddressListComponent
   ],
   imports: [
     MatSort,
     MatCheckboxModule,
     CustomerModule,
+    // AddressModule,
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
@@ -62,7 +67,6 @@ import { MatSort } from '@angular/material/sort';
      FormsModule,
      ReactiveFormsModule,
      MatInputModule,
-     MatFormFieldModule,
      MatDatepickerModule,
      MatNativeDateModule,
      MatCardModule,
@@ -75,13 +79,13 @@ import { MatSort } from '@angular/material/sort';
      StoreModule.forRoot({customers: customerReducer}),
      EffectsModule.forRoot([CustomerEffects]),
      StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-     StoreModule.forRoot({}, {})
   ],
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
     MatDatepickerModule,
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch()),
+    provideAnimationsAsync('noop')
   ],
   bootstrap: [AppComponent]
 })
