@@ -30,6 +30,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { customerReducer } from './home-page/admin/customer/store/customer.reducer';
 import { CustomerEffects } from './home-page/admin/customer/store/customer.effects';
+import { AddProductComponent } from './home-page/admin/product/add-product/add-product.component';
+import { ProductListComponent } from './home-page/admin/product/product-list/product-list.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSort } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -39,8 +43,12 @@ import { CustomerEffects } from './home-page/admin/customer/store/customer.effec
     OrdersComponent,
     CustomerListComponent,
     AddCustomerComponent,
+    AddProductComponent,
+    ProductListComponent,
   ],
   imports: [
+    MatSort,
+    MatCheckboxModule,
     CustomerModule,
     BrowserAnimationsModule,
     BrowserModule,
@@ -66,7 +74,8 @@ import { CustomerEffects } from './home-page/admin/customer/store/customer.effec
      HttpClientModule,
      StoreModule.forRoot({customers: customerReducer}),
      EffectsModule.forRoot([CustomerEffects]),
-     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+     StoreModule.forRoot({}, {})
   ],
   providers: [
     provideClientHydration(),
