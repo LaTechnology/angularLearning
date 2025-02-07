@@ -1,14 +1,14 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { InventoryComponent } from './home-page/inventory/inventory.component';
 import { OrdersComponent } from './home-page/orders/orders.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -30,6 +30,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { customerReducer } from './home-page/admin/customer/store/customer.reducer';
 import { CustomerEffects } from './home-page/admin/customer/store/customer.effects';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AddroleComponent } from './home-page/admin/role/addrole/addrole.component';
+import { ListRoleComponent } from './home-page/admin/role/list-role/list-role.component';
+import { UpdateRoleComponent } from './home-page/admin/role/update-role/update-role.component';
+import { DeleteDialogComponent } from './home-page/admin/role/delete-dialog/delete-dialog.component';
+import { BulkEditDialogComponent } from './home-page/admin/role/bulk-edit-dialog/bulk-edit-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +46,11 @@ import { CustomerEffects } from './home-page/admin/customer/store/customer.effec
     OrdersComponent,
     CustomerListComponent,
     AddCustomerComponent,
+    AddroleComponent,
+    ListRoleComponent,
+    UpdateRoleComponent,
+    DeleteDialogComponent,
+    BulkEditDialogComponent,
   ],
   imports: [
     CustomerModule,
@@ -47,26 +59,27 @@ import { CustomerEffects } from './home-page/admin/customer/store/customer.effec
     AppRoutingModule,
     MatTabsModule,
     MatFormFieldModule,
-     MatSelectModule,
-      MatInputModule,
-       FormsModule,
-      CommonModule,
-     FormsModule,
-     ReactiveFormsModule,
-     MatInputModule,
-     MatFormFieldModule,
-     MatDatepickerModule,
-     MatNativeDateModule,
-     MatCardModule,
-     MatTableModule,
-     MatSortModule,
-     MatPaginatorModule,
-     MatButtonModule,
-     MatIconModule,
-     HttpClientModule,
-     StoreModule.forRoot({customers: customerReducer}),
-     EffectsModule.forRoot([CustomerEffects]),
-     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+    MatSelectModule,
+    MatInputModule,
+    FormsModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule,
+    MatDialogModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatButtonModule,
+    MatIconModule,
+    HttpClientModule,
+    StoreModule.forRoot({ customers: customerReducer }),
+    EffectsModule.forRoot([CustomerEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [
     provideClientHydration(),
