@@ -6,6 +6,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ClientService } from 'app/services/client.service';
 import { SessionStorageService } from 'app/services/session-storage.service';
+import * as _ from 'lodash';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-client-add-form',
@@ -20,6 +22,8 @@ export class ClientAddFormComponent {
   cityList: any;
   headerTittle: string = 'Add New User';
   saveTittle: string = 'Save';
+  bulkSelectedData: any[]=[];
+  result: any;
 
   //popups
   user_submit$: any;
@@ -115,6 +119,8 @@ export class ClientAddFormComponent {
         this.postUserData(this.userForm.value);
       } else if (this.activatedRoute.snapshot.url[0].path === 'edit') {
         this.updateUserData(this.userForm.value);
+      } else if (this.activatedRoute.snapshot.url[0].path === 'bulk-upload'){
+        this.bulkUpdateUserData(this.userForm.value);
       }
     }
   }
@@ -135,15 +141,31 @@ export class ClientAddFormComponent {
   bulkSelectedDataApi(id:any) {
     this._client?.getSelectedClientById(id)?.subscribe({
       next: (res: any) => {
-        const data = res;
-        console.log(data);
-        // this.userForm.patchValue(data);
+        this.bulkSelectedData = res;
       },
       error: (err: HttpErrorResponse) => {},
       complete: () => {
-       
+        console.log(this.bulkSelectedData,'bulkSelectedData');
+        this.result = this.mergeObjectsById(this.bulkSelectedData);
+        this.userForm.patchValue(this.result);
+        console.log(this.result,'result');
       }
     });
+  }
+
+  mergeObjectsById(objects: any[]): any {
+    return objects.reduce((merged, obj) => {
+      _.forEach(obj, (value, key) => {
+        if (key !== "id") {
+         if (!merged.hasOwnProperty(key)) {
+          merged[key] = value;
+        } else if (!_.isEqual(merged[key], value)) {
+          merged[key] = "mixed value";
+        }
+      }
+      });
+      return merged;
+    }, {});
   }
 
   postUserData(data: any) {
@@ -166,5 +188,32 @@ export class ClientAddFormComponent {
         this._util.snackNotification('success','Hurray!!','User updated successfully');
       }
     });
+  }
+
+  bulkUpdateUserData(data: any){
+    const transformData = (baseObj: any, array: any[]) => {
+      return array.map(item => ({
+        ..._.mapValues(baseObj, (value, key) => value === "mixed value" ? item[key] : value),
+        id: item.id // Ensure id is added
+      }));
+    };
+    const result = transformData(data, this.bulkSelectedData);
+
+    const updateRequests = result.map((item:any) =>
+      this._client?.updateClient(item.id, item)
+    );
+  
+    forkJoin(updateRequests).subscribe({
+      next: (responses) => {
+        this._util.snackNotification('success', 'Success!', 'All users updated successfully');
+      },
+      error: (error) => {
+        this._util.snackNotification('error', 'Oops!', 'Some updates failed');
+      },
+      complete: () => {
+        this.closeRightSidebar();
+      }
+    });
+ 
   }
 }

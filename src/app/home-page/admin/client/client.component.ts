@@ -133,10 +133,17 @@ export class ClientComponent {
       }
   
     deleteUser(id: any, i: any) {
-      const updatedData = [...this.userList.data]; 
-      updatedData.splice(i, 1);
-      this.userList.data = updatedData;
-      this._util.snackNotification('success','Hurray!!','User deleted successfully');
+      this._client?.deleteClient(id)?.subscribe({
+        next: (res: any) => {
+        },
+        error: (err: HttpErrorResponse) => {},
+        complete: () => {
+          this._util.snackNotification('success','Hurray!!','User deleted successfully');
+          this.getClientList();
+        }
+      });
+      
+      
     }
 
 }
