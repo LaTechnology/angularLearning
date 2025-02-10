@@ -8,6 +8,10 @@
       <input matInput (keyup)="applyFilter($event)" placeholder="Enter keyword" class="search-box"/>
     </mat-form-field>
   
+    <button mat-raised-button color="primary" class="custom-button" (click)="editBulkAddress()" [disabled]="!(isBulkEditActive())">
+        <a class="button-link">bulk edit</a>
+    </button>
+
     <button mat-raised-button color="primary" class="custom-button">
         <a routerLink="/address/add" class="button-link">add new address</a>
     </button>
@@ -21,6 +25,22 @@
             </th>
             <td mat-cell *matCellDef="let element" class="custom-cell" tabindex="0">{{element.addressId}}</td>
         </ng-container> -->
+
+    <!-- Row Select Checkbox -->
+        <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef class="custom-header">
+            <mat-checkbox (change)="selectAllRows($event)" 
+                            [checked]="selectedRows.size === dataSource.data.length" 
+                            [indeterminate]="selectedRows.size > 0 && selectedRows.size < dataSource.data.length">
+            </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let element" class="custom-cell">
+            <mat-checkbox (change)="toggleRowSelection(element)" 
+                            [checked]="selectedRows.has(element)">
+            </mat-checkbox>
+            </td>
+        </ng-container>
+  
 
         <ng-container matColumnDef="addressLine1">
             <th mat-header-cell *matHeaderCellDef mat-sort-header class="custom-header">addressLine1
@@ -85,14 +105,21 @@
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef> Actions </th>
             <td mat-cell *matCellDef="let address" class="actions-column">
-              <button mat-icon-button color="primary" (click)="editAddress(address.id)">
-                <mat-icon>edit</mat-icon>
+              <button mat-icon-button [matMenuTriggerFor]="menu" [disabled]="isBulkEditActive()">
+                <mat-icon>more_vert</mat-icon>
               </button>
-              <button mat-icon-button color="primary" (click)="deleteAddress(address.id)">
-                <mat-icon>delete</mat-icon>
-              </button>
+              
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="editAddress(address.id)">
+                  <mat-icon>edit</mat-icon> Edit
+                </button>
+                <button mat-menu-item (click)="deleteAddress(address.id)">
+                  <mat-icon>delete</mat-icon> Delete
+                </button>
+              </mat-menu>
             </td>
           </ng-container>
+          
           
 
         

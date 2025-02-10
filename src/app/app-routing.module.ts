@@ -12,6 +12,8 @@ import { OrdersComponent } from './home-page/orders/orders.component';
 import { AddroleComponent } from './home-page/admin/role/addrole/addrole.component';
 import { ListRoleComponent } from './home-page/admin/role/list-role/list-role.component';
 import { UpdateRoleComponent } from './home-page/admin/role/update-role/update-role.component';
+import { AddressBulkEditComponent } from './home-page/admin/address/address-bulk-edit/address-bulk-edit.component';
+
 const routes: Routes = [
     { path: 'customer/edit/:customerId', component: AddCustomerComponent, canActivate: [AuthGuard] },
     { path: 'customer/add', component: AddCustomerComponent, canActivate: [AuthGuard] },
@@ -22,6 +24,7 @@ const routes: Routes = [
     { path: 'address/add', component: CreateAddressComponent, canActivate: [AuthGuard] },
     { path: 'address/edit/:id', component: CreateAddressComponent, canActivate: [AuthGuard] },
     { path: 'address/list', component: AddressListComponent, canActivate: [AuthGuard] },
+    {path:'address/bulk-edit',component:AddressBulkEditComponent,canActivate:[AuthGuard]},
     { path: 'order', component: OrdersComponent, canActivate: [AuthGuard] },
     { path: 'inventory', component: InventoryComponent, canActivate: [AuthGuard] },
     { path: 'addrole', component: AddroleComponent, canActivate: [AuthGuard]},
@@ -32,7 +35,7 @@ const routes: Routes = [
       path: 'client',
       loadChildren: () => import('../app/home-page/admin/client/client.module').then((m) => m.ClientModule),
     },
-];
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

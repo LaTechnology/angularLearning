@@ -43,6 +43,8 @@ import { DeleteDialogComponent } from './home-page/admin/role/delete-dialog/dele
 import { BulkEditDialogComponent } from './home-page/admin/role/bulk-edit-dialog/bulk-edit-dialog.component';
 import { AddroleComponent } from './home-page/admin/role/addrole/addrole.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddressBulkEditComponent } from './home-page/admin/address/address-bulk-edit/address-bulk-edit.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     UpdateRoleComponent,
     DeleteDialogComponent,
     BulkEditDialogComponent,
+    AddressBulkEditComponent
   ],
   imports: [
     NgbModule,
@@ -94,7 +97,29 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatDatepickerModule,
     StoreModule.forRoot({ customers: customerReducer }),
     EffectsModule.forRoot([CustomerEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+     MatSelectModule,
+      MatInputModule,
+       FormsModule,
+      CommonModule,
+     FormsModule,
+     ReactiveFormsModule,
+     MatInputModule,
+     MatCheckboxModule,
+     MatMenuModule,
+     MatDatepickerModule,
+     MatNativeDateModule,
+     MatCardModule,
+     MatTableModule,
+     MatSortModule,
+     MatPaginatorModule,
+     MatButtonModule,
+     MatIconModule,
+     HttpClientModule,
+     StoreModule.forRoot({customers: customerReducer}),
+     EffectsModule.forRoot([CustomerEffects]),
+     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+     
   ],
   providers: [
     provideClientHydration(),
