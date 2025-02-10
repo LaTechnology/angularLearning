@@ -16,11 +16,9 @@
                 Admin
               </button>
               <ul class="dropdown-menu">
-                <li><a (click)="onDropdownSelect('/customer', 'Customer')">Customer</a></li>
-                <li><a (click)="onDropdownSelect('/products', 'Product')">Product</a></li>
-                <li><a (click)="onDropdownSelect('/address/list', 'Address')">Address</a></li>
-                <li><a (click)="onDropdownSelect('/client', 'Client')">Client</a></li>
-                <li><a class="dropdown-item" routerLink="listrole">Roles</a></li>
+                <ng-container *ngFor="let item of linkDropdownList">
+                  <li  (click)="onDropdownSelect(item.link, item.name)"><a>{{item.name}}</a></li>
+                </ng-container>
               </ul>
             </div>
           </div>

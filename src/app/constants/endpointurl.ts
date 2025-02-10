@@ -1,7 +1,7 @@
 import { environment } from "../../environments/environment.development";
 
 
-export const API_BASE_URL = environment.baseurl;
+export const API_BASE_URL = environment.apiUrl;
 export const CUSTOMER_BASE_URL = `${API_BASE_URL}/customer`;
 
 export const CustomerUrl = Object.freeze({

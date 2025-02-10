@@ -221,5 +221,33 @@
       ],
       "id": "9537"
     }
+  ],
+  "user": [
+    {
+      "first_name": "askdjwdjaslkd",
+      "last_name": "asdasdasdsa",
+      "phone": "+917878778756",
+      "mail": "aasdaas@gmail.com",
+      "address_line1": "sdfdfdsfds",
+      "address_line2": "sdfdsfdsfs",
+      "country": "Afghanistan",
+      "state": "Badakhshan",
+      "city": "Rāghistān",
+      "pin_code": "",
+      "id": "5544"
+    },
+    {
+      "id": "5d85",
+      "first_name": "ASAsASA",
+      "last_name": "ASAsASa",
+      "phone": "+919800980933",
+      "mail": "qasdd@gmail.com",
+      "address_line1": "asdasdsadsa",
+      "address_line2": "asdasdsada",
+      "country": "Afghanistan",
+      "state": "Badghis",
+      "city": "Ghormach",
+      "pin_code": ""
+    }
   ]
 }
