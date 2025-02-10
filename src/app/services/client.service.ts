@@ -38,6 +38,10 @@ export class ClientService {
     return this.apiService.get<any[]>(`${this.apiUrl}?${query}`);
   }
 
+  bulkUpdateUsers(updatedUsers: any[]): Observable<any> {
+    return this.apiService.put(`${this.apiUrl}`, updatedUsers); // Update all matched users
+  }
+
   deleteClient(id: string): Observable<void> {
     return this.apiService.delete<void>(`${this.apiUrl}/${id}`);
   }

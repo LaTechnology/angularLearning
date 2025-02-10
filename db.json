@@ -224,12 +224,12 @@
   ],
   "user": [
     {
-      "first_name": "askdjwdjaslkd",
-      "last_name": "asdasdasdsa",
-      "phone": "+917878778756",
-      "mail": "aasdaas@gmail.com",
-      "address_line1": "sdfdfdsfds",
-      "address_line2": "sdfdsfdsfs",
+      "first_name": "seba",
+      "last_name": "winsten",
+      "phone": "+919877765343",
+      "mail": "winsten@gmail.com",
+      "address_line1": "one",
+      "address_line2": "two",
       "country": "Afghanistan",
       "state": "Badakhshan",
       "city": "Rāghistān",
@@ -237,17 +237,17 @@
       "id": "5544"
     },
     {
-      "id": "5d85",
-      "first_name": "ASAsASA",
-      "last_name": "ASAsASa",
-      "phone": "+919800980933",
-      "mail": "qasdd@gmail.com",
-      "address_line1": "asdasdsadsa",
-      "address_line2": "asdasdsada",
-      "country": "Afghanistan",
-      "state": "Badghis",
-      "city": "Ghormach",
-      "pin_code": ""
+      "first_name": "seba",
+      "last_name": "winsten",
+      "phone": "+919877765343",
+      "mail": "winsten@gmail.com",
+      "address_line1": "one",
+      "address_line2": "two",
+      "country": "Albania",
+      "state": "Berat District",
+      "city": "Bashkia Skrapar",
+      "pin_code": "43243",
+      "id": "c300"
     }
   ]
 }
