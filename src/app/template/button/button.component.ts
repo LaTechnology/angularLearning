@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'wz-button',
+  selector: 'lt-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss']
 })

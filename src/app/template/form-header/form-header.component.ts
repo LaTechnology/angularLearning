@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'wz-form-header',
+  selector: 'lt-form-header',
   templateUrl: './form-header.component.html',
   styleUrls: ['./form-header.component.scss']
 })

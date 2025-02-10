@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/cor
 import { AbstractControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'wz-phone',
+  selector: 'lt-phone',
   templateUrl: './phone-number.component.html',
   styleUrls: ['./phone-number.component.scss'],
   providers: [

@@ -4,9 +4,9 @@
         <main class="page-content bg-col-white">
           <div class="d-flex section-header-padding ps-3 pe-4 justify-content-between">
               <div class="d-flex gap-7 align-items-baseline">
-                  <wz-form-header [header]="'List of Users'" [splitterWidth]="40"></wz-form-header>
-                  <wz-badge [badgeType]="'count'" [count]="userList.data.length" [iconColor]="'transparent'"
-                      [customClass]="'orange-badge'"></wz-badge>
+                  <lt-form-header [header]="'List of Users'" [splitterWidth]="40"></lt-form-header>
+                  <lt-badge [badgeType]="'count'" [count]="userList.data.length" [iconColor]="'transparent'"
+                      [customClass]="'orange-badge'"></lt-badge>
               </div>
               <div class="d-flex align-items-center gap-15">
                   <app-search (liveSearch)="liveSearchCurrentlyOt($event)" [placeHolder]="'Search Client'"
@@ -17,7 +17,7 @@
       
           <section class="table-leave-type infinite-scrool">
               <div class="px-16">
-                  <wz-shimmer-data [isDataLoading]="isDataLoading" [shimmerClass]="'h-px-20'" [shimmerType]="'table'">
+                  <lt-shimmer-data [isDataLoading]="isDataLoading" [shimmerClass]="'h-px-20'" [shimmerType]="'table'">
                       <table mat-table [dataSource]="userList" class="user-table">
       
                             <!--checkBox-->
@@ -85,11 +85,11 @@
                               <th mat-header-cell *matHeaderCellDef> Action </th>
                               <td mat-cell *matCellDef="let element; index as i" class="action-buttons">
                                   <div class="d-flex gap-10">
-                                      <wz-icon [name]="'edit'" [iconClass]="'icon-18'" tooltip="Edit" placement="top"
+                                      <lt-icon [name]="'edit'" [iconClass]="'icon-18'" tooltip="Edit" placement="top"
                                           color="info"
-                                          (click)="$event.stopPropagation();toggleRightPanel('edit',element,i)"></wz-icon>
-                                      <wz-icon [name]="'delete'" [iconClass]="'icon-18'" tooltip="Delete" placement="top"
-                                          color="info" (click)="$event.stopPropagation();deletePlan(i,element)"></wz-icon>
+                                          (click)="$event.stopPropagation();toggleRightPanel('edit',element,i)"></lt-icon>
+                                      <lt-icon [name]="'delete'" [iconClass]="'icon-18'" tooltip="Delete" placement="top"
+                                          color="info" (click)="$event.stopPropagation();deletePlan(i,element)"></lt-icon>
                                   </div>
                               </td>
                           </ng-container>
@@ -99,7 +99,7 @@
                           <tr mat-row *matRowDef="let row; columns: probationDataColumns; index as i">
                           </tr>
                       </table>
-                  </wz-shimmer-data>
+                  </lt-shimmer-data>
               </div>
           </section>
       </main>

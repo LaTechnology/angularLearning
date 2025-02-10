@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'wz-badge',
+  selector: 'lt-badge',
   templateUrl: './badges.component.html',
   styleUrls: ['./badges.component.scss'],
 })

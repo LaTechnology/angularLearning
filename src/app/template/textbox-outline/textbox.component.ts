@@ -2,7 +2,7 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, 
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'wz-textbox-outline',
+  selector: 'lt-textbox-outline',
   templateUrl: './textbox.component.html',
   styleUrls: ['./textbox.component.scss'],
   providers: [

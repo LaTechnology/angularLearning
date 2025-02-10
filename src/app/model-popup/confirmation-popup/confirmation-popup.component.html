@@ -12,10 +12,10 @@
         <div class="content">{{ data.body }}</div>
         <div class="modal-body row action-buttons" [ngClass]="data.cancelButton ? '' : 'd-flex justify-content-center'">
             <div *ngIf="data.cancelButton" class="col-6">
-                <wz-button [btnType]="'light-button'" [customClass]="'w-100'" (click)="cancelPopup()">{{data?.cancelText ? data.cancelText : 'Cancel'}}</wz-button>
+                <lt-button [btnType]="'light-button'" [customClass]="'w-100'" (click)="cancelPopup()">{{data?.cancelText ? data.cancelText : 'Cancel'}}</lt-button>
             </div>
             <div  class="col-6">
-                <wz-button  [customClass]="'w-100'" (click)="confirmPopup()" >{{data?.saveText ? data.saveText : 'Confirm'}}</wz-button>
+                <lt-button  [customClass]="'w-100'" (click)="confirmPopup()" >{{data?.saveText ? data.saveText : 'Confirm'}}</lt-button>
             </div>
         </div>
     </ng-container>
@@ -29,10 +29,10 @@
             <div class="text-start font-weight-4 text-13 col-gray-700">{{ data.body }}</div>
             <div class="modal-body row action-buttons" [ngClass]="data.cancelButton ? '' : 'd-flex justify-content-center'">
                 <div *ngIf="data.cancelButton" class="col-6">
-                    <wz-button [btnType]="'light-button'" [customClass]="'w-100'" (click)="cancelPopup()">{{ data?.cancelText ? data.cancelText : 'Cancel' }}</wz-button>
+                    <lt-button [btnType]="'light-button'" [customClass]="'w-100'" (click)="cancelPopup()">{{ data?.cancelText ? data.cancelText : 'Cancel' }}</lt-button>
                 </div>
                 <div  class="col-6">
-                    <wz-button  [customClass]="'w-100'" (click)="confirmPopup()" >{{ data?.saveText ? data.saveText : 'Confirm' }}</wz-button>
+                    <lt-button  [customClass]="'w-100'" (click)="confirmPopup()" >{{ data?.saveText ? data.saveText : 'Confirm' }}</lt-button>
                 </div>
             </div>
         </div>
@@ -69,17 +69,17 @@
         <div class="text-13 col-gray-600">
             Please make sure once a request is approved or rejected, it cannot be undone.
         </div>
-        <wz-textbox-outline [control]="comments" [required]="data?.is_comments_required"
-            [label]="'Add Comments'"></wz-textbox-outline>
+        <lt-textbox-outline [control]="comments" [required]="data?.is_comments_required"
+            [label]="'Add Comments'"></lt-textbox-outline>
 
         <div class="modal-body row action-buttons" [ngClass]="data.cancelButton ? '' : 'd-flex justify-content-center'">
             <div *ngIf="data.cancelButton" class="col-6">
-                <wz-button [btnType]="'light-button'" [customClass]="'w-100'" (click)="cancelPopup()">{{
-                    data?.cancelText ? data.cancelText : 'Cancel' }}</wz-button>
+                <lt-button [btnType]="'light-button'" [customClass]="'w-100'" (click)="cancelPopup()">{{
+                    data?.cancelText ? data.cancelText : 'Cancel' }}</lt-button>
             </div>
             <div class="col-6">
-                <wz-button [customClass]="'w-100'" (click)="confirmPopup()">{{ data?.saveText ? data.saveText :
-                    'Confirm' }}</wz-button>
+                <lt-button [customClass]="'w-100'" (click)="confirmPopup()">{{ data?.saveText ? data.saveText :
+                    'Confirm' }}</lt-button>
             </div>
         </div>
     </div>
