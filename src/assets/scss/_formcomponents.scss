@@ -78,7 +78,7 @@ body {
 }
 
 .custom-error-message {
-  color: var(--wz-red);
+  color: var(--lt-red);
   font-size: 0.831rem;
   letter-spacing: 0.03em;
   transition: 0.5s ease-in-out;
@@ -238,7 +238,7 @@ input[type="password"]::-ms-clear {
 @for $i from 0 through 200 {
   .mdc-label[for="mat-mdc-checkbox-#{$i}-input"] {
     font-size: 0.8rem !important;
-    color: var(--wz-gray-700) !important;
+    color: var(--lt-gray-700) !important;
   }
 }
 
@@ -277,7 +277,7 @@ input[type="password"]::-ms-clear {
 
 .mat-mdc-select-disabled {
   .mat-mdc-select-value-text {
-    color: var(--wz-gray-500) !important;
+    color: var(--lt-gray-500) !important;
   }
 }
 
@@ -341,10 +341,10 @@ input[matinput][type='number'] {
 
 
 .grey-out-form-label {
-  color: var(--wz-gray-400);
+  color: var(--lt-gray-400);
 
   .mat-mdc-form-field-underline {
-    background-color: var(--wz-gray-400) !important;
+    background-color: var(--lt-gray-400) !important;
     background-image: none !important;
   }
 }
@@ -374,24 +374,24 @@ input[matinput][type='number'] {
 }
 
 .modal-cancel-button {
-  background: var(--wz-white);
-  border: 1px solid var(--wz-gray-200);
-  box-shadow: 0px 1px 2px var(--wz-gray-500) !important;
-  color: var(--wz-black);
+  background: var(--lt-white);
+  border: 1px solid var(--lt-gray-200);
+  box-shadow: 0px 1px 2px var(--lt-gray-500) !important;
+  color: var(--lt-black);
 }
 
 .modal-confirm-button {
-  background: var(--wz-deep-orange);
-  border: 1px solid var(--wz-deep-orange);
-  box-shadow: 0px 1px 2px var(--wz-gray-800);
-  color: var(--wz-white);
+  background: var(--lt-deep-orange);
+  border: 1px solid var(--lt-deep-orange);
+  box-shadow: 0px 1px 2px var(--lt-gray-800);
+  color: var(--lt-white);
 }
 
 .form-header-text,
 .selectbox-title {
   font-size: 0.875rem;
   line-height: 20px;
-  color: var(--wz-black);
+  color: var(--lt-black);
 }
 
 .form-header-text {
@@ -424,10 +424,10 @@ input[matinput][type='number'] {
 }
 
 .color-picker .button-area button {
-  background: var(--wz-deep-orange);
+  background: var(--lt-deep-orange);
   border: none;
   border-radius: 4px;
-  color: var(--wz-white);
+  color: var(--lt-white);
   width: 90px;
   height: 24px !important;
   display: flex;
@@ -435,13 +435,13 @@ input[matinput][type='number'] {
 }
 
  .cp-cancel-button-class {
-  border: 1px solid var(--wz-gray-400) !important;
-  background: var(--wz-white) !important;
-  color: var(--wz-black) !important;
+  border: 1px solid var(--lt-gray-400) !important;
+  background: var(--lt-white) !important;
+  color: var(--lt-black) !important;
  }
 
 .color-picker .hex-text .box div {
-  color: var(--wz-gray-600) !important;
+  color: var(--lt-gray-600) !important;
 }
 
 
@@ -466,10 +466,10 @@ input[matinput][type='number'] {
 
 .color-picker input {
   font-family: "Roboto" !important;
-  color: var(--wz-gray-600) !important;
+  color: var(--lt-gray-600) !important;
   font-weight: 400 !important;
   font-size: 0.7rem !important;
-  border: var(--wz-gray-300) solid 1px !important;
+  border: var(--lt-gray-300) solid 1px !important;
   border-radius: 6px !important;
 }
 
@@ -500,7 +500,7 @@ input[matinput][type='number'] {
   bottom: 20% !important;
 }
 
-.wz-text-box {
+.lt-text-box {
   .mat-form-field-label {
     font-size: 0.875 !important;
     top: 1.75rem !important;
@@ -579,7 +579,7 @@ input[matinput][type='number'] {
   padding-top: 4px;
   margin-left: -5px;
   font-size: 0.8rem !important;
-  color: var(--wz-gray-700);
+  color: var(--lt-gray-700);
 }
 
 // .mat-mdc-chip-set .mdc-evolution-chip-set__chips {
@@ -659,7 +659,7 @@ html {
   --mdc-filled-text-field-disabled-container-color: #fafafa;
   --mdc-filled-text-field-label-text-color: rgba(0, 0, 0, 0.6);
   --mdc-filled-text-field-disabled-label-text-color: #0000001f;
-  --mdc-filled-text-field-input-text-color: $wz-black;
+  --mdc-filled-text-field-input-text-color: $lt-black;
   --mdc-filled-text-field-disabled-input-text-color: #0000001f;
   --mdc-filled-text-field-input-text-placeholder-color: rgba(0, 0, 0, 0.6);
   --mdc-filled-text-field-error-focus-label-text-color: #f44336;
@@ -667,7 +667,7 @@ html {
   --mdc-filled-text-field-error-caret-color: #f44336;
   --mdc-filled-text-field-active-indicator-color: rgba(0, 0, 0, 0.42);
   --mdc-filled-text-field-disabled-active-indicator-color: rgba(0, 0, 0, 0.06);
-  --mdc-filled-text-field-hover-active-indicator-color: $wz-black;
+  --mdc-filled-text-field-hover-active-indicator-color: $lt-black;
   --mdc-filled-text-field-error-active-indicator-color: #f44336;
   --mdc-filled-text-field-error-focus-active-indicator-color: #f44336;
   --mdc-filled-text-field-error-hover-active-indicator-color: #f44336;
@@ -675,16 +675,16 @@ html {
   --mdc-outlined-text-field-focus-outline-color: #c5a35b;
   --mdc-outlined-text-field-focus-label-text-color: #c5a35b;
   --mdc-outlined-text-field-label-text-color: rgba(0, 0, 0, 0.6);
-  --mdc-outlined-text-field-disabled-label-text-color: var(--wz-gray-500) !important;
-  --mdc-outlined-text-field-input-text-color: $wz-black;
-  --mdc-outlined-text-field-disabled-input-text-color:  var(--wz-gray-500) !important;
+  --mdc-outlined-text-field-disabled-label-text-color: var(--lt-gray-500) !important;
+  --mdc-outlined-text-field-input-text-color: $lt-black;
+  --mdc-outlined-text-field-disabled-input-text-color:  var(--lt-gray-500) !important;
   --mdc-outlined-text-field-input-text-placeholder-color: rgba(0, 0, 0, 0.6);
   --mdc-outlined-text-field-error-caret-color: #f44336;
   --mdc-outlined-text-field-error-focus-label-text-color: #f44336;
   --mdc-outlined-text-field-error-label-text-color: #f44336;
   --mdc-outlined-text-field-outline-color: #0000001f;
   --mdc-outlined-text-field-disabled-outline-color: rgba(0, 0, 0, 0.06);
-  --mdc-outlined-text-field-hover-outline-color: $wz-black;
+  --mdc-outlined-text-field-hover-outline-color: $lt-black;
   --mdc-outlined-text-field-error-focus-outline-color: #f44336;
   --mdc-outlined-text-field-error-hover-outline-color: #f44336;
   --mdc-outlined-text-field-error-outline-color: #f44336;
@@ -695,7 +695,7 @@ html {
   font-size: 14px;
   position: relative;
   right: 10px;
-  color: var(--wz-gray-600);
+  color: var(--lt-gray-600);
 }
 
 // remove padding mat form field hint 
@@ -710,13 +710,13 @@ html {
 }
 
 .mat-mdc-optgroup {
-  color: var(--wz-gray-600);
+  color: var(--lt-gray-600);
   font-weight: 500 !important;
   position: relative !important;
 
   .mat-mdc-optgroup-label {
     .mdc-list-item__primary-text {
-      border-bottom: 1px dashed var(--wz-gray-300);
+      border-bottom: 1px dashed var(--lt-gray-300);
       line-height: 31px;
     }
   }
@@ -724,7 +724,7 @@ html {
   :not(:nth-child(-n+1)) {
     .mdc-list-item__primary-text {
       position: relative !important;
-      color: var(--wz-gray-600) !important;
+      color: var(--lt-gray-600) !important;
 
       &::after {
         position: absolute;
@@ -732,7 +732,7 @@ html {
         height: 3px;
         width: 3px;
         border-radius: 50px;
-        background: var(--wz-gray-500);
+        background: var(--lt-gray-500);
         top: 10px;
         left: -11px;
         z-index: 999;
@@ -743,7 +743,7 @@ html {
 
 .mat-mdc-select-value-text {
   font-size: 0.8rem;
-  color: var(--wz-gray-900);
+  color: var(--lt-gray-900);
 }
 
 .email-domain {

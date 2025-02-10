@@ -4,66 +4,66 @@
             <form [formGroup]="userForm">
 
                 <div class="sidebar-header d-flex justify-content-between">
-                    <wz-form-header [header]="headerTittle"></wz-form-header>
+                    <lt-form-header [header]="headerTittle"></lt-form-header>
                     <div class="action-buttons d-flex c-gap-10">
-                        <wz-button [btnType]="'light-button'" (click)="closeRightSidebar()">Cancel</wz-button>
+                        <lt-button [btnType]="'light-button'" (click)="closeRightSidebar()">Cancel</lt-button>
                         <app-submit-button [placeholder]="saveTittle" [callback]="user_submit$" (submit)="save()">
                         </app-submit-button>
                     </div>
                 </div>
                 <div class="px-34 sidebar-scroll custom-scrollbar pt-4 position-relative">
                     <div class="col-12  d-flex gap-16">
-                        <wz-textbox-outline [label]="'First Name'" class="w-50" [required]="true" [type]="'text'"
+                        <lt-textbox-outline [label]="'First Name'" class="w-50" [required]="true" [type]="'text'"
                             [matHind]="true" [maxLength]="70" formControlName="first_name"
                             [control]="userForm.get('first_name')">
-                        </wz-textbox-outline>
-                        <wz-textbox-outline [label]="'Last Name'" class="w-50" [required]="true" [type]="'text'"
+                        </lt-textbox-outline>
+                        <lt-textbox-outline [label]="'Last Name'" class="w-50" [required]="true" [type]="'text'"
                             [matHind]="true" [maxLength]="70" formControlName="last_name"
                             [control]="userForm.get('last_name')">
-                        </wz-textbox-outline>
+                        </lt-textbox-outline>
                     </div>
 
                     <div class="col-12  d-flex gap-16">
-                        <wz-phone class="w-50" [label]="'Mobile Number'" formControlName="phone" [required]="true"
+                        <lt-phone class="w-50" [label]="'Mobile Number'" formControlName="phone" [required]="true"
                             [placeHolder]="'Please Enter the Mobile Number'"
-                            [control]="userForm.get('phone')"></wz-phone>
+                            [control]="userForm.get('phone')"></lt-phone>
 
-                        <wz-textbox-outline class="w-50" formControlName="mail" [control]="userForm.get('mail')"
+                        <lt-textbox-outline class="w-50" formControlName="mail" [control]="userForm.get('mail')"
                             [label]="'Email'" [type]="'text'" [required]="true" [placeHolder]="'Email'"
                             [suffixIcon]="'email'" [customClass]="'textbox-suffix-icon'" [showSuffix]="true"
                             [isEmail]="true">
-                        </wz-textbox-outline>
+                        </lt-textbox-outline>
                     </div>
                     <div class="col-12  d-flex gap-16">
-                        <wz-textbox-outline [label]="'Address Line 1'" [type]="'text'" class="w-50"
+                        <lt-textbox-outline [label]="'Address Line 1'" [type]="'text'" class="w-50"
                             [control]="userForm.get('address_line1')" [placeHolder]="'Enter the Address'"
                             [required]="true" formControlName="address_line1">
-                        </wz-textbox-outline>
+                        </lt-textbox-outline>
 
-                        <wz-textbox-outline [label]="'Address Line 2'" [type]="'text'" class="w-50"
+                        <lt-textbox-outline [label]="'Address Line 2'" [type]="'text'" class="w-50"
                             [control]="userForm.get('address_line2')" [placeHolder]="'Please Enter the Address'"
                             formControlName="address_line2">
-                        </wz-textbox-outline>
+                        </lt-textbox-outline>
                     </div>
 
                     <div class="col-12  d-flex gap-16">
-                        <wz-country [label]="'Country'" [placeHolder]="'search country'" [required]="true"
+                        <lt-country [label]="'Country'" [placeHolder]="'search country'" [required]="true"
                             [control]="userForm.get('country')" formControlName="country" class="w-50"
-                            (onValueChange)="onCountryChange($event)"></wz-country>
+                            (onValueChange)="onCountryChange($event)"></lt-country>
 
-                        <wz-state [label]="'State'" [items]="stateList" fromControlName="state" class="w-50"
-                            [control]="userForm.get('state')" (onValueChange)="onStateChange($event)"></wz-state>
+                        <lt-state [label]="'State'" [items]="stateList" fromControlName="state" class="w-50"
+                            [control]="userForm.get('state')" (onValueChange)="onStateChange($event)"></lt-state>
                     </div>
 
                     <div class="col-12  d-flex gap-16">
-                        <wz-city [label]="'City'" [items]="cityList" fromControlName="city"
+                        <lt-city [label]="'City'" [items]="cityList" fromControlName="city"
                             [control]="userForm.get('city')" class="w-50"
-                            (onValueChange)="onCityChange($event)"></wz-city>
+                            (onValueChange)="onCityChange($event)"></lt-city>
 
-                        <wz-textbox-outline [label]="'Pin code'" [type]="'text'" formControlName="pin_code" class="w-50"
+                        <lt-textbox-outline [label]="'Pin code'" [type]="'text'" formControlName="pin_code" class="w-50"
                             (inputChange)="pincodeValueChange($event,10)" [control]="userForm.get('pin_code')"
                             [placeHolder]="'Please Enter the Pin code'">
-                        </wz-textbox-outline>
+                        </lt-textbox-outline>
                     </div>
                 </div>
             </form>

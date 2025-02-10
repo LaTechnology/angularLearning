@@ -15,7 +15,7 @@
 
   <!-- grouped icon -->
   <ng-container *ngSwitchCase="'group'">
-     <div class="wz-icon-group d-flex " class="{{ customClass }}">
+     <div class="lt-icon-group d-flex " class="{{ customClass }}">
       <ng-container *ngFor="let icon of icons;index as i">
         <img src="assets/images/icons/{{ icon }}.svg" class="custom-icon {{ iconClass }} {{ 'button-icon-' + i }}" (click)="iconClick(icon)">
       </ng-container>
@@ -23,13 +23,13 @@
   </ng-container>
   <!-- mat-icon -->
   <ng-container *ngSwitchCase="'mat-icon'">
-    <div class="wz-icon" class="{{ customClass }}">
+    <div class="lt-icon" class="{{ customClass }}">
       <mat-icon class="custom-icon {{ iconClass }}">{{ name }}</mat-icon>
     </div>
   </ng-container>
   <!-- font-awesome icon -->
   <ng-container *ngSwitchCase="'font-awesome'">
-    <div class="wz-icon" class="{{ customClass }}">
+    <div class="lt-icon" class="{{ customClass }}">
       <i class="{{ name }} custom-icon {{ iconClass }}"></i>
     </div>
   </ng-container>

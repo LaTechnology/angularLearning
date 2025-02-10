@@ -1,7 +1,7 @@
 // Prefix for :root CSS variables
 
-$wz-prefix: wz- !default;
-$wz-header-height: 50px !default;
+$lt-prefix: lt- !default;
+$lt-header-height: 50px !default;
 
 //Fonts Family
 $navbar-font-family: 'Roboto', sans-serif;
@@ -134,8 +134,8 @@ $blue-gray: #607d8b;
 $light-blue-gray:#F6F9FC;
 $gray-green:#F1F9F5;
 $black: #000000;
-$wz-black: rgba(0, 0, 0, 0.87);
-$wz-light-black: rgba(0, 0, 0, 0.60);
+$lt-black: rgba(0, 0, 0, 0.87);
+$lt-light-black: rgba(0, 0, 0, 0.60);
 $white: $white;
 $medium-gray: #838383;
 $dark-gray-1:#969696;
@@ -173,7 +173,7 @@ $absent: #FF4144;
 $holiday: #4CAF50;
 $regularize: #CB00F4;
 
-$wz-colors: (
+$lt-colors: (
   'transparent-white':$transparent-white,
   'red': $red,
   'aqua-blue': $aqua-blue,
@@ -341,7 +341,7 @@ $wz-colors: (
   'leave': $leave,
 ) !default;
 
-$wz-theme-colors: (
+$lt-theme-colors: (
   'primary': $primary,
   'primary-100': #{$primary}1a,
   'primary-200': #{$primary}2a,
@@ -460,8 +460,8 @@ $wz-theme-colors: (
   'light-yellow' : $light-yellow,
   'dark-yellow' : $dark-yellow,
   'gray-green' : $gray-green,
-  'black-87' : $wz-black,
-  'black-60' : $wz-light-black,
+  'black-87' : $lt-black,
+  'black-60' : $lt-light-black,
   'success': $success,
   'warning':$warning,
 ) !default;
@@ -479,7 +479,7 @@ $linear-colors: (
   'card4': linear-gradient(to left, #d38312, #a83279),
 ) !default;
 
-$wz-badge-colors: (
+$lt-badge-colors: (
   'col-1': $badge-color-1,
   'col-2': $badge-color-2,
   'col-3': $badge-color-3,
@@ -487,13 +487,13 @@ $wz-badge-colors: (
   'col-5': $badge-color-5
 ) !default;
 
-$wz-border-styles: (
+$lt-border-styles: (
   'solid': solid,
   'dashed': dashed,
   'dotted': dotted
 ) !default;
 
-$wz-emp-badge-colors: (
+$lt-emp-badge-colors: (
   'col-1': $emp-color-1,
   'col-2': $emp-color-2,
   'col-3': $emp-color-3,

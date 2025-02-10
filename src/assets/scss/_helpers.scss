@@ -601,7 +601,7 @@ $val in $linear-colors {
 }
 
 @each $key,
-$val in $wz-colors {
+$val in $lt-colors {
   .col-#{$key} {
     color: $val !important;
   }
@@ -612,7 +612,7 @@ $val in $wz-colors {
 }
 
 @each $key,
-$val in $wz-theme-colors {
+$val in $lt-theme-colors {
   .col-#{$key} {
     color: $val !important;
   }
@@ -642,7 +642,7 @@ $val in $wz-theme-colors {
   }
 }
 
-@each $key, $val in $wz-border-styles {
+@each $key, $val in $lt-border-styles {
   .border-#{$key} { 
     border-style: $val !important;
   }
@@ -650,14 +650,14 @@ $val in $wz-theme-colors {
 
 
 @each $key,
-$val in $wz-badge-colors {
+$val in $lt-badge-colors {
   .badge-#{$key} {
     background-color: $val !important;
   }
 }
 
 @each $key,
-$val in $wz-emp-badge-colors {
+$val in $lt-emp-badge-colors {
   .emp-#{$key} {
     background-color: $val !important;
   }
@@ -681,7 +681,7 @@ $val in $wz-emp-badge-colors {
   }
 
   .gray-#{$i} {
-    color:var(--wz-gray-#{$i}) !important;
+    color:var(--lt-gray-#{$i}) !important;
   }
 
   .width-per-#{$i} {
@@ -870,27 +870,27 @@ $val in $wz-emp-badge-colors {
   pointer-events: none !important;
 }
 
-.wz-border {
+.lt-border {
   border: 0.8px solid $input-border !important;
 }
 
-.wz-border-secondary {
+.lt-border-secondary {
   border: 0.8px solid $secondary !important;
 }
 
-.wz-border-left {
+.lt-border-left {
   border-left: 0.8px solid $input-border !important;
 }
 
-.wz-border-right {
+.lt-border-right {
   border-right: 0.8px solid $input-border !important;
 }
 
-.wz-border-bottom {
+.lt-border-bottom {
   border-bottom: 0.8px solid $input-border !important;
 }
 
-.wz-border-top {
+.lt-border-top {
   border-top: 0.8px solid $input-border !important;
 }
 
@@ -906,10 +906,10 @@ $val in $wz-emp-badge-colors {
   border: none !important;
 }
 
-.wz-box-shadow {
+.lt-box-shadow {
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
 }
-.wz-box-shadow-light {
+.lt-box-shadow-light {
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
 }
 

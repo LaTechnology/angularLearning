@@ -3,7 +3,7 @@ import { FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatAutocomplete } from '@angular/material/autocomplete';
 import { map, startWith } from 'rxjs';
 @Component({
-  selector: 'wz-city',
+  selector: 'lt-city',
   templateUrl: './city-dropdown.component.html',
   styleUrls: ['./city-dropdown.component.scss'],
   providers: [

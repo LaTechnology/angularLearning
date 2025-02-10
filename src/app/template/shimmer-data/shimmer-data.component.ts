@@ -2,7 +2,7 @@ import { AfterContentChecked, AfterViewChecked, AfterViewInit, Component, Elemen
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'wz-shimmer-data',
+  selector: 'lt-shimmer-data',
   templateUrl: './shimmer-data.component.html',
   styleUrls: ['./shimmer-data.component.scss']
 })

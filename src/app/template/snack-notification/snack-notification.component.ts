@@ -3,7 +3,7 @@ import { MAT_SNACK_BAR_DATA, MatSnackBarRef } from '@angular/material/snack-bar'
 import { UtilService } from 'app/services/util.service';
 
 @Component({
-  selector: 'wz-snack-notification',
+  selector: 'lt-snack-notification',
   templateUrl: './snack-notification.component.html',
   styleUrls: ['./snack-notification.component.scss']
 })

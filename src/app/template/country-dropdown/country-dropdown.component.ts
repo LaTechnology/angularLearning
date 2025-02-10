@@ -6,7 +6,7 @@ import { map, startWith } from 'rxjs';
 //import currencyList from 'src/assets/data/currencies.json';
 
 @Component({
-  selector: 'wz-country',
+  selector: 'lt-country',
   templateUrl: './country-dropdown.component.html',
   styleUrls: ['./country-dropdown.component.scss'],
   providers: [

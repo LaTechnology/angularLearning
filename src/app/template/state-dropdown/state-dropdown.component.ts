@@ -5,7 +5,7 @@ import { City } from 'country-state-city';
 import { map, startWith } from 'rxjs';
 
 @Component({
-  selector: 'wz-state',
+  selector: 'lt-state',
   templateUrl: './state-dropdown.component.html',
   styleUrls: ['./state-dropdown.component.scss'],
   providers: [

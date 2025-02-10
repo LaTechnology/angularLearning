@@ -1,9 +1,9 @@
 <ng-container *ngIf="is_button; else customClickables">
-    <wz-button [ng-class]="btnValidity ? 'cursor-pinter' : ''" [htmlType]="'submit'" [disabled]="disabledBtn" [btnValidity]="btnValidity"
+    <lt-button [ng-class]="btnValidity ? 'cursor-pinter' : ''" [htmlType]="'submit'" [disabled]="disabledBtn" [btnValidity]="btnValidity"
         [customClass]="customClass" (click)="(disabled || !btnValidity) ? null : submitApi()">
         <span *ngIf="!disabled">{{ placeholder }}</span>
         <span class="btn-loader" *ngIf="disabled"></span>
-    </wz-button>
+    </lt-button>
 </ng-container>
 
 <ng-template #customClickables>
