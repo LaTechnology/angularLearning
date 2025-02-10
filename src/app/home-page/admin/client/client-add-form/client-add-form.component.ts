@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { UtilService } from 'app/services/util.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ClientService } from 'app/services/client.service';
+import { SessionStorageService } from 'app/services/session-storage.service';
 
 @Component({
   selector: 'app-client-add-form',
@@ -21,10 +24,10 @@ export class ClientAddFormComponent {
   //popups
   user_submit$: any;
 
-  constructor(public _util: UtilService, private router: Router) {}
+  constructor(public _util: UtilService, private router: Router,public _client:ClientService,private activatedRoute: ActivatedRoute,public _session:SessionStorageService) {}
 
   ngOnInit() {
-    this.initialLoad('add')
+    this.initialLoad(this.activatedRoute.snapshot.url[0].path);
   }
 
   initialLoad(userAction: string) {
@@ -32,24 +35,29 @@ export class ClientAddFormComponent {
     this.userSidebar = true;
     this.initiateuserForm();
     if (userAction == 'edit') {
+      this.selectedDataApi(this.activatedRoute.snapshot.url[1].path)
       this.headerTittle = 'Update User';
       this.saveTittle = 'Update';
-      //this.userForm.patchValue(item);
     }
     if (userAction === 'add') {
-      this.initiateuserForm();
       this.headerTittle = 'Add New User';
       this.saveTittle = 'Save';
+    } else if(userAction === 'bulk-upload'){
+      this.headerTittle = 'Bulk Update User';
+      this.saveTittle = 'Bulk Update';
+      const idList = this._session.getItem('clientIDList');
+      this.bulkSelectedDataApi(idList);
     }
   }
 
 
   closeRightSidebar() {
     this.userSidebar = false;
+    this._client.triggerSubject.next();
+    this.router.navigate(['/client']);
     setTimeout(() => {
       this.userSideBarOpen = false;
       this.user_submit$ = null;
-      this.router.navigate(['/client']);
     }, 800);
   }
 
@@ -71,22 +79,10 @@ export class ClientAddFormComponent {
 
   initiateuserForm() {
     this.userForm = new FormGroup({
-      first_name: new FormControl('', [
-        Validators.required,
-        this._util.customNameValidator(),
-      ]),
-      last_name: new FormControl('', [
-        Validators.required,
-        this._util.customNameValidator(),
-      ]),
+      first_name: new FormControl('', [ Validators.required, this._util.customNameValidator(),]),
+      last_name: new FormControl('', [Validators.required, this._util.customNameValidator(),]),
       phone: new FormControl('', [Validators.required]),
-      mail: new FormControl('', [
-        Validators.required,
-        this._util.customFieldValidator(
-          /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-          'Please enter valid Email'
-        ),
-      ]),
+      mail: new FormControl('', [Validators.required,this._util.customFieldValidator( /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,'Please enter valid Email'),]),
       address_line1: new FormControl('', [Validators.required]),
       address_line2: new FormControl(''),
       country: new FormControl('', Validators.required),
@@ -115,36 +111,60 @@ export class ClientAddFormComponent {
   save() {
     this.userForm.markAllAsTouched();
     if (this.userForm.valid) {
-      // if (this.userAction === 'add') {
-      //   this.postUserData(this.userForm.value);
-      // } else if (this.userAction === 'edit') {
-      //   this.updateUserData(this.userForm.value);
-      // }
+      if (this.activatedRoute.snapshot.url[0].path === 'add') {
+        this.postUserData(this.userForm.value);
+      } else if (this.activatedRoute.snapshot.url[0].path === 'edit') {
+        this.updateUserData(this.userForm.value);
+      }
     }
   }
 
+  selectedDataApi(id:any) {
+    this._client?.getClientById(id)?.subscribe({
+      next: (res: any) => {
+        const data = res;
+        this.userForm.patchValue(data);
+      },
+      error: (err: HttpErrorResponse) => {},
+      complete: () => {
+       
+      }
+    });
+  }
+
+  bulkSelectedDataApi(id:any) {
+    this._client?.getSelectedClientById(id)?.subscribe({
+      next: (res: any) => {
+        const data = res;
+        console.log(data);
+        // this.userForm.patchValue(data);
+      },
+      error: (err: HttpErrorResponse) => {},
+      complete: () => {
+       
+      }
+    });
+  }
+
   postUserData(data: any) {
-    console.log(data);
-    // const formData = data;
-    // this.userList.data = [...this.userList.data, formData];
-    this.closeRightSidebar();
-    this._util.snackNotification(
-      'success',
-      'Hurray!!',
-      'User created successfully'
-    );
+    this._client?.addClient(data)?.subscribe({
+      next: (res: any) => {},
+      error: (err: HttpErrorResponse) => {},
+      complete: () => {
+        this.closeRightSidebar();
+        this._util.snackNotification('success','Hurray!!', 'User created successfully');
+      }
+    });
   }
 
   updateUserData(data: any) {
-    const formData = data;
-    // const updatedData = [...this.userList.data]; // Create a shallow copy of the data array
-    // updatedData[this.selectedIndex] = formData;
-    // this.userList.data = updatedData;
-    this.closeRightSidebar();
-    this._util.snackNotification(
-      'success',
-      'Hurray!!',
-      'User updated successfully'
-    );
+    this._client?.updateClient(this.activatedRoute.snapshot.url[1].path,data)?.subscribe({
+      next: (res: any) => {},
+      error: (err: HttpErrorResponse) => {},
+      complete: () => {
+        this.closeRightSidebar();
+        this._util.snackNotification('success','Hurray!!','User updated successfully');
+      }
+    });
   }
 }

@@ -11,6 +11,13 @@ export class HomePageComponent implements OnInit {
     { label: 'Inventory', link: '/inventory' },
     { label: 'Order', link: '/order' }
   ];
+  linkDropdownList =[
+    {name: 'Customer', link: '/customer'},
+    {name: 'Product', link: '/products'},
+    {name: 'Address', link: '/address/list'},
+    {name: 'Client', link: '/client'},
+    {name: 'Roles', link: '/roles'},
+  ]
   activeTabIndex = 0;
 
   constructor(private router: Router) {}
