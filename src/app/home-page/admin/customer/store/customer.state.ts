@@ -8,6 +8,6 @@ export interface CustomerState {
   
   export const initialState: CustomerState = {
     customers: [],
-    loading: false,
+    loading: true,
     error: null
   };

@@ -1,104 +1,264 @@
-<form [formGroup]="customerForm" (ngSubmit)="onSubmit()" class="customer-form">
-    <mat-card>
 
-      <mat-card-title class="title">{{ isEditMode ? 'Edit Customer' : 'Add Customer' }}</mat-card-title>
-      <mat-card-content>
-        <div class="form-container">
-          
-           
-          <mat-form-field appearance="fill">
-          
-            <mat-label>First Name
-            </mat-label>
-            <input matInput formControlName="firstName" />
-            <mat-error *ngIf="customerForm.get('firstName')?.invalid && customerForm.get('firstName')?.touched">
-              First Name is required (Min 2 characters).
-            </mat-error>
-          </mat-form-field>
-  
-          <mat-form-field appearance="fill">
-           
-            <mat-label>Last Name
-            </mat-label>
-            <input matInput formControlName="lastName" />
-            <mat-error *ngIf="customerForm.get('lastName')?.invalid && customerForm.get('lastName')?.touched">
-              Last Name is required.
-            </mat-error>
-          </mat-form-field>
-  
-          <mat-form-field appearance="fill">
-            <mat-label>Age
-            </mat-label>
-            
-            <input matInput type="number" formControlName="age" />
-            <mat-error *ngIf="customerForm.get('age')?.invalid && customerForm.get('age')?.touched">
-              Age must be between 18 and 100.
-            </mat-error>
-          </mat-form-field>
-  
-          <mat-form-field appearance="fill">
-            <mat-label>Email
-            </mat-label>
 
-            <input matInput type="email" formControlName="email" />
-            <mat-error *ngIf="customerForm.get('email')?.invalid && customerForm.get('email')?.touched">
-              Enter a valid email.
-            </mat-error>
-          </mat-form-field>
-  
-          <mat-form-field appearance="fill">
-            <mat-label>Date of Birth
-            </mat-label>
+<form [formGroup]="customerForm" class="customer-form">
+  <mat-card>
+    <mat-card-title class="title">
+      {{
+        isBulkEditMode
+          ? "Update Bulk Customers"
+          : isEditMode
+          ? "Update Customer"
+          : "Add Customer"
+      }}
+    </mat-card-title>
+    
+    <mat-card-content>
+      <div class="form-container">
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            formControlName="firstName"
            
-            <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" />
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          />
+          <mat-error
+            *ngIf="
+              customerForm.get('firstName')?.invalid &&
+              customerForm.get('firstName')?.touched
+            "
+          >
+            First Name is required.
+          </mat-error>
+        </mat-form-field>
+        <button 
+        *ngIf="customerForm.controls['firstName'].value === 'Mixed Value'"
+          mat-icon-button
+          (click)="toggleFieldEdit('firstName')"
+        >
+          <mat-icon>{{
+              editableFields.has('firstName') ? 'edit' : 'cancel'  
+          }}</mat-icon>
+        </button>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            formControlName="lastName"
+           
+          />
+          <mat-error
+            *ngIf="
+              customerForm.get('lastName')?.invalid &&
+              customerForm.get('lastName')?.touched
+            "
+          >
+            Last Name is required.
+          </mat-error>
+        </mat-form-field>
+        <button
+        *ngIf="customerForm.controls['lastName'].value === 'Mixed Value'"
+          mat-icon-button
+          (click)="toggleFieldEdit('lastName')"
+        >
+          <mat-icon>{{
+            editableFields.has('lastName') ? 'edit' : 'cancel' 
+          }}</mat-icon>
+        </button>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Age</mat-label>
+          <input
+            matInput
+            type="number"
+            formControlName="age"
+
+          />
+          <mat-error
+            *ngIf="
+              customerForm.get('age')?.invalid &&
+              customerForm.get('age')?.touched
+            "
+          >
+            Age must be between 18 and 100.
+          </mat-error>
+        </mat-form-field>
+        <button
+        *ngIf="customerForm.controls['age'].value === 'Mixed Value'"
+          mat-icon-button
+          (click)="toggleFieldEdit('age')"
+        >
+          <mat-icon>{{
+           editableFields.has('age') ? 'edit' : 'cancel'  
+          }}</mat-icon>
+        </button>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            type="email"
+            formControlName="email"
+          />
+          <mat-error
+            *ngIf="
+              customerForm.get('email')?.invalid &&
+              customerForm.get('email')?.touched
+            "
+          >
+            Enter a valid email.
+          </mat-error>
+        </mat-form-field>
+
+        <button
+        *ngIf="customerForm.controls['email'].value === 'Mixed Value'"
+          mat-icon-button
+          (click)="toggleFieldEdit('email')"
+        >
+          <mat-icon>{{
+            editableFields.has('email') ? 'edit' : 'cancel'  
+          }}</mat-icon>
+        </button>
+
+        <!-- Date of Birth -->
+        <!-- <mat-form-field appearance="fill">
+            <mat-label>Date of Birth</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dateOfBirth"  (input)="onFieldChange('dateOfBirth')" />
+            <mat-datepicker-toggle matSuffix [for]="picker" *ngIf="isMixedValue('dateOfBirth')"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <mat-error *ngIf="customerForm.get('dateOfBirth')?.invalid && customerForm.get('dateOfBirth')?.touched">
               Date of Birth is required.
             </mat-error>
-          </mat-form-field>
-  
-          <mat-form-field appearance="fill">
-            <mat-label>Phone Number
+            
+          </mat-form-field> -->
 
-            </mat-label>
-          
-            <input matInput formControlName="phoneNumber" />
-            <mat-error *ngIf="customerForm.get('phoneNumber')?.invalid && customerForm.get('phoneNumber')?.touched">
-             <span> Enter a valid 10-digit phone number.</span> 
-            </mat-error>
-          </mat-form-field>
-  
-          <mat-form-field appearance="fill">
-       <mat-label>Alternative Phone Number</mat-label> 
-            
-            <input matInput formControlName="alternativePhoneNumber" />
-          </mat-form-field>
-  
-          
-          <!-- Gender -->
-          <mat-form-field >
-            <mat-label>Gender
-      
-            </mat-label>
-         
-            <mat-select formControlName="gender">
-              <mat-option value="Male">Male</mat-option>
-              <mat-option value="Female">Female</mat-option>
-              <mat-option value="Other">Other</mat-option>
-            </mat-select>
-          </mat-form-field>
-  
-            
-        </div>
-  
-        <div class="button-container">
-          <button mat-raised-button color="primary" type="submit"  [disabled]="customerForm.invalid || (isEditMode && !isEditEnabled)">
-            {{ isEditMode ? 'Update Customer' : 'Add Customer' }}
-          </button>
-        </div>
-  
-      </mat-card-content>
-    </mat-card>
-  </form>
-  
+        <mat-form-field appearance="fill">
+          <mat-label>Date of Birth</mat-label>
+
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="dateOfBirth"
+          />
+
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+
+          <mat-error
+            *ngIf="
+              customerForm.get('dateOfBirth')?.invalid &&
+              customerForm.get('dateOfBirth')?.touched
+            "
+          >
+            Date of Birth is required.
+          </mat-error>
+        </mat-form-field>
+
+        <button
+        *ngIf="customerForm.controls['dateOfBirth'].value === 'Mixed Value'"
+          mat-icon-button
+          (click)="toggleFieldEdit('dateOfBirth')"
+        >
+          <mat-icon>{{
+            editableFields.has('dateOfBirth') ? 'edit' : 'cancel'  
+          }}</mat-icon>
+        </button>
+        <mat-form-field appearance="fill">
+          <mat-label>Phone Number</mat-label>
+          <input
+            matInput
+            formControlName="phoneNumber"
+          />
+          <mat-error
+            *ngIf="
+              customerForm.get('phoneNumber')?.invalid &&
+              customerForm.get('phoneNumber')?.touched
+            "
+          >
+            Enter a valid 10-digit phone number.
+          </mat-error>
+        </mat-form-field>
+        <button
+        *ngIf="customerForm.controls['phoneNumber'].value === 'Mixed Value'"
+          mat-icon-button
+          (click)="toggleFieldEdit('phoneNumber')"
+        >
+          <mat-icon>{{
+            editableFields.has('phoneNumber') ? 'edit' : 'cancel' 
+          }}</mat-icon>
+        </button>
+
+        <!-- Alternative Phone Number -->
+        <mat-form-field appearance="fill">
+          <mat-label>Alternative Phone Number</mat-label>
+          <input
+            matInput
+            formControlName="alternativePhoneNumber"
+          />
+        </mat-form-field>
+        <button
+        *ngIf="customerForm.controls['alternativePhoneNumber'].value === 'Mixed Value'"
+          mat-icon-button
+          (click)="toggleFieldEdit('alternativePhoneNumber')"
+        >
+          <mat-icon>{{
+            editableFields.has('alternativePhoneNumber') ? 'edit' : 'cancel'  
+          }}</mat-icon>
+        </button>
+
+        <!-- Gender -->
+        <mat-form-field appearance="fill">
+          <mat-label>Gender</mat-label>
+          <mat-select
+            formControlName="gender"
+          >
+            <mat-option *ngIf="editableFields.has('gender')" value="Mixed Value"
+              >Mixed Value</mat-option
+            >
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
+            <mat-option value="Other">Other</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="
+              customerForm.get('gender')?.invalid &&
+              customerForm.get('gender')?.touched
+            "
+          >
+            Select your gender.
+          </mat-error>
+        </mat-form-field>
+        <button
+        *ngIf="customerForm.controls['gender'].value === 'Mixed Value'"
+          mat-icon-button
+          (click)="toggleFieldEdit('gender')"
+        >
+          <mat-icon>{{
+           editableFields.has('gender') ? 'edit' : 'cancel'  
+          }}</mat-icon>
+        </button>
+      </div>
+
+      <div class="button-container">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          (click)="onSubmit()"
+          [disabled]="customerForm.invalid || customerForm.pristine "
+        >
+          {{
+            isBulkEditMode
+              ? "Update Bulk Customers"
+              : isEditMode
+              ? "Update Customer"
+              : "Add Customer"
+          }}
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

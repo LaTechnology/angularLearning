@@ -78,3 +78,23 @@ body { margin: 0; font-family: "Poppins", serif !important;
    }
   }
 }
+
+.mat-mdc-checkbox-checked .mdc-checkbox__background {
+  background-color: #0C6AF3 !important; 
+  border: none;
+}
+.mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background{
+  background-color: #0C6AF3 !important; 
+  border: none;
+}
+.mdc-checkbox__checkmark-path{
+  stroke: white !important;
+}
+
+.mat-mdc-raised-button.mat-accent{
+  background-color: #F8CC00 !important;
+}
+
+ .mat-mdc-raised-button.mat-mdc-button-disabled {
+  background-color: rgb(177, 177, 177) !important;
+}

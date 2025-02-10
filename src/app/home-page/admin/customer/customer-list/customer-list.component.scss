@@ -37,7 +37,7 @@
  
 // }
 ::ng-deep .search-box .mdc-notched-outline {
-  width: 50% !important; /* Override default width */
+  width: 30% !important; 
 }
   .table-container {
     overflow: auto;
@@ -51,5 +51,13 @@
   mat-paginator {
     margin-top: 20px;
   }
+
+  .mat-elevation-z8{
+    box-shadow:none;
+  }
   
-  
+  .no-data-message {
+    text-align: center;
+    padding: 20px;
+    color: #888;
+  }
