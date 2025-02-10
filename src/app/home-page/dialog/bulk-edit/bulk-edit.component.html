@@ -1,0 +1,27 @@
+
+ <h2 mat-dialog-title>Bulk Edit Customers</h2>
+
+ <mat-dialog-content>
+   <form [formGroup]="formData">
+     <mat-form-field *ngFor="let field of formData.controls | keyvalue">
+       <mat-label>{{ field.key }}</mat-label>
+ 
+       <ng-container *ngIf="field.key === 'gender'; else textInput">
+         <mat-select formControlName="{{ field.key }}" (selectionChange)="onFieldChange(field.key)">
+           <mat-option *ngIf="isMixedValue(field.key)" [value]="'Mixed Value'">Mixed Value</mat-option>
+           <mat-option *ngFor="let option of genderOptions" [value]="option">{{ option }}</mat-option>
+         </mat-select>
+       </ng-container>
+ 
+       <ng-template #textInput>
+         <input matInput formControlName="{{ field.key }}" (input)="onFieldChange(field.key)">
+       </ng-template>
+     </mat-form-field>
+   </form>
+ </mat-dialog-content>
+ 
+ <mat-dialog-actions>
+   <button mat-button (click)="saveChanges()">Save</button>
+   <button mat-button (click)="dialogRef.close()">Cancel</button>
+ </mat-dialog-actions>
+ 

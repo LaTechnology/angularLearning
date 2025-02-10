@@ -6,7 +6,7 @@ export enum CustomerType {
  
   export interface Customer {
     id: string;
-    customerId: string;
+    // customerId: string;
     firstName: string;
     lastName: string;
     age: number;
@@ -15,8 +15,8 @@ export enum CustomerType {
     address: string;
     phoneNumber: string;
     alternativePhoneNumber?: string;
-    isActive: boolean;
-    customerType: CustomerType;
+     isActive: boolean;
+    // customerType: CustomerType;
     gender: string;
   }
   

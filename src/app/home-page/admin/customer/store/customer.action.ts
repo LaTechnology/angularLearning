@@ -56,3 +56,20 @@ export const loadCustomerByIdFailure = createAction(
   '[Customer] Load Customer By ID Failure',
   props<{ error: string }>()
 );
+
+//DeleteCustomer
+
+export const deleteCustomer = createAction(
+  '[Customer] Delete Customer',
+  props<{ id: string }>()
+);
+
+export const deleteCustomerSuccess = createAction(
+  '[Customer] Delete Customer Success',
+  props<{ id: string }>()
+);
+
+export const deleteCustomerFailure = createAction(
+  '[Customer] Delete Customer Failure',
+  props<{ error: string }>()
+);

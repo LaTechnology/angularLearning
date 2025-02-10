@@ -30,11 +30,14 @@ const routes: Routes = [
     { path: 'addrole', component: AddroleComponent, canActivate: [AuthGuard]},
     { path: 'listrole', component: ListRoleComponent, canActivate: [AuthGuard]},
     { path: 'role/edit/:id', component: UpdateRoleComponent, canActivate: [AuthGuard]},
+	{ path: 'customer/bulkedit/:customerId', component: AddCustomerComponent, canActivate: [AuthGuard] }, // For update
     { path: '', redirectTo: 'inventory', pathMatch: 'full' },
     {
       path: 'client',
       loadChildren: () => import('../app/home-page/admin/client/client.module').then((m) => m.ClientModule),
     },
+    { path: 'customer/bulkedit', component: AddCustomerComponent, canActivate: [AuthGuard] },
+
   ];
 
 @NgModule({

@@ -36,6 +36,7 @@ export class CustomerEffects {
     )
   );
 
+  //updateCustomer
   updateCustomer$ = createEffect(() =>
     this.actions$.pipe(
       ofType(CustomerAction.updateCustomer),
@@ -62,5 +63,19 @@ export class CustomerEffects {
           of(CustomerAction.loadCustomerByIdFailure({ error: error.message }))
       )
     )
-  )))
+  )));
+
+  //deleteCustomer
+
+  deleteCustomer$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(CustomerAction.deleteCustomer),
+      mergeMap((action) =>
+        this.customerService.deleteCustomer(action.id).pipe(
+          map(() => CustomerAction.deleteCustomerSuccess({ id: action.id })),
+          catchError((error) => of(CustomerAction.deleteCustomerFailure({ error: error.message })))
+        )
+      )
+    )
+  );
 }

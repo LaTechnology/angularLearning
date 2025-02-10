@@ -32,7 +32,6 @@ import { customerReducer } from './home-page/admin/customer/store/customer.reduc
 import { CustomerEffects } from './home-page/admin/customer/store/customer.effects';
 import { AddProductComponent } from './home-page/admin/product/add-product/add-product.component';
 import { ProductListComponent } from './home-page/admin/product/product-list/product-list.component';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSort } from '@angular/material/sort';
 import { CreateAddressComponent } from './home-page/admin/address/create-address/create-address.component';
 import { AddressListComponent } from './home-page/admin/address/address-list/address-list.component';
@@ -45,6 +44,10 @@ import { AddroleComponent } from './home-page/admin/role/addrole/addrole.compone
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddressBulkEditComponent } from './home-page/admin/address/address-bulk-edit/address-bulk-edit.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ConfirmDialogComponent } from './home-page/dialog/confirm-dialog/confirm-dialog.component';
+import { BulkEditComponent } from './home-page/dialog/bulk-edit/bulk-edit.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,11 @@ import { MatMenuModule } from '@angular/material/menu';
     UpdateRoleComponent,
     DeleteDialogComponent,
     BulkEditDialogComponent,
-    AddressBulkEditComponent
+    AddressBulkEditComponent,
+    ConfirmDialogComponent,
+    BulkEditComponent
+    // ConfirmationDialogComponent,
+   
   ],
   imports: [
     NgbModule,
@@ -95,9 +102,6 @@ import { MatMenuModule } from '@angular/material/menu';
     MatIconModule,
     HttpClientModule,
     MatDatepickerModule,
-    StoreModule.forRoot({ customers: customerReducer }),
-    EffectsModule.forRoot([CustomerEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
      MatSelectModule,
       MatInputModule,
        FormsModule,
@@ -118,7 +122,7 @@ import { MatMenuModule } from '@angular/material/menu';
      HttpClientModule,
      StoreModule.forRoot({customers: customerReducer}),
      EffectsModule.forRoot([CustomerEffects]),
-     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
      
   ],
   providers: [
