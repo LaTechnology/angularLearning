@@ -8,6 +8,7 @@ import { ConfirmationPopupComponent } from 'app/model-popup/confirmation-popup/c
 import { ClientService } from 'app/services/client.service';
 import { SessionStorageService } from 'app/services/session-storage.service';
 import { UtilService } from 'app/services/util.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -34,8 +35,23 @@ export class ClientComponent {
     tableSearch: any = '';
   
     data: any[] = [];
+
+    private triggerSubscription!: Subscription;
   
     constructor(public _util: UtilService, private _dialog: MatDialog,private router: Router,public _client:ClientService,public _session:SessionStorageService) {}
+
+    ngOnInit() {
+      this.getClientList();
+      this.triggerSubscription = this._client.trigger$.subscribe(() => {
+        this.getClientList();
+      });
+    }
+
+    ngOnDestroy(): void {
+      if (this.triggerSubscription) {
+        this.triggerSubscription.unsubscribe();
+      }
+    }
   
     // search
     liveSearchCurrentlyOt(event: any) {
@@ -59,13 +75,6 @@ export class ClientComponent {
           this.clientSelection.select(row)
         );
       }
-    }
-  
-    ngOnInit() {
-      this.getClientList();
-      this._client.trigger$.subscribe(() => {
-        this.getClientList();
-      });
     }
   
     toggleRightPanel(userAction: string, item?: any, i?: any) {
@@ -124,6 +133,7 @@ export class ClientComponent {
         this._client?.getAllClients()?.subscribe({
           next: (res: any) => {
             this.userList.data = res;
+
           },
           error: (err: HttpErrorResponse) => {},
           complete: () => {
