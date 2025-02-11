@@ -126,16 +126,13 @@ export class ClientAddFormComponent {
   }
 
   selectedDataApi(id:any) {
-    this._client?.getClientById(id)?.subscribe({
-      next: (res: any) => {
+    this._client?.getClientById(id)?.subscribe( (res: any) => {
         const data = res;
         this.userForm.patchValue(data);
       },
-      error: (err: HttpErrorResponse) => {},
-      complete: () => {
-       
-      }
-    });
+      (err: HttpErrorResponse) => {},
+      () => { }
+    );
   }
 
   bulkSelectedDataApi(id:any) {
@@ -145,10 +142,8 @@ export class ClientAddFormComponent {
       },
       error: (err: HttpErrorResponse) => {},
       complete: () => {
-        console.log(this.bulkSelectedData,'bulkSelectedData');
         this.result = this.mergeObjectsById(this.bulkSelectedData);
         this.userForm.patchValue(this.result);
-        console.log(this.result,'result');
       }
     });
   }
