@@ -6,6 +6,7 @@ import { ProductService } from '../product.service';
 import { Product } from '../product.model';
 import { Router } from '@angular/router';
 import { SelectionModel } from '@angular/cdk/collections';
+import { environment } from 'environments/environment.development';
 
 declare var bootstrap: any;
 
@@ -15,7 +16,7 @@ declare var bootstrap: any;
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['select', 'productName', 'size', 'brand', 'color', 'code', 'quantity', 'actions'];
+  displayedColumns: string[] = environment.displayedColumns;
   dataSource = new MatTableDataSource<Product>([]);
   selection = new SelectionModel<Product>(true, []);
   selectedProductId: number | null = null;
@@ -36,7 +37,9 @@ export class ProductListComponent implements OnInit, AfterViewInit {
 
   bulkEdit() {
     const selectedIds = this.selection.selected.map(product => product.id);
-    this.router.navigate(['/product/bulk-edit'], { queryParams: { ids: selectedIds.join(',') } });
+    if (selectedIds.length > 0) {
+      this.router.navigate(['/product/add'], { queryParams: { ids: selectedIds.join(',') } });
+    }
   }
   
   ngAfterViewInit(): void {
@@ -94,7 +97,6 @@ export class ProductListComponent implements OnInit, AfterViewInit {
           this.selectedProductId = null;
         },
         error: (error) => {
-          //console.error('Error deleting product:', error);
           alert('Failed to delete the product.');
         }
       });
