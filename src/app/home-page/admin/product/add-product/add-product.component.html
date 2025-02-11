@@ -1,73 +1,93 @@
 <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-6 custom-form">
-        <h2 class="text-center mb-3">Add Product</h2>
-        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-          <div class="row">
-            <div class="col-12 col-md-6">
-              <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Name</mat-label>
-                <input matInput formControlName="productName">
-                <mat-error *ngIf="f['productName'].errors?.['required']">Name is required</mat-error>
-                <mat-error *ngIf="f['productName'].errors?.['minlength']">Minimum 3 characters required</mat-error>
-                <mat-error *ngIf="f['productName'].errors?.['maxlength']">Maximum 50 characters allowed</mat-error>
-              </mat-form-field>
-            </div>
-            <div class="col-12 col-md-6">
-              <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Size</mat-label>
-                <mat-select formControlName="size">
-                  <mat-option *ngFor="let size of sizes" [value]="size">{{ size }}</mat-option>
-                </mat-select>
-                <mat-error *ngIf="f['size'].errors?.['required']">Size is required</mat-error>
-              </mat-form-field>
-            </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 custom-form">
+      <h2 class="text-center mb-3">
+        {{ isBulkEditMode ? 'Bulk Edit Products' : (route.snapshot.queryParams['id'] ? 'Edit Product' : 'Add Product') }}
+      </h2>
+      
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="productName">
+              <mat-hint *ngIf="isBulkEditMode && productForm.get('productName')?.value === ''">Mixed values</mat-hint>
+              <mat-error *ngIf="f['productName'].errors?.['required']">Name is required</mat-error>
+              <mat-error *ngIf="f['productName'].errors?.['minlength']">Minimum 3 characters required</mat-error>
+              <mat-error *ngIf="f['productName'].errors?.['maxlength']">Maximum 50 characters allowed</mat-error>
+            </mat-form-field>
           </div>
-          <div class="row">
-            <div class="col-12 col-md-6">
-              <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Brand</mat-label>
-                <input matInput formControlName="brand">
-                <mat-error *ngIf="f['brand'].errors?.['required']">Brand is required</mat-error>
-                <mat-error *ngIf="f['brand'].errors?.['minlength']">Minimum 2 characters required</mat-error>
-                <mat-error *ngIf="f['brand'].errors?.['maxlength']">Maximum 30 characters allowed</mat-error>
-              </mat-form-field>
-            </div>
-            <div class="col-12 col-md-6">
-              <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Color</mat-label>
-                <input matInput formControlName="color">
-                <mat-error *ngIf="f['color'].errors?.['required']">Color is required</mat-error>
-                <mat-error *ngIf="f['color'].errors?.['minlength']">Minimum 2 characters required</mat-error>
-                <mat-error *ngIf="f['color'].errors?.['maxlength']">Maximum 20 characters allowed</mat-error>
-              </mat-form-field>
-            </div>
+
+          <div class="col-12 col-md-6">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Size</mat-label>
+              <mat-select formControlName="size">
+                <mat-option *ngFor="let size of sizes" [value]="size">{{ size }}</mat-option>
+              </mat-select>
+              <mat-hint *ngIf="isBulkEditMode && productForm.get('size')?.value === ''">Mixed values</mat-hint>
+              <mat-error *ngIf="f['size'].errors?.['required']">Size is required</mat-error>
+            </mat-form-field>
           </div>
-          <div class="row">
-            <div class="col-12 col-md-6">
-              <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Code</mat-label>
-                <input matInput formControlName="code">
-                <mat-error *ngIf="f['code'].errors?.['required']">Code is required</mat-error>
-                <mat-error *ngIf="f['code'].errors?.['pattern']">Only uppercase letters and numbers allowed</mat-error>
-                <mat-error *ngIf="f['code'].errors?.['minlength']">Minimum 5 characters required</mat-error>
-                <mat-error *ngIf="f['code'].errors?.['maxlength']">Maximum 10 characters allowed</mat-error>
-              </mat-form-field>
-            </div>
-            <div class="col-12 col-md-6">
-              <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Quantity</mat-label>
-                <input matInput type="number" formControlName="quantity">
-                <mat-error *ngIf="f['quantity'].errors?.['required']">Quantity is required</mat-error>
-                <mat-error *ngIf="f['quantity'].errors?.['min']">Minimum 1 required</mat-error>
-              </mat-form-field>
-            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Brand</mat-label>
+              <input matInput formControlName="brand">
+              <mat-hint *ngIf="isBulkEditMode && productForm.get('brand')?.value === ''">Mixed values</mat-hint>
+              <mat-error *ngIf="f['brand'].errors?.['required']">Brand is required</mat-error>
+              <mat-error *ngIf="f['brand'].errors?.['minlength']">Minimum 2 characters required</mat-error>
+              <mat-error *ngIf="f['brand'].errors?.['maxlength']">Maximum 30 characters allowed</mat-error>
+            </mat-form-field>
           </div>
-          <button class="btn btn-secondary" routerLink="/products">Back</button>
-          <button class="btn btn-success float-end" type="submit" [disabled]="productForm.invalid">
-            Submit
-          </button>
-        </form>
-      </div>
+
+          <div class="col-12 col-md-6">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Color</mat-label>
+              <input matInput formControlName="color">
+              <mat-hint *ngIf="isBulkEditMode && productForm.get('color')?.value === ''">Mixed values</mat-hint>
+              <mat-error *ngIf="f['color'].errors?.['required']">Color is required</mat-error>
+              <mat-error *ngIf="f['color'].errors?.['minlength']">Minimum 2 characters required</mat-error>
+              <mat-error *ngIf="f['color'].errors?.['maxlength']">Maximum 20 characters allowed</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Code</mat-label>
+              <input matInput formControlName="code">
+              <mat-hint *ngIf="isBulkEditMode && productForm.get('code')?.value === ''">Mixed values</mat-hint>
+              <mat-error *ngIf="f['code'].errors?.['required']">Code is required</mat-error>
+              <mat-error *ngIf="f['code'].errors?.['pattern']">Only uppercase letters and numbers allowed</mat-error>
+              <mat-error *ngIf="f['code'].errors?.['minlength']">Minimum 5 characters required</mat-error>
+              <mat-error *ngIf="f['code'].errors?.['maxlength']">Maximum 10 characters allowed</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Quantity</mat-label>
+              <input matInput type="number" formControlName="quantity">
+              <mat-hint *ngIf="isBulkEditMode && productForm.get('quantity')?.value === ''">Mixed values</mat-hint>
+              <mat-error *ngIf="f['quantity'].errors?.['required']">Quantity is required</mat-error>
+              <mat-error *ngIf="f['quantity'].errors?.['min']">Minimum 1 required</mat-error>
+              <mat-error *ngIf="f['quantity'].errors?.['max']">Maximum 100 allowed</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 text-end">
+            <button class="btn btn-secondary" routerLink="/products">Back</button>
+            <button class="btn btn-success float-end ms-2" type="submit" [disabled]="productForm.invalid">
+              {{ isBulkEditMode ? 'Update Products' : (route.snapshot.queryParams['id'] ? 'Update Product' : 'Add Product') }}
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
-</div>  
+  </div>
+</div>

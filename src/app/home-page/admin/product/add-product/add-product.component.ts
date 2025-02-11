@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
 import { Product } from '../product.model';
-import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -12,8 +12,16 @@ import { ActivatedRoute } from '@angular/router';
 export class AddProductComponent {
   productForm: FormGroup;
   sizes = ['S', 'M', 'L', 'XL'];
+  isBulkEditMode = false;
+  selectedProductIds: number[] = [];
+  productsToEdit: Product[] = [];
 
-  constructor(private fb: FormBuilder, private productService: ProductService, private router: Router, private route: ActivatedRoute) {
+  constructor(
+    private fb: FormBuilder,
+    private productService: ProductService,
+    private router: Router,
+    public route: ActivatedRoute
+  ) {
     this.productForm = this.fb.group({
       productName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       size: ['', Validators.required],
@@ -30,7 +38,17 @@ export class AddProductComponent {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      if (params['id']) {
+      if (params['ids']) {
+        this.isBulkEditMode = true;
+        this.selectedProductIds = params['ids']
+          .split(',')
+          .map((id: string): number | null => {
+            const parsedId = Number(id);
+            return isNaN(parsedId) ? null : parsedId;
+          })
+          .filter((id: number | null): id is number => id !== null);
+          this.loadProductsForBulkEdit();
+      } else if (params['id']) {
         this.productService.getProductById(params['id']).subscribe(product => {
           if (product) {
             this.productForm.patchValue(product);
@@ -40,10 +58,50 @@ export class AddProductComponent {
     });
   }
   
+
+  loadProductsForBulkEdit() {
+    this.productService.getProducts().subscribe(products => {
+      this.productsToEdit = products.filter(product => 
+        product.id !== undefined && this.selectedProductIds.includes(product.id)
+      );
+
+      if (this.productsToEdit.length > 0) {
+        this.populateFormForBulkEdit();
+      }
+    });
+  }
+
+  populateFormForBulkEdit() {
+    if (!this.productsToEdit.length) {
+      return;
+    }
+    const formValues: any = {};
+    const fields = ['productName', 'size', 'brand', 'color', 'code', 'quantity'];
+    fields.forEach(field => {
+      const values = this.productsToEdit
+        .map(product => product[field as keyof Product])
+        .filter(value => value !== undefined);
+      const uniqueValues = new Set(values);
+      formValues[field] = uniqueValues.size === 1 ? values[0] : ''; 
+    });
+    this.productForm.patchValue(formValues);
+    this.productForm.markAsTouched();
+    this.productForm.updateValueAndValidity();
+  }
+  
+
   onSubmit() {
     if (this.productForm.invalid) return;
     const productData: Product = this.productForm.value;
-    if (this.route.snapshot.queryParams['id']) {
+    if (this.isBulkEditMode) {
+      this.productsToEdit.forEach(product => {
+        if (product.id !== undefined) {
+          const updatedProduct = { ...product, ...productData };
+          this.productService.updateProduct(product.id, updatedProduct).subscribe();
+        }
+      });
+      this.router.navigate(['/products']);
+    } else if (this.route.snapshot.queryParams['id']) {
       this.productService.updateProduct(this.route.snapshot.queryParams['id'], productData).subscribe(() => {
         this.router.navigate(['/products']);
       });
