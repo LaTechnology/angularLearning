@@ -12,8 +12,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { InventoryComponent } from './home-page/inventory/inventory.component';
 import { OrdersComponent } from './home-page/orders/orders.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { CustomerListComponent } from './home-page/admin/customer/customer-list/customer-list.component';
-import { AddCustomerComponent } from './home-page/admin/customer/add-customer/add-customer.component';
 import { CommonModule } from '@angular/common';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
@@ -29,11 +27,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { customerReducer } from './home-page/admin/customer/store/customer.reducer';
 import { CustomerEffects } from './home-page/admin/customer/store/customer.effects';
-import { AddProductComponent } from './home-page/admin/product/add-product/add-product.component';
-import { ProductListComponent } from './home-page/admin/product/product-list/product-list.component';
 import { MatSort } from '@angular/material/sort';
-import { CreateAddressComponent } from './home-page/admin/address/create-address/create-address.component';
-import { AddressListComponent } from './home-page/admin/address/address-list/address-list.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ListRoleComponent } from './home-page/admin/role/list-role/list-role.component';
 import { UpdateRoleComponent } from './home-page/admin/role/update-role/update-role.component';
@@ -41,16 +35,12 @@ import { DeleteDialogComponent } from './home-page/admin/role/delete-dialog/dele
 import { BulkEditDialogComponent } from './home-page/admin/role/bulk-edit-dialog/bulk-edit-dialog.component';
 import { AddroleComponent } from './home-page/admin/role/addrole/addrole.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AddressBulkEditComponent } from './home-page/admin/address/address-bulk-edit/address-bulk-edit.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ConfirmDialogComponent } from './home-page/dialog/confirm-dialog/confirm-dialog.component';
 import { BulkEditComponent } from './home-page/dialog/bulk-edit/bulk-edit.component';
-import { CustomerModule } from './home-page/admin/customer/customer/customer.module';
 import { addressReducer } from './home-page/admin/address/store/address.reducer';
 import { AddressEffects } from './home-page/admin/address/store/address.effects';
-import { AddressModule } from './home-page/admin/address/address.module';
 
 
 @NgModule({
@@ -59,10 +49,6 @@ import { AddressModule } from './home-page/admin/address/address.module';
     HomePageComponent,
     InventoryComponent,
     OrdersComponent,
-    // CustomerListComponent,
-    // AddCustomerComponent,
-    AddProductComponent,
-    ProductListComponent,
     AddroleComponent,
     ListRoleComponent,
     UpdateRoleComponent,

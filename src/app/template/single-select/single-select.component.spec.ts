@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProductListComponent } from './product-list.component';
+import { SingleSelectComponent } from './single-select.component';
 
-describe('ProductListComponent', () => {
-  let component: ProductListComponent;
-  let fixture: ComponentFixture<ProductListComponent>;
+describe('SingleSelectComponent', () => {
+  let component: SingleSelectComponent;
+  let fixture: ComponentFixture<SingleSelectComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductListComponent]
+      declarations: [ SingleSelectComponent ]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(ProductListComponent);
+
+    fixture = TestBed.createComponent(SingleSelectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

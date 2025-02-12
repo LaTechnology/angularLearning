@@ -27,7 +27,7 @@
   ],
   "products": [
     {
-      "productName": "Shirts",
+      "productName": "kavin k",
       "size": "S",
       "brand": "Nike",
       "color": "RED",
@@ -36,7 +36,7 @@
       "id": "f1e2"
     },
     {
-      "productName": "Casual Shirts",
+      "productName": "kavin k",
       "size": "L",
       "brand": "Allen Solly",
       "color": "Blue",
@@ -45,7 +45,7 @@
       "id": "4a3f"
     },
     {
-      "productName": "Formal Shirt",
+      "productName": "kavin k",
       "size": "XL",
       "brand": "Allen Solly",
       "color": "Green",
@@ -54,31 +54,22 @@
       "id": "cf5e"
     },
     {
-      "id": "9d2d",
-      "productName": "Shirts",
+      "productName": "kavin k",
       "size": "M",
       "brand": "OTTO",
       "color": "Full Sleeves White",
       "code": "OT456",
-      "quantity": 4
+      "quantity": 4,
+      "id": "9d2d"
     },
     {
-      "id": "e0bd",
-      "productName": "T-Shirt",
-      "size": "S",
-      "brand": "PUMA",
-      "color": "Half Sleeves Black",
-      "code": "PUMA22",
-      "quantity": 5
-    },
-    {
-      "id": "d894",
-      "productName": "Formal Shirts",
+      "productName": "kavin k",
       "size": "L",
       "brand": "Van Heusen",
       "color": "Slim Fit - Yellow",
       "code": "VAN55",
-      "quantity": 5
+      "quantity": 5,
+      "id": "d894"
     }
   ],
   "addresses": [
@@ -180,10 +171,10 @@
   ],
   "user": [
     {
-      "first_name": "seba",
+      "first_name": "winsten",
       "last_name": "winsten",
-      "phone": "+919877765343",
-      "mail": "winsten@gmail.com",
+      "phone": "+916545454343",
+      "mail": "kavi@gmail.com",
       "address_line1": "one",
       "address_line2": "two",
       "country": "Afghanistan",
@@ -193,10 +184,10 @@
       "id": "5544"
     },
     {
-      "first_name": "seba",
-      "last_name": "winsten",
-      "phone": "+919877765343",
-      "mail": "winsten@gmail.com",
+      "first_name": "winsten",
+      "last_name": "priya",
+      "phone": "+916545454343",
+      "mail": "kavi@gmail.com",
       "address_line1": "one",
       "address_line2": "two",
       "country": "Albania",
@@ -206,41 +197,50 @@
       "id": "c300"
     },
     {
-      "id": "a1ad",
-      "first_name": "dasdasd",
-      "last_name": "dsadsadsa",
-      "phone": "+917856476345",
-      "mail": "sebawinsten@gmail.com",
-      "address_line1": "wwqqweqwe",
-      "address_line2": "wqeqeqweqw",
+      "first_name": "winsten",
+      "last_name": "varmma",
+      "phone": "+916545454343",
+      "mail": "kavi@gmail.com",
+      "address_line1": "76,south street",
+      "address_line2": "binleaden",
       "country": "Albania",
       "state": "Bulqizë District",
       "city": "",
-      "pin_code": ""
+      "pin_code": "",
+      "id": "a1ad"
+    },
+    {
+      "first_name": "winsten",
+      "last_name": "qwewewq",
+      "phone": "+916545454343",
+      "mail": "kavi@gmail.com",
+      "address_line1": "rewrwr",
+      "address_line2": "wrwrwerwe",
+      "country": "Albania",
+      "state": "",
+      "city": "",
+      "pin_code": "",
+      "id": "b3fe"
     }
   ],
-  "location":[
+  "location": [
     {
-      "id":"1as",
-      "name":"DD Home Address",
+      "id": "1as",
+      "name": "DD Home Address",
       "shippingAddress": "be05",
       "billingAddress": "1bda"
-      
     },
     {
-      "id":"2as",
-      "name":"Jack Home Address",
+      "id": "2as",
+      "name": "Jack Home Address",
       "shippingAddress": "be05",
       "billingAddress": "1bda"
-      
     },
     {
-      "id":"3as",
-      "name":"yuva Home Address",
+      "id": "3as",
+      "name": "yuva Home Address",
       "shippingAddress": "be05",
       "billingAddress": "1bda"
-      
     }
-
   ]
 }
