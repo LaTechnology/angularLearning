@@ -1,0 +1,50 @@
+<ng-container *ngIf="custom;else form">
+  <mat-form-field appearance="outline" class="full-width box-input single-select {{ customClass }}">
+    <mat-label *ngIf="label" class="{{ labelClass }}">{{ label }}</mat-label>
+    <mat-select (selectionChange)="onSelectionChange($event)" (focusout)="onSelectFocusOut($event)"
+      [formControl]="control" [placeholder]="placeHolder" [required]="required" [readOnly]="readOnly">
+      <ng-content select="mat-option"></ng-content>
+      <mat-select-trigger>
+        <ng-content select="[mat-select-trigger]"></ng-content>
+      </mat-select-trigger>
+    </mat-select>
+    <mat-error *ngIf="(control?.touched) && control?.hasError('required')">This field is required</mat-error>
+    <mat-error *ngIf="control?.hasError('customFieldValidationError') && !control?.hasError('required')"> {{
+      control?.errors?.['customFieldValidationError'] }}</mat-error>
+    <mat-error *ngIf="control?.hasError('customError')"> {{ control?.errors?.['customError'] }}</mat-error>
+  </mat-form-field>
+</ng-container>
+
+<ng-template #form>
+  <mat-form-field appearance="outline" class="full-width box-input single-select {{ customClass }}">
+    <mat-label *ngIf="label" class="{{ labelClass }}"> {{label}} </mat-label>
+
+    <mat-select (selectionChange)="onSelectionChange($event)" (focusout)="onSelectFocusOut($event)"
+      [formControl]="control" [compareWith]="compareOptions" [placeholder]="placeHolder" [required]="required"
+      [readOnly]="readOnly">
+      <ng-container *ngIf="items?.length === 0 || !items">
+        <mat-option class="w-100 bg-white pointer-none">
+          <div class="applicable-note px-3 py-2 h-auto w-100">
+            <div class="d-flex"><wz-icon [iconClass]="'icon-18'" class="mat-2"
+                [name]="'info_round_yellow'"></wz-icon><span class="subtitle pal-10 font-weight-5 pab-4">No Data
+                Found!</span>
+            </div>
+          </div>
+        </mat-option>
+      </ng-container>
+      <div class="dropdown_infinite_scroller" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+        (scrolled)="infiniteScroll()" [scrollWindow]="false">
+        <mat-option *ngFor="let item of items" [value]="item" [disabled]="item[disable_name] === active">
+          {{ item[key_name] ? item[key_name] : item }}
+        </mat-option>
+      </div>
+
+    </mat-select>
+
+    <mat-error *ngIf="(control?.touched) && control?.hasError('required')">This field is required</mat-error>
+    <mat-error *ngIf="control?.hasError('customFieldValidationError') && !control?.hasError('required')"> {{
+      control?.errors?.['customFieldValidationError'] }}</mat-error>
+    <mat-error *ngIf="control?.hasError('customError')"> {{ control?.errors?.['customError'] }}</mat-error>
+
+  </mat-form-field>
+</ng-template>

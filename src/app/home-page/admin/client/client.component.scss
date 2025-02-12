@@ -9,6 +9,18 @@
     padding-bottom: 0.8rem;
   }
   
+  .table-client {
+    max-height: calc(100vh - 144px);
+    height: calc(100vh - 144px);
+    overflow-y: auto;
+  }
+
+  .table-inner-client {
+    max-height: calc(100vh - 200px);
+    height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+
   .orange-badge {
     background: rgba(244, 86, 0, 0.05) !important;
     color: rgb(244, 86, 0) !important;

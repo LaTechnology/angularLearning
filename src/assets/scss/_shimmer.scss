@@ -1,0 +1,54 @@
+.shimmer {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    background-color: #e7e8e9;
+    background-image: linear-gradient(to right, #e1dfdf 0, #a7aaad73 20%, #e1e2e3 40%, #d8d9db 100%);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 1000px 1000px;
+    -webkit-animation: 1s linear infinite forwards shimmerEffect;
+    animation: 1s linear infinite forwards shimmerEffect;
+    border-radius: 6px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    &.shimmer {
+        height: 32px;
+    }
+}
+
+@keyframes shimmerEffect {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.block-shimmer {
+    border: 1px solid var(--wz-gray-300);
+    padding: 10px;
+}
+
+.shimmer-table {
+    height: 100% ;
+    overflow: hidden !important;
+    z-index: 0;
+    position: relative;
+}
+
+.shimmerCells {
+    width: 200vh !important;
+}
+
+.bg-col-onboard-shimmer
+{
+    background-image: linear-gradient(to right,#e6e6e7 0,#edeef1 20%,#e6e6e7 40%,#e6e6e7 100%);
+}

@@ -21,6 +21,7 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap'; //https://ng-boot
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; //https://www.npmjs.com/package/@ng-bootstrap/ng-bootstrap
 import { TooltipDirective } from './tooltip.directive';
 import { NgxMatIntlTelInputComponent } from 'ngx-mat-intl-tel-input';
+import { SingleSelectComponent } from './single-select/single-select.component';
 
 const export_customReusableComponents: Array<Type<unknown>> = [ 
   SnackNotificationComponent,
@@ -36,6 +37,7 @@ const export_customReusableComponents: Array<Type<unknown>> = [
   BadgesComponent,
   ShimmerDataComponent,
   IconsComponent,
+  SingleSelectComponent
 ]
 
 const packages = [
