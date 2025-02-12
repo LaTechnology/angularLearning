@@ -53,17 +53,6 @@ export class CustomerEffects {
     )
   );
 
-  //geCustomerById
-  loadCustomerById$ = createEffect(() => this.actions$.pipe(
-    ofType(CustomerAction.loadCustomerById),
-    mergeMap(action =>
-      this.customerService.getCustomerById(action.customerId).pipe(
-        map(customer => CustomerAction.loadCustomerByIdSuccess({ customer })),
-        catchError( (error) => 
-          of(CustomerAction.loadCustomerByIdFailure({ error: error.message }))
-      )
-    )
-  )));
 
   //deleteCustomer
 

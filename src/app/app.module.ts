@@ -15,7 +15,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { CustomerListComponent } from './home-page/admin/customer/customer-list/customer-list.component';
 import { AddCustomerComponent } from './home-page/admin/customer/add-customer/add-customer.component';
 import { CommonModule } from '@angular/common';
-import { CustomerModule } from './home-page/admin/customer/customer.module';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
@@ -48,6 +47,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ConfirmDialogComponent } from './home-page/dialog/confirm-dialog/confirm-dialog.component';
 import { BulkEditComponent } from './home-page/dialog/bulk-edit/bulk-edit.component';
+import { CustomerModule } from './home-page/admin/customer/customer/customer.module';
 
 @NgModule({
   declarations: [
@@ -55,8 +55,8 @@ import { BulkEditComponent } from './home-page/dialog/bulk-edit/bulk-edit.compon
     HomePageComponent,
     InventoryComponent,
     OrdersComponent,
-    CustomerListComponent,
-    AddCustomerComponent,
+    // CustomerListComponent,
+    // AddCustomerComponent,
     AddProductComponent,
     ProductListComponent,
     CreateAddressComponent,
@@ -76,7 +76,6 @@ import { BulkEditComponent } from './home-page/dialog/bulk-edit/bulk-edit.compon
     NgbModule,
     MatSort,
     MatCheckboxModule,
-    CustomerModule,
     // AddressModule,
     BrowserAnimationsModule,
     BrowserModule,

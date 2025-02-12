@@ -1,5 +1,3 @@
-
-
 <form [formGroup]="customerForm" class="customer-form">
   <mat-card>
     <mat-card-title class="title">
@@ -11,16 +9,12 @@
           : "Add Customer"
       }}
     </mat-card-title>
-    
+
     <mat-card-content>
       <div class="form-container">
         <mat-form-field appearance="fill">
           <mat-label>First Name</mat-label>
-          <input
-            matInput
-            formControlName="firstName"
-           
-          />
+          <input matInput formControlName="firstName" />
           <mat-error
             *ngIf="
               customerForm.get('firstName')?.invalid &&
@@ -30,23 +24,19 @@
             First Name is required.
           </mat-error>
         </mat-form-field>
-        <button 
-        *ngIf="customerForm.controls['firstName'].value === 'Mixed Value'"
+        <button
+          *ngIf="customerForm.controls['firstName'].value === 'Mixed Value'"
           mat-icon-button
           (click)="toggleFieldEdit('firstName')"
         >
           <mat-icon>{{
-              editableFields.has('firstName') ? 'edit' : 'cancel'  
+            editableFields.has("firstName") ? "edit" : "cancel"
           }}</mat-icon>
         </button>
 
         <mat-form-field appearance="fill">
           <mat-label>Last Name</mat-label>
-          <input
-            matInput
-            formControlName="lastName"
-           
-          />
+          <input matInput formControlName="lastName" />
           <mat-error
             *ngIf="
               customerForm.get('lastName')?.invalid &&
@@ -57,23 +47,18 @@
           </mat-error>
         </mat-form-field>
         <button
-        *ngIf="customerForm.controls['lastName'].value === 'Mixed Value'"
+          *ngIf="customerForm.controls['lastName'].value === 'Mixed Value'"
           mat-icon-button
           (click)="toggleFieldEdit('lastName')"
         >
           <mat-icon>{{
-            editableFields.has('lastName') ? 'edit' : 'cancel' 
+            editableFields.has("lastName") ? "edit" : "cancel"
           }}</mat-icon>
         </button>
 
         <mat-form-field appearance="fill">
           <mat-label>Age</mat-label>
-          <input
-            matInput
-            type="number"
-            formControlName="age"
-
-          />
+          <input matInput formControlName="age" />
           <mat-error
             *ngIf="
               customerForm.get('age')?.invalid &&
@@ -84,22 +69,18 @@
           </mat-error>
         </mat-form-field>
         <button
-        *ngIf="customerForm.controls['age'].value === 'Mixed Value'"
+          *ngIf="customerForm.controls['age'].value === 'Mixed Value'"
           mat-icon-button
           (click)="toggleFieldEdit('age')"
         >
           <mat-icon>{{
-           editableFields.has('age') ? 'edit' : 'cancel'  
+            editableFields.has("age") ? "edit" : "cancel"
           }}</mat-icon>
         </button>
 
         <mat-form-field appearance="fill">
           <mat-label>Email</mat-label>
-          <input
-            matInput
-            type="email"
-            formControlName="email"
-          />
+          <input matInput type="email" formControlName="email" />
           <mat-error
             *ngIf="
               customerForm.get('email')?.invalid &&
@@ -111,12 +92,12 @@
         </mat-form-field>
 
         <button
-        *ngIf="customerForm.controls['email'].value === 'Mixed Value'"
+          *ngIf="customerForm.controls['email'].value === 'Mixed Value'"
           mat-icon-button
           (click)="toggleFieldEdit('email')"
         >
           <mat-icon>{{
-            editableFields.has('email') ? 'edit' : 'cancel'  
+            editableFields.has("email") ? "edit" : "cancel"
           }}</mat-icon>
         </button>
 
@@ -158,20 +139,17 @@
         </mat-form-field>
 
         <button
-        *ngIf="customerForm.controls['dateOfBirth'].value === 'Mixed Value'"
+          *ngIf="customerForm.controls['dateOfBirth'].value === 'Mixed Value'"
           mat-icon-button
           (click)="toggleFieldEdit('dateOfBirth')"
         >
           <mat-icon>{{
-            editableFields.has('dateOfBirth') ? 'edit' : 'cancel'  
+            editableFields.has("dateOfBirth") ? "edit" : "cancel"
           }}</mat-icon>
         </button>
         <mat-form-field appearance="fill">
           <mat-label>Phone Number</mat-label>
-          <input
-            matInput
-            formControlName="phoneNumber"
-          />
+          <input matInput formControlName="phoneNumber" />
           <mat-error
             *ngIf="
               customerForm.get('phoneNumber')?.invalid &&
@@ -182,39 +160,36 @@
           </mat-error>
         </mat-form-field>
         <button
-        *ngIf="customerForm.controls['phoneNumber'].value === 'Mixed Value'"
+          *ngIf="customerForm.controls['phoneNumber'].value === 'Mixed Value'"
           mat-icon-button
           (click)="toggleFieldEdit('phoneNumber')"
         >
           <mat-icon>{{
-            editableFields.has('phoneNumber') ? 'edit' : 'cancel' 
+            editableFields.has("phoneNumber") ? "edit" : "cancel"
           }}</mat-icon>
         </button>
 
-        <!-- Alternative Phone Number -->
         <mat-form-field appearance="fill">
           <mat-label>Alternative Phone Number</mat-label>
-          <input
-            matInput
-            formControlName="alternativePhoneNumber"
-          />
+          <input matInput formControlName="alternativePhoneNumber" />
         </mat-form-field>
         <button
-        *ngIf="customerForm.controls['alternativePhoneNumber'].value === 'Mixed Value'"
+          *ngIf="
+            customerForm.controls['alternativePhoneNumber'].value ===
+            'Mixed Value'
+          "
           mat-icon-button
           (click)="toggleFieldEdit('alternativePhoneNumber')"
         >
           <mat-icon>{{
-            editableFields.has('alternativePhoneNumber') ? 'edit' : 'cancel'  
+            editableFields.has("alternativePhoneNumber") ? "edit" : "cancel"
           }}</mat-icon>
         </button>
 
         <!-- Gender -->
         <mat-form-field appearance="fill">
           <mat-label>Gender</mat-label>
-          <mat-select
-            formControlName="gender"
-          >
+          <mat-select formControlName="gender">
             <mat-option *ngIf="editableFields.has('gender')" value="Mixed Value"
               >Mixed Value</mat-option
             >
@@ -232,12 +207,12 @@
           </mat-error>
         </mat-form-field>
         <button
-        *ngIf="customerForm.controls['gender'].value === 'Mixed Value'"
+          *ngIf="customerForm.controls['gender'].value === 'Mixed Value'"
           mat-icon-button
           (click)="toggleFieldEdit('gender')"
         >
           <mat-icon>{{
-           editableFields.has('gender') ? 'edit' : 'cancel'  
+            editableFields.has("gender") ? "edit" : "cancel"
           }}</mat-icon>
         </button>
       </div>
@@ -248,16 +223,17 @@
           color="primary"
           type="submit"
           (click)="onSubmit()"
-          [disabled]="customerForm.invalid || customerForm.pristine "
+          [disabled]="customerForm.invalid || customerForm.pristine"
         >
           {{
             isBulkEditMode
-              ? "Update Bulk Customers"
+              ? "Bulk Update"
               : isEditMode
               ? "Update Customer"
               : "Add Customer"
           }}
         </button>
+        
       </div>
     </mat-card-content>
   </mat-card>

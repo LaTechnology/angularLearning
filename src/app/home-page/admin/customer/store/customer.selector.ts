@@ -16,7 +16,14 @@ export const selectCustomerError = createSelector(
   (state) => state.error
 );
 
-export const selectCustomerById = (customerId: string) =>
-  createSelector(selectCustomerState, (state) => 
-    state.customers.find(customer => customer.id === customerId) || undefined
+
+export const selectCustomerById = (id: string) => 
+  createSelector(
+    selectCustomerState,
+    (state) => state.customers ? state.customers.find(customer => customer.id === id) : undefined
+  );
+
+  export const selectSelectedCustomerIds = createSelector(
+    selectCustomerState,
+    (state: CustomerState) => state.selectedCustomerIds
   );
