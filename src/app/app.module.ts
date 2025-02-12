@@ -48,6 +48,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ConfirmDialogComponent } from './home-page/dialog/confirm-dialog/confirm-dialog.component';
 import { BulkEditComponent } from './home-page/dialog/bulk-edit/bulk-edit.component';
 import { CustomerModule } from './home-page/admin/customer/customer/customer.module';
+import { addressReducer } from './home-page/admin/address/store/address.reducer';
+import { AddressEffects } from './home-page/admin/address/store/address.effects';
+import { AddressModule } from './home-page/admin/address/address.module';
+
 
 @NgModule({
   declarations: [
@@ -59,14 +63,11 @@ import { CustomerModule } from './home-page/admin/customer/customer/customer.mod
     // AddCustomerComponent,
     AddProductComponent,
     ProductListComponent,
-    CreateAddressComponent,
-    AddressListComponent,
     AddroleComponent,
     ListRoleComponent,
     UpdateRoleComponent,
     DeleteDialogComponent,
     BulkEditDialogComponent,
-    AddressBulkEditComponent,
     ConfirmDialogComponent,
     BulkEditComponent
     // ConfirmationDialogComponent,
@@ -76,7 +77,6 @@ import { CustomerModule } from './home-page/admin/customer/customer/customer.mod
     NgbModule,
     MatSort,
     MatCheckboxModule,
-    // AddressModule,
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
@@ -119,9 +119,9 @@ import { CustomerModule } from './home-page/admin/customer/customer/customer.mod
      MatButtonModule,
      MatIconModule,
      HttpClientModule,
-     StoreModule.forRoot({customers: customerReducer}),
-     EffectsModule.forRoot([CustomerEffects]),
-     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+     StoreModule.forRoot({customers: customerReducer,addresses:addressReducer}),
+     EffectsModule.forRoot([CustomerEffects,AddressEffects]),
+     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
      
   ],
   providers: [

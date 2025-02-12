@@ -20,5 +20,16 @@ export const addressReducer = createReducer(
         ...state,
         loading:false,
         error
+    })),
+    on(AddressAction.loadAddressByIdSuccess,(state,{address})=>({
+        ...state,
+        address:address,
+        loading:false,
+        error:null,
+    })),
+    on(AddressAction.loadAddressByIdFailure,(state,{error})=>({
+        ...state,
+        loading:false,
+        error
     }))
 );

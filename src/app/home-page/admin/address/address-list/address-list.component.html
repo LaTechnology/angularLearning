@@ -17,6 +17,8 @@
     </button>
   </div>
 
+  <!-- <mat-spinner *ngIf="loading$ | async" diameter="50"></mat-spinner>
+<mat-error *ngIf="error$ | async">{{ error$ | async }}</mat-error> -->
 <div class="table-container">
     <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"class="mat-elevation-z8" class="mat-table custom-table">
 

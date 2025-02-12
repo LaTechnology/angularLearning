@@ -50,20 +50,7 @@
                         required
                     </mat-error>
                 </mat-form-field>
-                <mat-form-field>
-                    <mat-label>State</mat-label>
-                    <input matInput formControlName="state">
-                    <mat-error *ngIf="addressForm.get('state')?.invalid && addressForm.get('state')?.touched">
-                        required
-                    </mat-error>
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-label>Country</mat-label>
-                    <input matInput formControlName="country">
-                    <mat-error *ngIf="addressForm.get('country')?.invalid && addressForm.get('country')?.touched">
-                        required
-                    </mat-error>
-                </mat-form-field>
+
                 <mat-form-field>
                     <mat-label>Region</mat-label>
                     <input matInput formControlName="region">
@@ -71,6 +58,37 @@
                         required
                     </mat-error>
                 </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Country</mat-label>
+                    <input matInput formControlName="country" [matAutocomplete]="auto">
+                    <mat-error *ngIf="addressForm.get('country')?.invalid && addressForm.get('country')?.touched">
+                      required
+                    </mat-error>
+                    <mat-autocomplete #auto="matAutocomplete" >
+                      <mat-option *ngFor="let country of filteredCountries$ | async" [value]="country.name">
+                        {{ country.name }}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                  
+    
+
+                  
+                  <mat-form-field>
+                    <mat-label>State</mat-label>
+                    <input matInput formControlName="state" [matAutocomplete]="auto">
+                    <mat-error *ngIf="addressForm.get('state')?.invalid && addressForm.get('state')?.touched">
+                      required
+                    </mat-error>
+                    <mat-autocomplete #auto="matAutocomplete" >
+                      <mat-option *ngFor="let state of filteredStates$ | async" [value]="state.name">
+                        {{ state.name }}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                  
+           
                 <mat-form-field>
                     <mat-label>Land Mark</mat-label>
                     <input matInput formControlName="landMark">

@@ -4,6 +4,10 @@ import { AddressService } from '../address.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { v4 as uuidv4 } from 'uuid';
 import { Address } from '../address.model';
+import { Store } from '@ngrx/store';
+import { map, Observable, startWith } from 'rxjs';
+import { selectAddressById } from '../store/address.selector';
+import { Country, State } from 'country-state-city';
 
 @Component({
   selector: 'app-create-address',
@@ -15,12 +19,20 @@ export class CreateAddressComponent implements OnInit {
   title: string = "Create New Address Form";
   isEditMode: boolean = false;
   id!:string|null;
+  address$:Observable<Address | undefined>;
+  countries:any[] = [];
+  states:any[] = [];
+  cities:any[]= [];
+  filteredCountries$: Observable<any[]>;
+  filteredStates$:Observable<any[]>;
+  filteredCities$:any[] = [];
 
   constructor(
     private fb: FormBuilder,
     private addressService: AddressService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private store:Store
   ) {
     this.addressForm = this.fb.group({
       // id: [''],
@@ -37,6 +49,34 @@ export class CreateAddressComponent implements OnInit {
       phoneNumber: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
       addressType: ['', [Validators.required, Validators.minLength(2)]]
     });
+
+    this.address$ = new Observable<Address | undefined>();
+
+    this.countries = Country.getAllCountries();
+
+    this.filteredCountries$ = this.addressForm.get('country')?.valueChanges.pipe(
+      startWith(''),
+      map(value => {
+        const filterValue = typeof value === 'string' ? value.toLowerCase() : ''; // Ensure it's a string
+        return this.countries.filter(country =>
+          country.name.toLowerCase().includes(filterValue)  // Filter based on the name property
+        );
+      })
+    ) as Observable<any[]>;
+    
+    // this.states = State.getStatesOfCountry(this.addressForm.get('country')?.value);
+    this.states = State.getAllStates();
+    console.log("states -> ",this.states)
+    this.filteredStates$ = this.addressForm.get('state')?.valueChanges.pipe(
+      startWith(''),
+      map(value=>{
+        const filterValue = typeof value==='string' ? value.toLowerCase():'';
+        return this.states.filter(state => 
+          state.name.toLowerCase().includes(filterValue)
+        )
+      })
+    ) as Observable<any[]>;
+  
   }
 
   ngOnInit() {
@@ -46,13 +86,20 @@ export class CreateAddressComponent implements OnInit {
       if (this.id) {
         this.isEditMode = true;
         
-        this.addressService.getAddressById(this.id).subscribe(address => {
-          if (address) {
+        // this.addressService.getAddressById(this.id).subscribe(address => {
+        //   if (address) {
+        //     this.addressForm.patchValue(address);
+        //   }
+        // }, error => {
+        //   console.error('Error fetching address', error); // handle error if any
+        // });
+
+        this.address$ = this.store.select(selectAddressById(this.id));
+        this.address$.subscribe((address)=>{
+          if(address){
             this.addressForm.patchValue(address);
           }
-        }, error => {
-          console.error('Error fetching address', error); // handle error if any
-        });
+        })
       }
     });
   }
@@ -92,4 +139,5 @@ export class CreateAddressComponent implements OnInit {
       }
     }
   }
+
 }
