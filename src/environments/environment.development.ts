@@ -11,7 +11,9 @@ export const environment = {
         'phoneNumber',
         'age',
         'actions',
-      ]
+      ],
 
+    addressListDisplayedColumns: ["select","addressLine1","addressLine2","city","district","pincode","state","country","region","landMark","phoneNumber","addressType","actions"]
+ 
 };
   

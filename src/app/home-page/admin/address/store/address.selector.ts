@@ -13,3 +13,8 @@ export const selectAddressError = createSelector(
     selectAddressState,
     (state)=>state.error
 );
+
+export const selectAddressById = (id:string)=>
+    createSelector(selectAddressState,(state)=>
+        state.addresses.find(address => address.id === id) || undefined
+    );

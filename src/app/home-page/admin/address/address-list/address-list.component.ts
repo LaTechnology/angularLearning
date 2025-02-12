@@ -10,6 +10,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { selectAllAddresses } from '../store/address.selector';
 import { loadAllAddresses } from '../store/address.action';
+import { environment } from 'environments/environment.development';
 
 @Component({
   selector: 'app-address-list',
@@ -17,10 +18,13 @@ import { loadAllAddresses } from '../store/address.action';
   styleUrl: './address-list.component.scss'
 })
 export class AddressListComponent {
-  displayedColumns:string[] = ["select","addressLine1","addressLine2","city","district","pincode","state","country","region","landMark","phoneNumber","addressType","actions"];
+  displayedColumns:string[] = environment.addressListDisplayedColumns;
+  
   selectedRows:Set<Address> = new Set();
 
   addresses$!:Observable<Address[]>;
+  loading$!: Observable<boolean>;
+  error$!: Observable<string | null>;
 
   public dataSource = new MatTableDataSource<Address>([]);
 
@@ -34,13 +38,14 @@ export class AddressListComponent {
   }
 
   ngOnInit(){
-    this.loadAllAddresses();
+    // this.loadAllAddresses();
     
-    // this.store.dispatch(loadAllAddresses());
+    this.store.dispatch(loadAllAddresses());
 
-    // this.addresses$.subscribe(addresses => {
-    //   console.log(addresses);
-    // })
+    this.addresses$.subscribe(addresses => {
+      console.log(addresses);
+      this.dataSource.data = addresses;
+    })
   }
 
   ngAfterViewInit() {
@@ -48,16 +53,16 @@ export class AddressListComponent {
     this.dataSource.sort = this.sort;
   }
 
-  loadAllAddresses(){
-    this.addressService.getAllAddresses().subscribe(
-      (addresses: Address[]) => {
-        this.dataSource.data = addresses;
-      },
-      (error) => {
-        console.error('Error fetching addresses', error);
-      }
-    );
-  }
+  // loadAllAddresses(){
+  //   this.addressService.getAllAddresses().subscribe(
+  //     (addresses: Address[]) => {
+  //       this.dataSource.data = addresses;
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching addresses', error);
+  //     }
+  //   );
+  // }
 
   toggleRowSelection(row: Address) {
     if (this.selectedRows.has(row)) {
@@ -96,7 +101,8 @@ export class AddressListComponent {
     this.addressService.deleteAddressById(id).subscribe(() => {
       alert("Address deleted successfully");
     }).add(() => {
-      this.loadAllAddresses();
+      // this.loadAllAddresses();
+      // this.store.dispatch(loadAllAddresses());
     });
   }
 

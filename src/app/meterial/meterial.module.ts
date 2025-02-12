@@ -82,7 +82,8 @@ const MATERIAL_MODULES = [
   RouterModule,
   MatBottomSheetModule,
   MatRippleModule,
-  ClipboardModule
+  ClipboardModule,
+  MatProgressSpinnerModule
 ];
 
 

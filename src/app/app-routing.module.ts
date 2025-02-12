@@ -17,10 +17,6 @@ const routes: Routes = [
     { path: 'products', component: ProductListComponent, canActivate: [AuthGuard] },
     { path: 'product/add', component: AddProductComponent, canActivate: [AuthGuard] },
     { path: 'product/edit', component: AddProductComponent, canActivate: [AuthGuard] },
-    { path: 'address/add', component: CreateAddressComponent, canActivate: [AuthGuard] },
-    { path: 'address/edit/:id', component: CreateAddressComponent, canActivate: [AuthGuard] },
-    { path: 'address/list', component: AddressListComponent, canActivate: [AuthGuard] },
-    {path:'address/bulk-edit',component:AddressBulkEditComponent,canActivate:[AuthGuard]},
     { path: 'order', component: OrdersComponent, canActivate: [AuthGuard] },
     { path: 'inventory', component: InventoryComponent, canActivate: [AuthGuard] },
     { path: 'addrole', component: AddroleComponent, canActivate: [AuthGuard]},
@@ -32,6 +28,10 @@ const routes: Routes = [
       loadChildren: () => import('../app/home-page/admin/client/client.module').then((m) => m.ClientModule),
     },
     { path: 'customer', loadChildren: () => import('./home-page/admin/customer/customer/customer.module').then(m => m.CustomerModule) },
+    {
+      path:'address',
+      loadChildren:() => import('../app/home-page/admin/address/address.module').then((m)=>m.AddressModule)
+    }
 
   ];
 
