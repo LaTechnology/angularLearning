@@ -1,52 +1,28 @@
 {
   "customers": [
     {
-      "id": "482f",
-      "firstName": "vv",
-      "lastName": "yuy",
+      "id": "d47d",
+      "firstName": "yuva",
+      "lastName": "sri",
       "age": 23,
-      "email": "gg@gg",
-      "dateOfBirth": "2025-02-04T18:30:00.000Z",
-      "phoneNumber": "9876543213",
-      "alternativePhoneNumber": "",
+      "email": "yuva@gmail.com",
+      "dateOfBirth": "2025-02-08T18:30:00.000Z",
+      "phoneNumber": "9876543214",
+      "alternativePhoneNumber": "9876543234",
       "isActive": true,
-      "gender": "Female"
+      "gender": "Male"
     },
     {
-      "id": "3b79",
-      "firstName": "vv",
-      "lastName": "yuy",
-      "age": 23,
-      "email": "gg@gg",
-      "dateOfBirth": "2025-02-04T18:30:00.000Z",
-      "phoneNumber": "9876543213",
-      "alternativePhoneNumber": "",
+      "id": "c343",
+      "firstName": "sunitha",
+      "lastName": "sriii",
+      "age": 19,
+      "email": "suni@gmail.com",
+      "dateOfBirth": "2024-12-03T18:30:00.000Z",
+      "phoneNumber": "9876345678",
+      "alternativePhoneNumber": "987653456",
       "isActive": true,
-      "gender": "Female"
-    },
-    {
-      "id": "3d33",
-      "firstName": "vv",
-      "lastName": "yuy",
-      "age": 23,
-      "email": "gg@gg",
-      "dateOfBirth": "2025-02-04T18:30:00.000Z",
-      "phoneNumber": "9876543213",
-      "alternativePhoneNumber": "",
-      "isActive": true,
-      "gender": "Female"
-    },
-    {
-      "id": "cd5b",
-      "firstName": "vv",
-      "lastName": "yu",
-      "age": 23,
-      "email": "gg@gg",
-      "dateOfBirth": "2025-02-04T18:30:00.000Z",
-      "phoneNumber": "9876543213",
-      "alternativePhoneNumber": "",
-      "isActive": true,
-      "gender": "Female"
+      "gender": "Male"
     }
   ],
   "products": [
@@ -103,26 +79,6 @@
       "color": "Slim Fit - Yellow",
       "code": "VAN55",
       "quantity": 5
-    },
-    {
-      "productName": "Demo1",
-      "size": "L",
-      "brand": "Demo1",
-      "color": "Demo1",
-      "code": "DEMO121",
-      "quantity": 51,
-      "id": "075a",
-      "customerId": null,
-      "firstName": "asdfghjk",
-      "lastName": "SZxfcgvhbjk",
-      "age": 56,
-      "email": "dfsfd@gmail.com",
-      "dateOfBirth": "2025-02-18T18:30:00.000Z",
-      "phoneNumber": "8776567653",
-      "alternativePhoneNumber": "",
-      "isActive": true,
-      "customerType": "",
-      "gender": "Other"
     }
   ],
   "addresses": [
@@ -262,5 +218,29 @@
       "city": "",
       "pin_code": ""
     }
+  ],
+  "location":[
+    {
+      "id":"1as",
+      "name":"DD Home Address",
+      "shippingAddress": "be05",
+      "billingAddress": "1bda"
+      
+    },
+    {
+      "id":"2as",
+      "name":"Jack Home Address",
+      "shippingAddress": "be05",
+      "billingAddress": "1bda"
+      
+    },
+    {
+      "id":"3as",
+      "name":"yuva Home Address",
+      "shippingAddress": "be05",
+      "billingAddress": "1bda"
+      
+    }
+
   ]
 }
