@@ -1,20 +1,19 @@
+<div class="row mb-3">
+    <div class="col-12 col-md-6 mb-6">
+        <mat-form-field appearance="outline" class="w-30">
+            <mat-label>Search Address</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Enter keyword"/>
+        </mat-form-field>
+    </div>
+    <div class="col-12 col-md-6 mb-6 text-end mt-2">
+        <button class="btn btn-dark float-end ms-3 mt-2 text-white" (click)="editBulkAddress()" [disabled]="!(isBulkEditActive())">
+            <a class="button-link">bulk edit</a>
+        </button>
 
-
-
-<div class="action-container">
-
-    <mat-form-field appearance="outline" class="search-box">
-      <mat-label>Search Address</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Enter keyword" class="search-box"/>
-    </mat-form-field>
-  
-    <button mat-raised-button color="primary" class="custom-button" (click)="editBulkAddress()" [disabled]="!(isBulkEditActive())">
-        <a class="button-link">bulk edit</a>
-    </button>
-
-    <button mat-raised-button color="primary" class="custom-button">
-        <a routerLink="/address/add" class="button-link">add new address</a>
-    </button>
+        <button class="btn btn-primary float-end ms-3 mt-2">
+            <a routerLink="/address/add" class="button-link">add new address</a>
+        </button>
+    </div>
   </div>
 
   <!-- <mat-spinner *ngIf="loading$ | async" diameter="50"></mat-spinner>
