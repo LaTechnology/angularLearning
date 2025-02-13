@@ -9,7 +9,7 @@ export enum CustomerType {
     // customerId: string;
     firstName: string;
     lastName: string;
-    age: number;
+    age: string;
     email: string;
     dateOfBirth: string; 
     address: string;

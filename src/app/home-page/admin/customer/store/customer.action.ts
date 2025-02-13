@@ -41,21 +41,6 @@ export const updateCustomerFailure = createAction(
   props<{ error: string }>()
 );
 
-//getcustomebyid
-export const loadCustomerById = createAction(
-  '[Customer] Load Customer By ID',
-  props<{ customerId: string }>()
-);
-
-export const loadCustomerByIdSuccess = createAction(
-  '[Customer] Load Customer By ID Success',
-  props<{ customer: Customer }>()
-);
-
-export const loadCustomerByIdFailure = createAction(
-  '[Customer] Load Customer By ID Failure',
-  props<{ error: string }>()
-);
 
 //DeleteCustomer
 
@@ -72,4 +57,9 @@ export const deleteCustomerSuccess = createAction(
 export const deleteCustomerFailure = createAction(
   '[Customer] Delete Customer Failure',
   props<{ error: string }>()
+);
+
+export const setSelectedCustomerIds = createAction(
+  '[Customer] Set Selected Customer IDs',
+  props<{ selectedCustomerIds: string[] }>()
 );

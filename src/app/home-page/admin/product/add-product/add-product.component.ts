@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
-import { Product } from '../product.model';
+import { UtilService } from 'app/services/util.service';
+import { SessionStorageService } from 'app/services/session-storage.service';
+import { forkJoin } from 'rxjs';
+import * as _ from 'lodash';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-product',
@@ -10,105 +14,170 @@ import { Product } from '../product.model';
   styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent {
-  productForm: FormGroup;
+  productForm !: FormGroup;
   sizes = ['S', 'M', 'L', 'XL'];
-  isBulkEditMode = false;
-  selectedProductIds: number[] = [];
-  productsToEdit: Product[] = [];
+  productSideBarOpen: boolean = false;
+  productSidebar: boolean = false;
+  headerTittle: string = 'Add New Product';
+  saveTittle: string = 'Save';
+  bulkSelectedData: any[]=[];
+  result: any;
+
+  //popups
+  product_submit$: any;
 
   constructor(
     private fb: FormBuilder,
     private productService: ProductService,
     private router: Router,
-    public route: ActivatedRoute
-  ) {
-    this.productForm = this.fb.group({
-      productName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      size: ['', Validators.required],
-      brand: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
-      color: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
-      code: ['', [Validators.required, Validators.pattern(/^[A-Z0-9]+$/), Validators.minLength(5), Validators.maxLength(10)]],
-      quantity: ['', [Validators.required, Validators.min(1), Validators.max(100)]]
-    });
-  }
-
-  get f() {
-    return this.productForm.controls;
-  }
+    private activatedRoute: ActivatedRoute,
+    public _session:SessionStorageService,
+    public _util: UtilService,
+  ) {}
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      if (params['ids']) {
-        this.isBulkEditMode = true;
-        this.selectedProductIds = params['ids']
-          .split(',')
-          .map((id: string): number | null => {
-            const parsedId = Number(id);
-            return isNaN(parsedId) ? null : parsedId;
-          })
-          .filter((id: number | null): id is number => id !== null);
-          this.loadProductsForBulkEdit();
-      } else if (params['id']) {
-        this.productService.getProductById(params['id']).subscribe(product => {
-          if (product) {
-            this.productForm.patchValue(product);
-          }
-        });
-      }
-    });
-  }
-  
-
-  loadProductsForBulkEdit() {
-    this.productService.getProducts().subscribe(products => {
-      this.productsToEdit = products.filter(product => 
-        product.id !== undefined && this.selectedProductIds.includes(product.id)
-      );
-
-      if (this.productsToEdit.length > 0) {
-        this.populateFormForBulkEdit();
-      }
-    });
-  }
-
-  populateFormForBulkEdit() {
-    if (!this.productsToEdit.length) {
-      return;
+      this.initialLoad(this.activatedRoute.snapshot.url[0].path);
     }
-    const formValues: any = {};
-    const fields = ['productName', 'size', 'brand', 'color', 'code', 'quantity'];
-    fields.forEach(field => {
-      const values = this.productsToEdit
-        .map(product => product[field as keyof Product])
-        .filter(value => value !== undefined);
-      const uniqueValues = new Set(values);
-      formValues[field] = uniqueValues.size === 1 ? values[0] : ''; 
-    });
-    this.productForm.patchValue(formValues);
-    this.productForm.markAsTouched();
-    this.productForm.updateValueAndValidity();
-  }
   
-
-  onSubmit() {
-    if (this.productForm.invalid) return;
-    const productData: Product = this.productForm.value;
-    if (this.isBulkEditMode) {
-      this.productsToEdit.forEach(product => {
-        if (product.id !== undefined) {
-          const updatedProduct = { ...product, ...productData };
-          this.productService.updateProduct(product.id, updatedProduct).subscribe();
+    initialLoad(productAction: string) {
+      this.productSideBarOpen = true;
+      this.productSidebar = true;
+      this.initiateproductForm();
+      if (productAction == 'edit') {
+        this.selectedDataApi(this.activatedRoute.snapshot.url[1].path)
+        this.headerTittle = 'Update Product';
+        this.saveTittle = 'Update';
+      }
+      if (productAction === 'add') {
+        this.headerTittle = 'Add New Product';
+        this.saveTittle = 'Save';
+      } else if(productAction === 'bulk-edit'){
+        this.headerTittle = 'Bulk Update Product';
+        this.saveTittle = 'Bulk Update';
+        const idList = this._session.getItem('productIDList');
+        this.bulkSelectedDataApi(idList);
+      }
+    }
+  
+  
+    closeRightSidebar() {
+      this.productSidebar = false;
+      this.productService.triggerSubject.next();
+      this.router.navigate(['/product']);
+      setTimeout(() => {
+        this.productSideBarOpen = false;
+        this.product_submit$ = null;
+      }, 800);
+    }
+  
+    initiateproductForm() {
+      this.productForm = new FormGroup({
+        productName: new FormControl('', [ Validators.required]),
+        size: new FormControl('', [Validators.required]),
+        brand: new FormControl('', [Validators.required]),
+        color: new FormControl('', [Validators.required]),
+        code: new FormControl('', [Validators.required]),
+        quantity: new FormControl('',[Validators.required]),
+      });
+    }
+  
+    save() {
+      this.productForm.markAllAsTouched();
+      if (this.productForm.valid) {
+        if (this.activatedRoute.snapshot.url[0].path === 'add') {
+          this.postproductData(this.productForm.value);
+        } else if (this.activatedRoute.snapshot.url[0].path === 'edit') {
+          this.updateproductData(this.productForm.value);
+        } else if (this.activatedRoute.snapshot.url[0].path === 'bulk-edit'){
+          this.bulkUpdateproductData(this.productForm.value);
+        }
+      }
+    }
+  
+    selectedDataApi(id:any) {
+      this.productService?.getProductById(id)?.subscribe( (res: any) => {
+          const data = res;
+          this.productForm.patchValue(data);
+        },
+        (err: HttpErrorResponse) => {},
+        () => { }
+      );
+    }
+  
+    bulkSelectedDataApi(id:any) {
+      this.productService?.getSelectedProductById(id)?.subscribe({
+        next: (res: any) => {
+          this.bulkSelectedData = res;
+        },
+        error: (err: HttpErrorResponse) => {},
+        complete: () => {
+          this.result = this.mergeObjectsById(this.bulkSelectedData);
+          this.productForm.patchValue(this.result);
         }
       });
-      this.router.navigate(['/products']);
-    } else if (this.route.snapshot.queryParams['id']) {
-      this.productService.updateProduct(this.route.snapshot.queryParams['id'], productData).subscribe(() => {
-        this.router.navigate(['/products']);
-      });
-    } else {
-      this.productService.addProduct(productData).subscribe(() => {
-        this.router.navigate(['/products']);
+    }
+  
+    mergeObjectsById(objects: any[]): any {
+      return objects.reduce((merged, obj) => {
+        _.forEach(obj, (value, key) => {
+          if (key !== "id") {
+           if (!merged.hasOwnProperty(key)) {
+            merged[key] = value;
+          } else if (!_.isEqual(merged[key], value)) {
+            merged[key] = "mixed value";
+          }
+        }
+        });
+        return merged;
+      }, {});
+    }
+  
+    postproductData(data: any) {
+      this.productService?.addProduct(data)?.subscribe({
+        next: (res: any) => {},
+        error: (err: HttpErrorResponse) => {},
+        complete: () => {
+          this.closeRightSidebar();
+          this._util.snackNotification('success','Hurray!!', 'Product created successfully');
+        }
       });
     }
-  }
+  
+    updateproductData(data: any) {
+      this.productService?.updateProduct(this.activatedRoute.snapshot.url[1].path,data)?.subscribe({
+        next: (res: any) => {},
+        error: (err: HttpErrorResponse) => {},
+        complete: () => {
+          this.closeRightSidebar();
+          this._util.snackNotification('success','Hurray!!','Product updated successfully');
+        }
+      });
+    }
+  
+    bulkUpdateproductData(data: any){
+      const transformData = (baseObj: any, array: any[]) => {
+        return array.map(item => ({
+          ..._.mapValues(baseObj, (value, key) => value === "mixed value" ? item[key] : value),
+          id: item.id // Ensure id is added
+        }));
+      };
+      const result = transformData(data, this.bulkSelectedData);
+  
+      const updateRequests = result.map((item:any) =>
+        this.productService?.updateProduct(item.id, item)
+      );
+    
+      forkJoin(updateRequests).subscribe({
+        next: (responses) => {
+          this._util.snackNotification('success', 'Success!', 'All products updated successfully');
+        },
+        error: (error) => {
+          this._util.snackNotification('error', 'Oops!', 'Some updates failed');
+        },
+        complete: () => {
+          this.closeRightSidebar();
+        }
+      });
+   
+    }
 }

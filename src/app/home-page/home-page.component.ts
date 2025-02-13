@@ -12,8 +12,8 @@ export class HomePageComponent implements OnInit {
     { label: 'Order', link: '/order' }
   ];
   linkDropdownList =[
-    {name: 'Customer', link: '/customer'},
-    {name: 'Product', link: '/products'},
+    {name: 'Customer', link: '/customer/list'},
+    {name: 'Product', link: '/product'},
     {name: 'Address', link: '/address/list'},
     {name: 'Client', link: '/client'},
     {name: 'Roles', link: '/roles'},
