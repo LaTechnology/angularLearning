@@ -28,7 +28,7 @@
             <div class="border rounded p-3">
                 <div *ngFor="let role of roles" class="form-check">
                     <input type="checkbox" id="{{role}}" class="form-check-input" [value]="role"
-                        (change)="onRoleChange($event, role)" [disabled]="!userForm?.get('name')?.value" />
+                        (change)="onRoleChange($event, role)" [disabled]="!userForm.get('name')?.value" />
                     <label class="form-check-label ms-2" for="{{role}}">
                         {{ role }}
                     </label>
@@ -40,7 +40,7 @@
     <div class="row mb-3">
         <div class="col-sm-2"></div>
         <div class="col-sm-2">
-            <button type="submit" class="btn btn-primary w-100" [disabled]="userForm?.invalid">Submit</button>
+            <button type="submit" class="btn btn-primary w-100" [disabled]="userForm.invalid">Submit</button>
         </div>
         <div class="col-sm-2">
             <button type="button" class="btn btn-secondary w-100" (click)="viewRoles()">View Roles</button>
