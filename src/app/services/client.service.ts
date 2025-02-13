@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { map, Observable, pipe, Subject } from 'rxjs';
 import { ApiService } from './api.service';
 import { client } from "../home-page/admin/client/client.model";
 import { environment } from 'environments/environment.development';
@@ -33,9 +33,10 @@ export class ClientService {
     return this.apiService.get<client>(`${this.apiUrl}/${id}`);
   }
 
-  getSelectedClientById(ids: number[]): Observable<any[]> {
-    const query = ids.map(id => `id=${id}`).join('&');
-    return this.apiService.get<any[]>(`${this.apiUrl}?${query}`);
+  getSelectedClientById(ids: string[]): Observable<client[]> {
+   return this.apiService.get<any[]>(`${this.apiUrl}`).pipe(
+      map(users => users.filter(user => ids.some(id => user.id.includes(id))))
+    );
   }
 
   bulkUpdateUsers(updatedUsers: any[]): Observable<any> {

@@ -66,6 +66,7 @@ export class ClientComponent {
   }
 
   ngOnDestroy(): void {
+    this.clientSelection.clear();
     if (this.triggerSubscription) {
       this.triggerSubscription.unsubscribe();
     }
