@@ -1,6 +1,6 @@
 <form [formGroup]="customerForm" class="customer-form">
   <mat-card>
-    <mat-card-title class="title">
+    <mat-card-title class="title mt-3">
       {{
         isBulkEditMode
           ? "Update Bulk Customers"
@@ -219,8 +219,7 @@
 
       <div class="button-container">
         <button
-          mat-raised-button
-          color="primary"
+        class="btn btn-success"
           type="submit"
           (click)="onSubmit()"
           [disabled]="customerForm.invalid || customerForm.pristine"

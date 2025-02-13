@@ -1,17 +1,18 @@
-<div class="action-container">
-
-  <mat-form-field appearance="outline" class="search-box">
-    <mat-label>Search Customers</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Enter keyword" class="search-box"/>
-  </mat-form-field>
-
-  <button mat-raised-button color="primary" class="custom-button">
-    <a routerLink="/customer/add" class="button-link">Add Customer</a>
-  </button>
-   <button mat-raised-button color="accent" (click)="bulkEdit()" [disabled]="selection.selected.length === 0">
-    Bulk Edit
-  </button>
-
+<div class="row mb-3">
+    <div class="col-12 col-md-6 mb-6">
+      <mat-form-field appearance="outline" class="w-30">
+        <mat-label>Search Customers</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Enter keyword"/>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-6 mb-6 text-end mt-2">
+      <button class="btn btn-primary float-end ms-3 mt-2">
+        <a routerLink="/customer/add" class="button-link">Add Customer</a>
+      </button>
+      <button class="btn btn-dark float-end ms-3 mt-2 text-white" (click)="bulkEdit()" [disabled]="selection.selected.length === 0">
+        Bulk Edit
+      </button>
+    </div>
 </div>
 
 <div class="table-container">
