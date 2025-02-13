@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
 import { Product } from './product.model';
 import { environment } from 'environments/environment.development';
 import { ApiService } from 'app/services/api.service';
@@ -12,10 +12,10 @@ export class ProductService {
 
   constructor(private apiService: ApiService) {}
 
-    public triggerSubject = new Subject<void>();
-  
-    // Observable for parent to listen
-    trigger$ = this.triggerSubject.asObservable();
+  public triggerSubject = new Subject<void>();
+
+  // Observable for parent to listen
+  trigger$ = this.triggerSubject.asObservable();
 
   getProducts(): Observable<Product[]> {
     return this.apiService.get<Product[]>(this.apiUrl);
@@ -25,9 +25,14 @@ export class ProductService {
     return this.apiService.post<Product>(this.apiUrl, newProduct);
   }
 
-  getSelectedProductById(ids: number[]): Observable<any[]> {
-    const query = ids.map(id => `id=${id}`).join('&');
-    return this.apiService.get<any[]>(`${this.apiUrl}?${query}`);
+  getSelectedProductById(ids: string[]): Observable<Product[]> {
+    return this.apiService
+      .get<any[]>(`${this.apiUrl}`)
+      .pipe(
+        map((product) =>
+          product.filter((user) => ids.some((id) => user.id.includes(id)))
+        )
+      );
   }
 
   getProductById(id: number): Observable<Product> {

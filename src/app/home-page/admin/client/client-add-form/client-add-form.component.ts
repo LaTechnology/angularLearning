@@ -23,7 +23,7 @@ export class ClientAddFormComponent {
   headerTittle: string = 'Add New User';
   saveTittle: string = 'Save';
   bulkSelectedData: any[]=[];
-  result: any;
+  result: object = {};
 
   //popups
   user_submit$: any;

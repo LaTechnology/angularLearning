@@ -1,18 +1,6 @@
 {
   "customers": [
     {
-      "id": "d47d",
-      "firstName": "yuva",
-      "lastName": "sri",
-      "age": 23,
-      "email": "yuva@gmail.com",
-      "dateOfBirth": "2025-02-08T18:30:00.000Z",
-      "phoneNumber": "9876543214",
-      "alternativePhoneNumber": "9876543234",
-      "isActive": true,
-      "gender": "Male"
-    },
-    {
       "id": "c343",
       "firstName": "sunitha",
       "lastName": "sriii",
@@ -198,7 +186,7 @@
     },
     {
       "first_name": "winsten",
-      "last_name": "varmma",
+      "last_name": "priya",
       "phone": "+916545454343",
       "mail": "kavi@gmail.com",
       "address_line1": "76,south street",
