@@ -1,0 +1,55 @@
+<mat-card>
+    <mat-card-content>
+      <mat-card-title>
+        Add New Location
+      </mat-card-title>
+  
+      <form [formGroup]="locationForm" (ngSubmit)="onSubmit()">
+        <div class="form-container">
+          <!-- Location Name -->
+          <mat-form-field>
+            <mat-label>Location Name</mat-label>
+            <input matInput formControlName="name">
+            <mat-error *ngIf="locationForm.get('name')?.invalid && locationForm.get('name')?.touched">
+              Required
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- Billing Address -->
+          <mat-form-field>
+            <mat-label>Billing Address</mat-label>
+            <input matInput formControlName="billingAddress" [matAutocomplete]="autoBilling">
+            <mat-autocomplete #autoBilling="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onAddressSelected($event, 'billingAddress')">
+              <mat-option *ngFor="let address of filteredBillingAddresses" [value]="address">
+                {{ address.addressLine1 }}, {{ address.city }} - {{ address.pincode }}
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="locationForm.get('billingAddress')?.invalid && locationForm.get('billingAddress')?.touched">
+              Required
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- Shipping Address -->
+          <mat-form-field>
+            <mat-label>Shipping Address</mat-label>
+            <input matInput formControlName="shippingAddress" [matAutocomplete]="autoShipping">
+            <mat-autocomplete #autoShipping="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onAddressSelected($event, 'shippingAddress')">
+              <mat-option *ngFor="let address of filteredShippingAddresses" [value]="address">
+                {{ address.addressLine1 }}, {{ address.city }} - {{ address.pincode }}
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="locationForm.get('shippingAddress')?.invalid && locationForm.get('shippingAddress')?.touched">
+              Required
+            </mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="button-container">
+          <button mat-raised-button color="primary" type="submit" [disabled]="locationForm.invalid || locationForm.pristine">
+            Add Location
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

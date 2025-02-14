@@ -543,74 +543,91 @@
       "id": "b3fe"
     }
   ],
-  "location": [
+  "locations": [
     {
-      "id": "1as",
-      "name": "DD Home Address",
-      "shippingAddress": {
-        "addressLine1": "checking",
-        "addressLine2": "line 2",
-        "city": "gingee",
-        "district": "villupuram",
-        "pincode": "604204",
-        "state": "tamilnadu",
-        "country": "india",
-        "region": "asia",
-        "landMark": "phoenix",
-        "phoneNumber": "6987669878",
-        "addressType": "Home",
-        "id": "79ca"
-      },
+      "id": "s434",
+      "name": "yogesh home",
       "billingAddress": {
-        "addressLine1": "Mixed Valu",
-        "id": "be05",
-        "addressLine2": "maraimalai nagar",
-        "city": "chennai",
-        "district": "kanchipuram",
-        "pincode": "98989",
+        "addressId": "e64e3372-e39f-4aec-8ab6-caf352b5b206",
+        "addressLine1": "electronic city",
+        "addressLine2": "light city",
+        "city": "banglore",
+        "district": "district",
+        "pincode": "980898",
         "state": "tamilnadu",
-        "country": "india",
+        "country": "India",
         "region": "asia",
-        "landMark": "sp kovil",
-        "phoneNumber": "7987979881",
-        "addressType": "Home"
+        "landMark": "electronic",
+        "phoneNumber": "0989898787",
+        "addressType": "Work",
+        "id": "1bda"
+      },
+      "shippingAddress": {
+        "addressLine2": "xxxyyyzzzaaa",
+        "district": "Kanchipuram2",
+        "id": "22tg6",
+        "addressType": "Mixed Value",
+        "addressLine1": "sample addresses",
+        "city": "phoenix market city",
+        "pincode": "98787",
+        "state": "tamilnadu2",
+        "country": "India2",
+        "region": "asia2",
+        "landMark": "Phoenix",
+        "phoneNumber": "9898987879"
       }
     },
     {
-      "id": "2as",
-      "name": "Jack Home Address",
-      "shippingAddress": {
-        "addressLine1": "checking",
-        "addressLine2": "line 2",
-        "city": "gingee",
-        "district": "villupuram",
-        "pincode": "604204",
-        "state": "tamilnadu",
-        "country": "india",
-        "region": "asia",
-        "landMark": "phoenix",
-        "phoneNumber": "6987669878",
-        "addressType": "Home",
-        "id": "79ca"
-      },
+      "id": "e78",
+      "name": "arun home",
       "billingAddress": {
-        "addressLine1": "Mixed Valu",
-        "id": "be05",
-        "addressLine2": "maraimalai nagar",
-        "city": "chennai",
-        "district": "kanchipuram",
-        "pincode": "98989",
+        "addressId": "e64e3372-e39f-4aec-8ab6-caf352b5b206",
+        "addressLine1": "electronic city",
+        "addressLine2": "light city",
+        "city": "banglore",
+        "district": "district",
+        "pincode": "980898",
         "state": "tamilnadu",
-        "country": "india",
+        "country": "India",
         "region": "asia",
-        "landMark": "sp kovil",
-        "phoneNumber": "7987979881",
-        "addressType": "Home"
+        "landMark": "electronic",
+        "phoneNumber": "0989898787",
+        "addressType": "Work",
+        "id": "1bda"
+      },
+      "shippingAddress": {
+        "addressLine2": "xxxyyyzzzaaa",
+        "district": "Kanchipuram2",
+        "id": "22tg6",
+        "addressType": "Mixed Value",
+        "addressLine1": "sample addresses",
+        "city": "phoenix market city",
+        "pincode": "98787",
+        "state": "tamilnadu2",
+        "country": "India2",
+        "region": "asia2",
+        "landMark": "Phoenix",
+        "phoneNumber": "9898987879"
       }
     },
     {
-      "id": "3as",
-      "name": "yuva Home Address",
+      "id": "09cd",
+      "name": "Ram home",
+      "billingAddress": {
+        "addressId": "e64e3372-e39f-4aec-8ab6-caf352b5b206",
+        "addressLine1": "electronic city",
+        "addressLine2": "light city",
+        "city": "banglore",
+        "district": "district",
+        "pincode": "980898",
+        "state": "tamilnadu",
+        "country": "India",
+        "region": "asia",
+        "landMark": "electronic",
+        "phoneNumber": "0989898787",
+        "addressType": "Work",
+        "id": "1bda"
+      },
       "shippingAddress": {
         "addressLine1": "checking",
         "addressLine2": "line 2",
@@ -624,20 +641,38 @@
         "phoneNumber": "6987669878",
         "addressType": "Home",
         "id": "79ca"
-      },
+      }
+    },
+    {
+      "id": "f9b3",
+      "name": "testr",
       "billingAddress": {
-        "addressLine1": "Mixed Valu",
-        "id": "be05",
-        "addressLine2": "maraimalai nagar",
-        "city": "chennai",
-        "district": "kanchipuram",
-        "pincode": "98989",
+        "addressLine1": "checking",
+        "addressLine2": "line 2",
+        "city": "gingee",
+        "district": "villupuram",
+        "pincode": "604204",
         "state": "tamilnadu",
         "country": "india",
         "region": "asia",
-        "landMark": "sp kovil",
-        "phoneNumber": "7987979881",
-        "addressType": "Home"
+        "landMark": "phoenix",
+        "phoneNumber": "6987669878",
+        "addressType": "Home",
+        "id": "79ca"
+      },
+      "shippingAddress": {
+        "addressLine2": "xxxyyyzzzaaa",
+        "district": "Kanchipuram2",
+        "id": "22tg6",
+        "addressType": "Mixed Value",
+        "addressLine1": "sample addresses",
+        "city": "phoenix market city",
+        "pincode": "98787",
+        "state": "tamilnadu2",
+        "country": "India2",
+        "region": "asia2",
+        "landMark": "Phoenix",
+        "phoneNumber": "9898987879"
       }
     }
   ]
