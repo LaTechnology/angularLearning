@@ -9,7 +9,7 @@ import { ApiService } from 'app/services/api.service';
 })
 export class ProductService {
   private apiUrl = `${environment.apiUrl}/products`;
-
+  private apiUrl1 = `${environment.apiUrl}/location`;
   constructor(private apiService: ApiService) {}
 
   public triggerSubject = new Subject<void>();
@@ -46,4 +46,9 @@ export class ProductService {
   deleteProduct(id: number): Observable<void> {
     return this.apiService.delete<void>(`${this.apiUrl}/${id}`);
   }
+
+  
+ getAllLocation():Observable<Product[]> {
+  return this.apiService.get<any[]>(this.apiUrl1);
+ }
 }

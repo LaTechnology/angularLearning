@@ -31,6 +31,10 @@ const routes: Routes = [
     {
       path:'address',
       loadChildren:() => import('../app/home-page/admin/address/address.module').then((m)=>m.AddressModule)
+    },
+    {
+      path:'location',
+      loadChildren:() => import('../app/home-page/admin/location/location.module').then((m)=>m.LocationModule)
     }
 
   ];

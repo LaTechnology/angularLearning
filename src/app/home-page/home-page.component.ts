@@ -15,8 +15,9 @@ export class HomePageComponent implements OnInit {
     {name: 'Customer', link: '/customer/list'},
     {name: 'Product', link: '/product'},
     {name: 'Address', link: '/address/list'},
+    {name:'Location',link:'/location/list'},
     {name: 'Client', link: '/client'},
-    {name: 'Roles', link: '/roles'},
+    {name: 'Roles', link: '/listrole'},
   ]
   activeTabIndex = 0;
 
