@@ -9,7 +9,7 @@ import { ApiService } from 'app/services/api.service';
 })
 export class ProductService {
   private apiUrl = `${environment.apiUrl}/products`;
-  private apiUrl1 = `${environment.apiUrl}/location`;
+  private apiUrl1 = `${environment.apiUrl}/locations`;
   constructor(private apiService: ApiService) {}
 
   public triggerSubject = new Subject<void>();

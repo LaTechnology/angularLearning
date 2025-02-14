@@ -51,81 +51,6 @@
       "id": "9d2d"
     },
     {
-      "productName": "kavin k",
-      "size": "L",
-      "brand": "Van Heusen",
-      "color": "Slim Fit - Yellow",
-      "code": "VAN55",
-      "quantity": 5,
-      "locations": [
-        {
-          "id": "1as",
-          "name": "DD Home Address",
-          "shippingAddress": {
-            "addressLine1": "checking",
-            "addressLine2": "line 2",
-            "city": "gingee",
-            "district": "villupuram",
-            "pincode": "604204",
-            "state": "tamilnadu",
-            "country": "india",
-            "region": "asia",
-            "landMark": "phoenix",
-            "phoneNumber": "6987669878",
-            "addressType": "Home",
-            "id": "79ca"
-          },
-          "billingAddress": {
-            "addressLine1": "Mixed Valu",
-            "id": "be05",
-            "addressLine2": "maraimalai nagar",
-            "city": "chennai",
-            "district": "kanchipuram",
-            "pincode": "98989",
-            "state": "tamilnadu",
-            "country": "india",
-            "region": "asia",
-            "landMark": "sp kovil",
-            "phoneNumber": "7987979881",
-            "addressType": "Home"
-          }
-        },
-        {
-          "id": "2as",
-          "name": "Jack Home Address",
-          "shippingAddress": {
-            "addressLine1": "checking",
-            "addressLine2": "line 2",
-            "city": "gingee",
-            "district": "villupuram",
-            "pincode": "604204",
-            "state": "tamilnadu",
-            "country": "india",
-            "region": "asia",
-            "landMark": "phoenix",
-            "phoneNumber": "6987669878",
-            "addressType": "Home",
-            "id": "79ca"
-          },
-          "billingAddress": {
-            "addressLine1": "Mixed Valu",
-            "id": "be05",
-            "addressLine2": "maraimalai nagar",
-            "city": "chennai",
-            "district": "kanchipuram",
-            "pincode": "98989",
-            "state": "tamilnadu",
-            "country": "india",
-            "region": "asia",
-            "landMark": "sp kovil",
-            "phoneNumber": "7987979881",
-            "addressType": "Home"
-          }
-        }
-      ],
-      "id": "d894"
-    },
-    {
       "id": "3a2e",
       "productName": "iiii",
       "size": "M",
@@ -141,11 +66,6 @@
       "color": "ssss",
       "code": "SSE45",
       "quantity": "3",
-      "locations": [
-        "1as",
-        "2as",
-        "3as"
-      ],
       "id": "4927"
     },
     {
@@ -155,10 +75,6 @@
       "color": "sss",
       "code": "AWE34",
       "quantity": "4",
-      "locations": [
-        "1as",
-        "2as"
-      ],
       "id": "5d90"
     },
     {
@@ -168,21 +84,6 @@
       "color": "jhjh",
       "code": "HJHUI9",
       "quantity": "3",
-      "locations": [
-        "1as",
-        {
-          "id": "1as",
-          "name": "DD Home Address",
-          "shippingAddress": "be05",
-          "billingAddress": "1bda"
-        },
-        {
-          "id": "2as",
-          "name": "Jack Home Address",
-          "shippingAddress": "be05",
-          "billingAddress": "1bda"
-        }
-      ],
       "id": "7863"
     },
     {
@@ -192,21 +93,6 @@
       "color": "hju",
       "code": "YUBJ57",
       "quantity": "3",
-      "locations": [
-        "1as",
-        {
-          "id": "1as",
-          "name": "DD Home Address",
-          "shippingAddress": "be05",
-          "billingAddress": "1bda"
-        },
-        {
-          "id": "2as",
-          "name": "Jack Home Address",
-          "shippingAddress": "be05",
-          "billingAddress": "1bda"
-        }
-      ],
       "id": "66da"
     },
     {
@@ -216,21 +102,7 @@
       "brand": "iiioo",
       "color": "iiooo",
       "code": "IUY78",
-      "quantity": "9",
-      "locations": [
-        {
-          "id": "1as",
-          "name": "DD Home Address",
-          "shippingAddress": "be05",
-          "billingAddress": "1bda"
-        },
-        {
-          "id": "2as",
-          "name": "Jack Home Address",
-          "shippingAddress": "be05",
-          "billingAddress": "1bda"
-        }
-      ]
+      "quantity": "9"
     },
     {
       "productName": "k pant",
@@ -239,72 +111,6 @@
       "color": "jjkj",
       "code": "JJIU79",
       "quantity": "9",
-      "locations": [
-        {
-          "id": "3as",
-          "name": "yuva Home Address",
-          "shippingAddress": {
-            "addressLine1": "checking",
-            "addressLine2": "line 2",
-            "city": "gingee",
-            "district": "villupuram",
-            "pincode": "604204",
-            "state": "tamilnadu",
-            "country": "india",
-            "region": "asia",
-            "landMark": "phoenix",
-            "phoneNumber": "6987669878",
-            "addressType": "Home",
-            "id": "79ca"
-          },
-          "billingAddress": {
-            "addressLine1": "Mixed Valu",
-            "id": "be05",
-            "addressLine2": "maraimalai nagar",
-            "city": "chennai",
-            "district": "kanchipuram",
-            "pincode": "98989",
-            "state": "tamilnadu",
-            "country": "india",
-            "region": "asia",
-            "landMark": "sp kovil",
-            "phoneNumber": "7987979881",
-            "addressType": "Home"
-          }
-        },
-        {
-          "id": "1as",
-          "name": "DD Home Address",
-          "shippingAddress": {
-            "addressLine1": "checking",
-            "addressLine2": "line 2",
-            "city": "gingee",
-            "district": "villupuram",
-            "pincode": "604204",
-            "state": "tamilnadu",
-            "country": "india",
-            "region": "asia",
-            "landMark": "phoenix",
-            "phoneNumber": "6987669878",
-            "addressType": "Home",
-            "id": "79ca"
-          },
-          "billingAddress": {
-            "addressLine1": "Mixed Valu",
-            "id": "be05",
-            "addressLine2": "maraimalai nagar",
-            "city": "chennai",
-            "district": "kanchipuram",
-            "pincode": "98989",
-            "state": "tamilnadu",
-            "country": "india",
-            "region": "asia",
-            "landMark": "sp kovil",
-            "phoneNumber": "7987979881",
-            "addressType": "Home"
-          }
-        }
-      ],
       "id": "53d9"
     },
     {
@@ -314,72 +120,6 @@
       "color": "mmmm",
       "code": "MMU",
       "quantity": "7",
-      "locations": [
-        {
-          "id": "3as",
-          "name": "yuva Home Address",
-          "shippingAddress": {
-            "addressLine1": "checking",
-            "addressLine2": "line 2",
-            "city": "gingee",
-            "district": "villupuram",
-            "pincode": "604204",
-            "state": "tamilnadu",
-            "country": "india",
-            "region": "asia",
-            "landMark": "phoenix",
-            "phoneNumber": "6987669878",
-            "addressType": "Home",
-            "id": "79ca"
-          },
-          "billingAddress": {
-            "addressLine1": "Mixed Valu",
-            "id": "be05",
-            "addressLine2": "maraimalai nagar",
-            "city": "chennai",
-            "district": "kanchipuram",
-            "pincode": "98989",
-            "state": "tamilnadu",
-            "country": "india",
-            "region": "asia",
-            "landMark": "sp kovil",
-            "phoneNumber": "7987979881",
-            "addressType": "Home"
-          }
-        },
-        {
-          "id": "1as",
-          "name": "DD Home Address",
-          "shippingAddress": {
-            "addressLine1": "checking",
-            "addressLine2": "line 2",
-            "city": "gingee",
-            "district": "villupuram",
-            "pincode": "604204",
-            "state": "tamilnadu",
-            "country": "india",
-            "region": "asia",
-            "landMark": "phoenix",
-            "phoneNumber": "6987669878",
-            "addressType": "Home",
-            "id": "79ca"
-          },
-          "billingAddress": {
-            "addressLine1": "Mixed Valu",
-            "id": "be05",
-            "addressLine2": "maraimalai nagar",
-            "city": "chennai",
-            "district": "kanchipuram",
-            "pincode": "98989",
-            "state": "tamilnadu",
-            "country": "india",
-            "region": "asia",
-            "landMark": "sp kovil",
-            "phoneNumber": "7987979881",
-            "addressType": "Home"
-          }
-        }
-      ],
       "id": "6b82"
     },
     {
