@@ -3,17 +3,34 @@
     <!-- Default Button -->
     <ng-container *ngSwitchDefault>
       <button mat-flat-button [ngStyle]="{width: btnWidth + 'px', color: color, background: background}"
-       class="{{ customClass }}" [ngClass]="{'create-btn': btnValidity, 'orange-disabled-button pointer-events-none': !btnValidity}" [disabled]="disabled?true:null" [type]="htmlType">
+        class="{{ customClass }}"
+        [ngClass]="{'create-btn': btnValidity, 'orange-disabled-button pointer-events-none': !btnValidity}"
+        [disabled]="disabled?true:null" [type]="htmlType">
         <div class="btn-text color-white">
           <ng-template *ngTemplateOutlet="buttonContent"></ng-template>
         </div>
       </button>
     </ng-container>
 
+    <ng-container *ngSwitchCase="'steper-next'">
+      <button mat-flat-button matStepperNext class="create-btn" [type]="htmlType">
+        <div class="btn-text color-white">
+          <ng-template *ngTemplateOutlet="buttonContent"></ng-template>
+        </div>
+      </button> 
+    </ng-container>
+
+    <!-- Light Button -->
+    <ng-container *ngSwitchCase="'stepper-previes'">
+      <button mat-button matStepperPrevious class="light-button" [ngStyle]="{width: btnWidth + 'px'}" [type]="htmlType">
+        <div class="btn-text"> <ng-template *ngTemplateOutlet="buttonContent"></ng-template></div>
+      </button>
+    </ng-container>
+
     <!-- no-border button -->
     <ng-container *ngSwitchCase="'no-border'">
-      <button mat-button [ngStyle]="{width: btnWidth + 'px'}" [color]="btnColor(color)" class="{{ customClass }}" [disabled]="disabled?true:null"
-        [type]="htmlType">
+      <button mat-button [ngStyle]="{width: btnWidth + 'px'}" [color]="btnColor(color)" class="{{ customClass }}"
+        [disabled]="disabled?true:null" [type]="htmlType">
         <div class="btn-text">
           <ng-template *ngTemplateOutlet="buttonContent"></ng-template>
         </div>
@@ -23,16 +40,15 @@
     <!-- Light Button -->
     <ng-container *ngSwitchCase="'light-button'">
       <button mat-button class="light-button" [ngStyle]="{width: btnWidth + 'px'}" [color]="btnColor(color)"
-        [ngClass]="getActiveClass()"
-        class="{{ customClass }}" [disabled]="disabled?true:null" [type]="htmlType">
+        [ngClass]="getActiveClass()" class="{{ customClass }}" [disabled]="disabled?true:null" [type]="htmlType">
         <div class="btn-text"> <ng-template *ngTemplateOutlet="buttonContent"></ng-template></div>
       </button>
     </ng-container>
 
     <!-- No Background Button -->
     <ng-container *ngSwitchCase="'no-background'">
-      <button mat-button [ngStyle]="{width: btnWidth + 'px'}" 
-        class="save-btn {{ customClass }}" [disabled]="disabled?true:null" [type]="htmlType"> 
+      <button mat-button [ngStyle]="{width: btnWidth + 'px'}" class="save-btn {{ customClass }}"
+        [disabled]="disabled?true:null" [type]="htmlType">
         <div class="btn-text"> <ng-template *ngTemplateOutlet="buttonContent"></ng-template></div>
       </button>
     </ng-container>
@@ -43,11 +59,13 @@
         class="{{ customClass }}" [disabled]="disabled?true:null">
         <div class="d-flex c-gap-3 btn-text color-white">
           <ng-container *ngIf="icon && iconPrefix">
-            <lt-icon [name]="iconName" [type]="iconType" [customClass]="'bg-transparent'" [iconClass]="'icon-18'"></lt-icon>
+            <lt-icon [name]="iconName" [type]="iconType" [customClass]="'bg-transparent'"
+              [iconClass]="'icon-18'"></lt-icon>
           </ng-container>
           <ng-template *ngTemplateOutlet="buttonContent"></ng-template>
           <ng-container *ngIf="icon && !iconPrefix">
-            <lt-icon [name]="iconName" [type]="iconType" [customClass]="'bg-transparent'" [iconClass]="'icon-18'"></lt-icon>
+            <lt-icon [name]="iconName" [type]="iconType" [customClass]="'bg-transparent'"
+              [iconClass]="'icon-18'"></lt-icon>
           </ng-container>
         </div>
       </button>
@@ -59,11 +77,13 @@
         [color]="btnColor(color)" class="{{ customClass }}" [disabled]="disabled?true:null">
         <div class="d-flex c-gap-3 btn-text color-white">
           <ng-container *ngIf="icon && iconPrefix">
-            <lt-icon class="align-content-baseline" [name]="iconName" [type]="iconType" [imgClass]="'m-0'" [customClass]="'bg-transparent'" [iconClass]="iconClass"></lt-icon>
+            <lt-icon class="align-content-baseline" [name]="iconName" [type]="iconType" [imgClass]="'m-0'"
+              [customClass]="'bg-transparent'" [iconClass]="iconClass"></lt-icon>
           </ng-container>
           <ng-template *ngTemplateOutlet="buttonContent"></ng-template>
           <ng-container *ngIf="icon && !iconPrefix">
-            <lt-icon class="align-content-baseline" [name]="iconName" [type]="iconType" [imgClass]="'m-0'" [customClass]="'bg-transparent'" [iconClass]="iconClass"></lt-icon>
+            <lt-icon class="align-content-baseline" [name]="iconName" [type]="iconType" [imgClass]="'m-0'"
+              [customClass]="'bg-transparent'" [iconClass]="iconClass"></lt-icon>
           </ng-container>
         </div>
       </button>
@@ -90,15 +110,18 @@
         [disabled]="disabled?true:null" [type]="htmlType" (click)="buttonClick()">
         <div class="btn-text color-secondary"><ng-template *ngTemplateOutlet="buttonContent"></ng-template></div>
       </button>
-    </ng-container> 
-    
+    </ng-container>
+
     <!--outline dropdown button -->
     <ng-container *ngSwitchCase="'outline-dropdown'">
-      <div class="outline-dropdown"  class="{{ customClass }}">
-        <ul [color]="btnColor(color)" [ngStyle]="{ width: btnWidth + 'px', height:btnHeight + 'px' }" [class.position-left]="position === 'left'"
-          class=" outline-dropdown-menu" [disabled]="disabled?true:null" [type]="htmlType"
-          (click)="buttonClick()" [class.dropdown-expand]="openDropdown === true" (appClickOutside)="openDropdown = false" [style.zIndex]="zIndex" class="{{ btnClass }}" [style.height]="openDropdown? expandHeight+'px !important' : ''" [style.width]="openDropdown ? expandWidth + 'px !important' : ''" > 
-           <ng-template *ngTemplateOutlet="buttonContent"></ng-template>     
+      <div class="outline-dropdown" class="{{ customClass }}">
+        <ul [color]="btnColor(color)" [ngStyle]="{ width: btnWidth + 'px', height:btnHeight + 'px' }"
+          [class.position-left]="position === 'left'" class=" outline-dropdown-menu" [disabled]="disabled?true:null"
+          [type]="htmlType" (click)="buttonClick()" [class.dropdown-expand]="openDropdown === true"
+          (appClickOutside)="openDropdown = false" [style.zIndex]="zIndex" class="{{ btnClass }}"
+          [style.height]="openDropdown? expandHeight+'px !important' : ''"
+          [style.width]="openDropdown ? expandWidth + 'px !important' : ''">
+          <ng-template *ngTemplateOutlet="buttonContent"></ng-template>
         </ul>
       </div>
     </ng-container>
@@ -106,26 +129,30 @@
     <!--outline dropdown button model 2 -->
     <ng-container *ngSwitchCase="'outline-dropdown-2'">
       <div class="position-relative custom-filter">
-        <div [ngStyle]="{ width: btnWidth + 'px', height:btnHeight + 'px' }" class=" lt-border-secondary cursor-pointer px-6 py-1 rounded-1 {{ !btnWidth ? filter ? 'w-px-100' : 'w-px-79' : '' }} rounded-1 hover-bg-col-secondary-100"
+        <div [ngStyle]="{ width: btnWidth + 'px', height:btnHeight + 'px' }"
+          class=" lt-border-secondary cursor-pointer px-6 py-1 rounded-1 {{ !btnWidth ? filter ? 'w-px-100' : 'w-px-79' : '' }} rounded-1 hover-bg-col-secondary-100"
           [class.yearDropdown]="openDropdown" [style.z-index]="200"
           (click)="openDropdown = !openDropdown;$event.stopPropagation()">
           <div class="filter-border rounded-1 bg-white">
             <div class="d-between ">
               <lt-icon *ngIf="filter" [name]="'filter'" [iconClass]="'icon-15'"></lt-icon>
-              <div class="font-12 font-weight-400 color-secondary cursor-pointer pal-3" (click)="optionSelection($event, activeAction)">
+              <div class="font-12 font-weight-400 color-secondary cursor-pointer pal-3"
+                (click)="optionSelection($event, activeAction)">
                 {{ activeAction | titlecase}}</div>
               <img src="assets/images/icons/down-arrow.svg" alt="" [class.rotate-180]="openDropdown">
             </div>
           </div>
         </div>
-      
+
         <div [class.d-none]="!openDropdown" [ngStyle]="{ width: btnWidth + 'px', height:btnHeight + 'px' }"
           class="position-absolute rounded-1 top-33 bg-white {{ !btnWidth ? filter ? 'w-px-100' : 'w-px-79' : '' }} z-index-9999 lt-box-shadow">
           <div class="" (appClickOutside)="openDropdown = false">
             <div *ngFor="let action of dropdownList;index as i">
-              <div class="font-12 font-weight-400 {{ filter ? 'pl-22' : 'pl-12'}} cursor-pointer gray-600 hover-col-secondary filter-hover p-1 text-start"
+              <div
+                class="font-12 font-weight-400 {{ filter ? 'pl-22' : 'pl-12'}} cursor-pointer gray-600 hover-col-secondary filter-hover p-1 text-start"
                 (click)="activeAction = action;openDropdown = false;optionSelection($event, activeAction)"><span
-                  [ngStyle]="{'color': activeAction === action ? 'var(--lt-secondary)' : '' }">{{ action | titlecase }}</span>
+                  [ngStyle]="{'color': activeAction === action ? 'var(--lt-secondary)' : '' }">{{ action | titlecase
+                  }}</span>
               </div>
             </div>
           </div>
@@ -135,9 +162,7 @@
 
     <!-- Avatar button -->
     <ng-container *ngSwitchCase="'avatar'">
-      <button class="btn-avatar " 
-        class="{{ customClass }} "
-        [ngClass]="getActiveClass()" >
+      <button class="btn-avatar " class="{{ customClass }} " [ngClass]="getActiveClass()">
         <lt-icon [name]="iconName" [iconClass]="iconClass" [customClass]="'bg-transparent'"></lt-icon>
         <span [color]="btnColor(color)" [ngStyle]="{ width: btnWidth + 'px', height:btnHeight + 'px' }"
           [disabled]="disabled?true:null" [type]="htmlType" (click)="buttonClick()">
@@ -145,11 +170,11 @@
         </span>
       </button>
     </ng-container>
-    </ng-container>
+  </ng-container>
 
-<!-- Button Content Template -->
-<ng-template #buttonContent>
-  <ng-content></ng-content>
- </ng-template>
+  <!-- Button Content Template -->
+  <ng-template #buttonContent>
+    <ng-content></ng-content>
+  </ng-template>
 
 </div>
