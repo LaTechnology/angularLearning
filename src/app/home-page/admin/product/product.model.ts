@@ -6,4 +6,5 @@ export interface Product {
   color: string;
   code: string;
   quantity: number;
+  locations: any[];
 }

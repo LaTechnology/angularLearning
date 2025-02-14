@@ -16,7 +16,7 @@
             <lt-textbox-outline [label]="'Name'" class="w-50" [required]="true" [type]="'text'" 
               formControlName="productName" [control]="productForm.get('productName')">
             </lt-textbox-outline>
-            <lt-single-select [label]="'To'" [items]="sizes" [required]="true" class="w-50" [control]="productForm.get('size')"
+            <lt-single-select [label]="'Size'" [items]="sizes" [required]="true" class="w-50" [control]="productForm.get('size')"
               formControlName="size">
             </lt-single-select>
           </div>
@@ -40,6 +40,26 @@
               [label]="'Quantity'" [type]="'text'" [required]="true">
             </lt-textbox-outline>
           </div>
+
+          <!-- <div *ngFor="let location of locations">
+            <mat-checkbox
+            [checked]="selectedLocationIds.isSelected(location.id)"
+            (change)="onLocationChange(location)"
+          >
+            {{ location.name }}
+          </mat-checkbox>
+          
+          </div> -->
+
+          <div *ngFor="let location of locations">
+            <mat-checkbox
+              [indeterminate]="isBulkEdit && getCheckboxState(location.id) === 'intermediate'"
+              [checked]="isBulkEdit ? getCheckboxState(location.id) === 'checked' : selectedLocationIds.isSelected(location.id)"
+              (change)="onLocationChange(location)">
+              {{ location.name }}
+            </mat-checkbox>
+          </div>
+          
      
         </div>
       </form>
