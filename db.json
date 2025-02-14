@@ -15,121 +15,80 @@
   ],
   "products": [
     {
-      "productName": "kavin k",
+      "productName": "alen",
       "size": "S",
-      "brand": "Nike",
-      "color": "RED",
-      "code": "NIKE123",
-      "quantity": 1,
-      "id": "f1e2"
-    },
-    {
-      "productName": "kavin k",
-      "size": "L",
-      "brand": "Allen Solly",
-      "color": "Blue",
-      "code": "A3455",
-      "quantity": 52,
-      "id": "4a3f"
-    },
-    {
-      "productName": "kavin k",
-      "size": "XL",
-      "brand": "Allen Solly",
-      "color": "Green",
-      "code": "F9876",
-      "quantity": 31,
-      "id": "cf5e"
-    },
-    {
-      "productName": "kavin k",
-      "size": "M",
-      "brand": "OTTO",
-      "color": "Full Sleeves White",
-      "code": "OT456",
-      "quantity": 4,
-      "id": "9d2d"
-    },
-    {
-      "id": "3a2e",
-      "productName": "iiii",
-      "size": "M",
-      "brand": "ttttt",
-      "color": "tttt",
-      "code": "RRR87",
-      "quantity": "45"
-    },
-    {
-      "productName": "sss",
-      "size": "M",
-      "brand": "ssss",
-      "color": "ssss",
-      "code": "SSE45",
-      "quantity": "3",
-      "id": "4927"
-    },
-    {
-      "productName": "xxxx",
-      "size": "L",
-      "brand": "xx",
-      "color": "sss",
-      "code": "AWE34",
+      "brand": "allen solly",
+      "color": "red",
+      "code": "ffd45",
       "quantity": "4",
-      "id": "5d90"
-    },
-    {
-      "productName": "jhjh",
-      "size": "M",
-      "brand": "jhjh",
-      "color": "jhjh",
-      "code": "HJHUI9",
-      "quantity": "3",
-      "id": "7863"
-    },
-    {
-      "productName": "shirt",
-      "size": "M",
-      "brand": "hhh",
-      "color": "hju",
-      "code": "YUBJ57",
-      "quantity": "3",
-      "id": "66da"
-    },
-    {
-      "id": "4d30",
-      "productName": "iiiioo",
-      "size": "S",
-      "brand": "iiioo",
-      "color": "iiooo",
-      "code": "IUY78",
-      "quantity": "9"
-    },
-    {
-      "productName": "k pant",
-      "size": "L",
-      "brand": "kk",
-      "color": "jjkj",
-      "code": "JJIU79",
-      "quantity": "9",
-      "id": "53d9"
-    },
-    {
-      "productName": "m saree",
-      "size": "S",
-      "brand": "mmm",
-      "color": "mmmm",
-      "code": "MMU",
-      "quantity": "7",
-      "id": "6b82"
-    },
-    {
-      "id": "8fd0",
-      "productName": "saSAas",
-      "size": "L",
-      "brand": "aSAs",
-      "color": "sAS",
-      "code": "aSas",
-      "quantity": "2"
+      "locations": [
+        {
+          "id": "s434",
+          "name": "yogesh home",
+          "billingAddress": {
+            "addressId": "e64e3372-e39f-4aec-8ab6-caf352b5b206",
+            "addressLine1": "electronic city",
+            "addressLine2": "light city",
+            "city": "banglore",
+            "district": "district",
+            "pincode": "980898",
+            "state": "tamilnadu",
+            "country": "India",
+            "region": "asia",
+            "landMark": "electronic",
+            "phoneNumber": "0989898787",
+            "addressType": "Work",
+            "id": "1bda"
+          },
+          "shippingAddress": {
+            "addressLine2": "xxxyyyzzzaaa",
+            "district": "Kanchipuram2",
+            "id": "22tg6",
+            "addressType": "Mixed Value",
+            "addressLine1": "sample addresses",
+            "city": "phoenix market city",
+            "pincode": "98787",
+            "state": "tamilnadu2",
+            "country": "India2",
+            "region": "asia2",
+            "landMark": "Phoenix",
+            "phoneNumber": "9898987879"
+          }
+        },
+        {
+          "id": "f9b3",
+          "name": "testr",
+          "billingAddress": {
+            "addressLine1": "checking",
+            "addressLine2": "line 2",
+            "city": "gingee",
+            "district": "villupuram",
+            "pincode": "604204",
+            "state": "tamilnadu",
+            "country": "india",
+            "region": "asia",
+            "landMark": "phoenix",
+            "phoneNumber": "6987669878",
+            "addressType": "Home",
+            "id": "79ca"
+          },
+          "shippingAddress": {
+            "addressLine2": "xxxyyyzzzaaa",
+            "district": "Kanchipuram2",
+            "id": "22tg6",
+            "addressType": "Mixed Value",
+            "addressLine1": "sample addresses",
+            "city": "phoenix market city",
+            "pincode": "98787",
+            "state": "tamilnadu2",
+            "country": "India2",
+            "region": "asia2",
+            "landMark": "Phoenix",
+            "phoneNumber": "9898987879"
+          }
+        }
+      ],
+      "id": "3f35"
     }
   ],
   "addresses": [
