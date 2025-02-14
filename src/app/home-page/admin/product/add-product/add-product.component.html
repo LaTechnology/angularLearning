@@ -14,7 +14,7 @@
                   <lt-textbox-outline [label]="'Name'" class="w-50" [required]="true" [type]="'text'"
                     formControlName="productName" [control]="productForm.get('productName')">
                   </lt-textbox-outline>
-                  <lt-single-select [label]="'To'" [items]="sizes" [required]="true" class="w-50"
+                  <lt-single-select [label]="'Size'" [items]="sizes" [required]="true" class="w-50"
                     [control]="productForm.get('size')" formControlName="size">
                   </lt-single-select>
                 </div>
@@ -49,13 +49,14 @@
               <app-submit-button [placeholder]="saveTittle" [callback]="product_submit$" (submit)="save()">
               </app-submit-button>
             </div>
-            <div *ngFor="let location of locations">
-              <mat-checkbox
-                [indeterminate]="isBulkEdit && getCheckboxState(location.id) === 'intermediate'"
-                [checked]="isBulkEdit ? getCheckboxState(location.id) === 'checked' : selectedLocationIds.isSelected(location.id)"
-                (change)="onLocationChange(location)">
-                {{ location.name }}
-              </mat-checkbox>
+            <div class="chckbox-grid">
+              <div *ngFor="let location of locations">
+                <mat-checkbox [indeterminate]="isBulkEdit && getCheckboxState(location.id) === 'intermediate'"
+                  [checked]="isBulkEdit ? getCheckboxState(location.id) === 'checked' : selectedLocationIds.isSelected(location.id)"
+                  (change)="onLocationChange(location)">
+                  {{ location.name }}
+                </mat-checkbox>
+              </div>
             </div>
           </mat-step>
         </mat-stepper>

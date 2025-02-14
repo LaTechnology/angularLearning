@@ -23,7 +23,7 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
   providers: [
     {
       provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: {showError: true},
+      useValue: { showError: true },
     },
   ],
 })
@@ -38,7 +38,7 @@ export class AddProductComponent {
   bulkSelectedData: any[] = [];
   result: any;
   locations: any[] = [];
-  selectedLocationIds = new SelectionModel<any>(true); 
+  selectedLocationIds = new SelectionModel<any>(true);
   product_submit$: any;
   isBulkEdit = false;
   constructor(
@@ -100,20 +100,25 @@ export class AddProductComponent {
   }
 
   initiateLocationForm() {
-    this.locationForm = new FormGroup({ 
+    this.locationForm = new FormGroup({
       locations: this.fb.array([]),
-    })
+    });
   }
 
   save() {
     this.productForm.markAllAsTouched();
     if (this.productForm.valid) {
+      let mergedObj = _.assign(
+        {},
+        this.productForm.value,
+        this.locationForm.value
+      );
       if (this.activatedRoute.snapshot.url[0].path === 'add') {
-        this.postproductData(this.productForm.value);
+        this.postproductData(mergedObj);
       } else if (this.activatedRoute.snapshot.url[0].path === 'edit') {
-        this.updateproductData(this.productForm.value);
+        this.updateproductData(mergedObj);
       } else if (this.activatedRoute.snapshot.url[0].path === 'bulk-edit') {
-        this.bulkUpdateproductData(this.productForm.value);
+        this.bulkUpdateproductData(mergedObj);
       }
     }
   }
@@ -143,16 +148,17 @@ export class AddProductComponent {
     });
   }
 
-  getCheckboxState(locationId: number): 'checked' | 'unchecked' | 'intermediate' {
+  getCheckboxState(
+    locationId: number
+  ): 'checked' | 'unchecked' | 'intermediate' {
     let selectedCount = 0;
     let totalProducts = this.bulkSelectedData.length;
-  
+
     this.bulkSelectedData.forEach((product) => {
       if (product.locations.some((loc: any) => loc.id === locationId)) {
         selectedCount++;
       }
     });
-  console.log()
     if (selectedCount === totalProducts) {
       return 'checked';
     } else if (selectedCount === 0) {
@@ -161,8 +167,6 @@ export class AddProductComponent {
       return 'intermediate';
     }
   }
-  
-
   onLocationChange(location: any) {
     if (this.isBulkEdit) {
       this.toggleLocationInBulk(location);
@@ -261,11 +265,9 @@ export class AddProductComponent {
     });
   }
 
- 
-
-  private toggleLocationInSingle(location: any) {
+  toggleLocationInSingle(location: any) {
     this.selectedLocationIds.toggle(location.id);
-    const locationArray = this.productForm.get('locations') as FormArray;
+    const locationArray = this.locationForm.get('locations') as FormArray;
 
     if (this.selectedLocationIds.isSelected(location.id)) {
       locationArray.push(this.fb.control(location));
@@ -277,10 +279,8 @@ export class AddProductComponent {
     }
   }
 
- 
-
-  private populateLocations(locations: any[]) {
-    const locationArray = this.productForm.get('locations') as FormArray;
+  populateLocations(locations: any[]) {
+    const locationArray = this.locationForm.get('locations') as FormArray;
     locationArray.clear();
     if (locations?.length) {
       this.selectedLocationIds = new SelectionModel<number>(
@@ -293,15 +293,15 @@ export class AddProductComponent {
     }
   }
 
-  private updateLocationSelection() {
-    const locationArray = this.productForm.get('locations') as FormArray;
+  updateLocationSelection() {
+    const locationArray = this.locationForm.get('locations') as FormArray;
     locationArray.clear();
-  
-    const selectedIds = new Set<number>(); 
-    const intermediateIds = new Set<number>(); 
-    const locationCounts = new Map<number, number>(); 
+
+    const selectedIds = new Set<number>();
+    const intermediateIds = new Set<number>();
+    const locationCounts = new Map<number, number>();
     const mergedLocations: any[] = [];
-  
+
     this.bulkSelectedData.forEach((product) => {
       if (Array.isArray(product.locations)) {
         product.locations.forEach((loc: any) => {
@@ -312,7 +312,7 @@ export class AddProductComponent {
         });
       }
     });
-  
+
     locationCounts.forEach((count, locId) => {
       if (count === this.bulkSelectedData.length) {
         selectedIds.add(locId);
@@ -320,46 +320,34 @@ export class AddProductComponent {
         intermediateIds.add(locId);
       }
     });
-  
-    
+
     mergedLocations.forEach((loc) => {
       if (selectedIds.has(loc.id) || intermediateIds.has(loc.id)) {
-        locationArray.push(this.fb.control(loc)); 
+        locationArray.push(this.fb.control(loc));
       }
     });
-  
   }
-  
 
-  private toggleLocationInBulk(location: any) {
+  toggleLocationInBulk(location: any) {
     const locationId = location.id;
     const isCurrentlyChecked = this.getCheckboxState(locationId) === 'checked';
     const isIntermediate = this.getCheckboxState(locationId) === 'intermediate';
-    
+
     this.bulkSelectedData.forEach((product) => {
-     
-        if (isCurrentlyChecked) {
-          if (!product.locations.some((loc: any) => loc.id === locationId)) {
-            product.locations.push(location);
-          }
-       
+      if (isCurrentlyChecked) {
+        if (!product.locations.some((loc: any) => loc.id === locationId)) {
+          product.locations.push(location);
+        }
       } else {
-        
-          if (!product.locations.some((loc: any) => loc.id === locationId)) {
-            product.locations.push(location);
-          }
-         else {
-          product.locations = product.locations.filter((loc: any) => loc.id !== locationId);
+        if (!product.locations.some((loc: any) => loc.id === locationId)) {
+          product.locations.push(location);
+        } else {
+          product.locations = product.locations.filter(
+            (loc: any) => loc.id !== locationId
+          );
         }
       }
-    }
-  
-  );
-  
+    });
     this.updateLocationSelection();
   }
-  
-  
-  
-  
 }
