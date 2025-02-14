@@ -23,17 +23,17 @@
 
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="custom-header">Location Name</th>
-        <td mat-cell *matCellDef="let element" class="custom-cell">{{element.name}}</td>
+        <td mat-cell *matCellDef="let element" class="custom-cell">{{element?.name}}</td>
       </ng-container>
   
       <ng-container matColumnDef="billingAddress">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="custom-header">Billing Address</th>
-        <td mat-cell *matCellDef="let element" class="custom-cell">{{element.billingAddress.addressLine1}},{{element.shippingAddress.city}},{{element.shippingAddress.state}}</td>
+        <td mat-cell *matCellDef="let element" class="custom-cell">{{element?.billingAddress?.addressLine1}},{{element?.shippingAddress?.city}},{{element?.shippingAddress?.state}}</td>
       </ng-container>
 
       <ng-container matColumnDef="shippingAddress">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="custom-header">Shipping Address</th>
-        <td mat-cell *matCellDef="let element" class="custom-cell">{{element.shippingAddress.addressLine1}},{{element.shippingAddress.city}},{{element.shippingAddress.state}}</td>
+        <td mat-cell *matCellDef="let element" class="custom-cell">{{element?.shippingAddress?.addressLine1}},{{element.shippingAddress?.city}},{{element.shippingAddress?.state}}</td>
       </ng-container>
   
       <ng-container matColumnDef="actions">

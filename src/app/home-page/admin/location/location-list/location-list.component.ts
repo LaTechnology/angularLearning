@@ -4,6 +4,7 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { LocationService } from 'app/services/location.service';  
+import { environment } from 'environments/environment.development';
 
 @Component({
   selector: 'app-location-list',
@@ -12,7 +13,7 @@ import { LocationService } from 'app/services/location.service';
 })
 export class LocationListComponent implements OnInit {
 
-  displayedColumns: string[] = ['select','name', 'billingAddress', 'shippingAddress', 'actions'];
+  displayedColumns: string[] = environment.locationListDisplayedColumns;
   dataSource = new MatTableDataSource<Location>([]);
   selectedRows:Set<Location> = new Set();
 

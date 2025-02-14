@@ -6,13 +6,15 @@ import { EditLocationComponent } from "./edit-location/edit-location.component";
 import { LocationListComponent } from "./location-list/location-list.component";
 import { NgModule } from "@angular/core";
 import { LocationComponent } from "./location.component";
+import { LocationBulkEditComponent } from './location-bulk-edit/location-bulk-edit.component';
 
 @NgModule({
     declarations:[
         LocationComponent,
         AddLocationComponent,
         EditLocationComponent,
-        LocationListComponent
+        LocationListComponent,
+        LocationBulkEditComponent
     ],
     imports:[
         LocationRoutingModule,

@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
+import { environment } from 'environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocationService {
 
-  private apiUrl:string = 'http://localhost:3000/locations';
+  private apiUrl:string = `${environment.apiUrl}/locations`;
   constructor(private apiService:ApiService) {
 
   }
