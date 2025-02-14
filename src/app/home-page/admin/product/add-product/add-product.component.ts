@@ -14,14 +14,22 @@ import { forkJoin } from 'rxjs';
 import * as _ from 'lodash';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SelectionModel } from '@angular/cdk/collections';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss'],
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: {showError: true},
+    },
+  ],
 })
 export class AddProductComponent {
   productForm!: FormGroup;
+  locationForm!: FormGroup;
   sizes = ['S', 'M', 'L', 'XL'];
   productSideBarOpen: boolean = false;
   productSidebar: boolean = false;
@@ -53,6 +61,7 @@ export class AddProductComponent {
     this.productSideBarOpen = true;
     this.productSidebar = true;
     this.initiateproductForm();
+    this.initiateLocationForm();
     if (productAction == 'edit') {
       this.selectedDataApi(this.activatedRoute.snapshot.url[1].path);
       this.headerTittle = 'Update Product';
@@ -87,8 +96,13 @@ export class AddProductComponent {
       color: new FormControl('', [Validators.required]),
       code: new FormControl('', [Validators.required]),
       quantity: new FormControl('', [Validators.required]),
-      locations: this.fb.array([]),
     });
+  }
+
+  initiateLocationForm() {
+    this.locationForm = new FormGroup({ 
+      locations: this.fb.array([]),
+    })
   }
 
   save() {
