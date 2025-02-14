@@ -14,6 +14,7 @@ export const environment = {
       ],
 
     addressListDisplayedColumns: ["select","addressLine1","addressLine2","city","district","pincode","state","country","region","landMark","phoneNumber","addressType","actions"],
+    inventoryDisplayedColumns : ['name', 'size', 'brand', 'color', 'code', 'quantity', 'location'],
     locationListDisplayedColumns: ['select','name', 'billingAddress', 'shippingAddress', 'actions'],
     
  
