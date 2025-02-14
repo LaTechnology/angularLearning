@@ -9,7 +9,7 @@ import { ApiService } from 'app/services/api.service';
 })
 export class ProductService {
   private apiUrl = `${environment.apiUrl}/products`;
-  private apiUrl1 = `${environment.apiUrl}/locations`;
+  private locationsUrl = `${environment.apiUrl}/locations`;
   constructor(private apiService: ApiService) {}
 
   public triggerSubject = new Subject<void>();
@@ -47,8 +47,7 @@ export class ProductService {
     return this.apiService.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  
- getAllLocation():Observable<Product[]> {
-  return this.apiService.get<any[]>(this.apiUrl1);
- }
+  getAllLocation(): Observable<any[]> {
+    return this.apiService.get<any[]>(this.locationsUrl);
+  }
 }
