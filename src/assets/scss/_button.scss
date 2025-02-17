@@ -144,8 +144,8 @@
 }
 
 .orange-disabled-button {
-  background: var(--lt-deep-orange-500) !important;
-  color: var(--lt-white) !important;
+  background: rgb(201, 199, 199) !important;
+  color: white !important;
   cursor: not-allowed !important;
   transition: background 0.5s ease !important;
 }

@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { Address } from '../../address/address.model';
 import { AddressService } from '../../address/address.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-location',
@@ -23,6 +23,7 @@ export class EditLocationComponent {
       private fb: FormBuilder,
       private locationService: LocationService,
       private addressService: AddressService,
+      private router: Router,
       private activatedRoute: ActivatedRoute
     ) {
       this.locationForm = fb.group({
@@ -107,13 +108,14 @@ export class EditLocationComponent {
         if(this.id){
           this.locationService.updateLocation(this.id,location).subscribe(
             (response) => {
-              alert('Location updated successfully');
+              this.router.navigate(['/location/list']);
             },
             (error) => {
               alert('Error updating Location');
             }
           );
         }
+      
         
       }
     }

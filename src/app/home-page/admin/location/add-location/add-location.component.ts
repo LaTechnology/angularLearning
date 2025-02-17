@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LocationService } from 'app/services/location.service';
-import { Observable, of } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { Address } from '../../address/address.model';
 import { AddressService } from '../../address/address.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-location',
@@ -20,7 +20,8 @@ export class AddLocationComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private locationService: LocationService,
-    private addressService: AddressService
+    private addressService: AddressService,
+    private router:Router
   ) {
     this.locationForm = fb.group({
       // id: [''],
@@ -52,20 +53,15 @@ export class AddLocationComponent implements OnInit {
     });
   }
 
-  private _filterAddresses(value: string | Address): Address[] {
+  private _filterAddresses(value: string ): Address[] {
     const filterValue = typeof value === 'string' ? value.toLowerCase() : '';
-  
-    if (typeof value === 'string') {
+
       return this.addresses.filter(address =>
         address.addressLine1.toLowerCase().includes(filterValue) ||
         address.city.toLowerCase().includes(filterValue) ||
         address.pincode.includes(filterValue)
       );
-    } else if (value && typeof value === 'object') {
-      return this.addresses;
-    } else {
-      return [];
-    }
+
   }
   
 
@@ -91,12 +87,16 @@ export class AddLocationComponent implements OnInit {
 
       this.locationService.addLocation(location).subscribe(
         (response) => {
-          alert('New Location created successfully');
+
+          this.router.navigate(['/location/list']);
         },
         (error) => {
           alert('Error creating new Location');
         }
       );
+
+      
+       
     }
   }
 }
