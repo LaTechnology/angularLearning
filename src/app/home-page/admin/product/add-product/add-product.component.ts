@@ -141,10 +141,7 @@ export class AddProductComponent {
     this.productService.getSelectedProductById(ids).subscribe((res: any[]) => {
       this.bulkSelectedData = res;
       this.result = this.mergeObjectsById(this.bulkSelectedData);
-      this.result.locations = this.result.locations || [];
-
       this.productForm.patchValue(this.result);
-      this.updateLocationSelection();
     });
   }
 
@@ -167,28 +164,27 @@ export class AddProductComponent {
       return 'intermediate';
     }
   }
+
+
   onLocationChange(location: any) {
+    const checkboxState = this.getCheckboxState(location.id);
+  
     if (this.isBulkEdit) {
-      this.toggleLocationInBulk(location);
+      if (checkboxState === 'checked') {
+        this.toggleLocationInBulk(location, false); // Remove from all
+      } else {
+        this.toggleLocationInBulk(location, true); // Add to all
+      }       
     } else {
       this.toggleLocationInSingle(location);
     }
   }
+  
 
   mergeObjectsById(objects: any[]): any {
     return objects.reduce((merged, obj) => {
       _.forEach(obj, (value, key) => {
-        if (key === 'locations') {
-          if (!merged.locations) {
-            merged.locations = [...value];
-          } else {
-            value.forEach((loc: any) => {
-              if (!merged.locations.some((l: any) => l.id === loc.id)) {
-                merged.locations.push(loc);
-              }
-            });
-          }
-        } else if (key !== 'id') {
+        if (key !== 'id') {
           if (!merged.hasOwnProperty(key)) {
             merged[key] = value;
           } else if (!_.isEqual(merged[key], value)) {
@@ -240,6 +236,7 @@ export class AddProductComponent {
           value === 'mixed value' ? item[key] : value
         ),
         id: item.id,
+        locations: item.locations,
       }));
     };
     const result = transformData(data, this.bulkSelectedData);
@@ -293,61 +290,31 @@ export class AddProductComponent {
     }
   }
 
-  updateLocationSelection() {
-    const locationArray = this.locationForm.get('locations') as FormArray;
-    locationArray.clear();
 
-    const selectedIds = new Set<number>();
-    const intermediateIds = new Set<number>();
-    const locationCounts = new Map<number, number>();
-    const mergedLocations: any[] = [];
-
-    this.bulkSelectedData.forEach((product) => {
-      if (Array.isArray(product.locations)) {
-        product.locations.forEach((loc: any) => {
-          locationCounts.set(loc.id, (locationCounts.get(loc.id) || 0) + 1);
-          if (!mergedLocations.some((existing) => existing.id === loc.id)) {
-            mergedLocations.push(loc);
-          }
-        });
-      }
-    });
-
-    locationCounts.forEach((count, locId) => {
-      if (count === this.bulkSelectedData.length) {
-        selectedIds.add(locId);
-      } else {
-        intermediateIds.add(locId);
-      }
-    });
-
-    mergedLocations.forEach((loc) => {
-      if (selectedIds.has(loc.id) || intermediateIds.has(loc.id)) {
-        locationArray.push(this.fb.control(loc));
-      }
-    });
-  }
-
-  toggleLocationInBulk(location: any) {
-    const locationId = location.id;
-    const isCurrentlyChecked = this.getCheckboxState(locationId) === 'checked';
-    const isIntermediate = this.getCheckboxState(locationId) === 'intermediate';
-
-    this.bulkSelectedData.forEach((product) => {
-      if (isCurrentlyChecked) {
-        if (!product.locations.some((loc: any) => loc.id === locationId)) {
-          product.locations.push(location);
+  
+  toggleLocationInBulk(location: any, isSelected: boolean) {
+    this.bulkSelectedData = this.bulkSelectedData.map((product) => {
+      const locationSet = new Set(product.locations.map((loc: any) => loc.id)); 
+  
+      if (isSelected) {
+        if (!locationSet.has(location.id)) {
+          return {
+            ...product,
+            locations: [...product.locations, { ...location }],
+          };
         }
       } else {
-        if (!product.locations.some((loc: any) => loc.id === locationId)) {
-          product.locations.push(location);
-        } else {
-          product.locations = product.locations.filter(
-            (loc: any) => loc.id !== locationId
-          );
+        if (locationSet.has(location.id)) {
+          return {
+            ...product,
+            locations: product.locations.filter((loc: any) => loc.id !== location.id),
+          };
         }
       }
+  
+      return product; 
     });
-    this.updateLocationSelection();
   }
+  
+
 }
