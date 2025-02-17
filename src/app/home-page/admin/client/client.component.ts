@@ -119,7 +119,7 @@ export class ClientComponent {
     } else if (userAction === 'bulk') {
       const idList = this.clientSelection.selected.map((item: any) => item.id);
       this._session.setItem('clientIDList', idList);
-      this.router.navigate(['/client/bulk-upload']);
+      this.router.navigate(['/client/bulk-edit']);
     }
   }
 
