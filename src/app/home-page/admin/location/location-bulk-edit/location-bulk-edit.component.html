@@ -1,1 +1,86 @@
-<p>location-bulk-edit works!</p>
+<mat-card>
+    <mat-card-content>
+      <mat-card-title>
+        Bulk Edit Location Form
+      </mat-card-title>
+  
+      <form [formGroup]="locationForm" (ngSubmit)="onSubmit()">
+        <div class="form-container">
+          <!-- Location Name -->
+          <mat-form-field>
+            <mat-label>Location Name</mat-label>
+            <input matInput formControlName="name">
+            <mat-error *ngIf="locationForm.get('name')?.invalid && locationForm.get('name')?.touched">
+              Required
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- Billing Address -->
+           <!-- <div > -->
+            <mat-form-field *ngIf="isFieldEditEnabled['billingAddress']" >
+              <mat-label>Billing Address</mat-label>
+              <input matInput formControlName="billingAddress" [matAutocomplete]="autoBilling">
+              <mat-autocomplete #autoBilling="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onAddressSelected($event, 'billingAddress')">
+                <mat-option *ngFor="let address of filteredBillingAddresses" [value]="address">
+                  {{ address.addressLine1 }}, {{ address.city }} - {{ address.pincode }}
+                </mat-option>
+              </mat-autocomplete>
+              <mat-error *ngIf="locationForm.get('billingAddress')?.invalid && locationForm.get('billingAddress')?.touched">
+                Required
+              </mat-error>
+            </mat-form-field>
+  
+           <!-- </div> -->
+          
+
+          <!-- <div > -->
+          <!-- Billing Address -->
+          <mat-form-field *ngIf="!isFieldEditEnabled['billingAddress']">
+            <mat-label>Billing Address</mat-label>
+            <input matInput [value]="'Mixed Value'" [disabled]="true">
+          </mat-form-field>
+
+          <button mat-icon-button *ngIf="!isFieldEditEnabled['billingAddress']" (click)="enableFieldEdit('billingAddress')">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button *ngIf="isFieldEditEnabled['billingAddress']" (click)="cancelFieldEdit('billingAddress')">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        <!-- </div> -->
+  
+          <!-- Shipping Address -->
+          <mat-form-field *ngIf="isFieldEditEnabled['shippingAddress']">
+            <mat-label>Shipping Address</mat-label>
+            <input matInput formControlName="shippingAddress" [matAutocomplete]="autoShipping">
+            <mat-autocomplete #autoShipping="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onAddressSelected($event, 'shippingAddress')">
+              <mat-option *ngFor="let address of filteredShippingAddresses" [value]="address">
+                {{ address.addressLine1 }}, {{ address.city }} - {{ address.pincode }}
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="locationForm.get('shippingAddress')?.invalid && locationForm.get('shippingAddress')?.touched">
+              Required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field *ngIf="!isFieldEditEnabled['shippingAddress']"  > 
+            <mat-label>Shipping Address</mat-label>
+            <input matInput [value]="'Mixed Value'" [disabled]="true" >
+          </mat-form-field>
+
+          <button mat-icon-button *ngIf="!isFieldEditEnabled['shippingAddress']" (click)="enableFieldEdit('shippingAddress')">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button *ngIf="isFieldEditEnabled['shippingAddress']" (click)="cancelFieldEdit('shippingAddress')">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </div>
+  
+        <div class="button-container">
+          <button mat-raised-button color="primary" type="submit" [disabled]="locationForm.invalid || locationForm.pristine">
+            Bulk Edit Location
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

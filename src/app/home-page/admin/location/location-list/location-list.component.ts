@@ -27,6 +27,10 @@ export class LocationListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadAllLocations();
+  }
+
+  loadAllLocations(){
     this.locationService.getAllLocations().subscribe(locations => {
       this.dataSource.data = locations;
     });
@@ -70,14 +74,31 @@ export class LocationListComponent implements OnInit {
     }
   }
 
+  editBulkLocations(){
+    if(this.selectedRows.size === 0 ){
+      alert("please select atleast one location to bulk edit");
+      return;
+    }
+    this.router.navigate(['location/bulk-edit'],{state:{selectedLocations:Array.from(this.selectedRows)}});
+  }
+
   editLocation(id: string) {
     this.router.navigate([`/location/edit/${id}`]);
   }
 
   deleteLocation(id: string) {
-    // this.locationService.deleteLocation(id).subscribe(() => {
-    //   alert('Location deleted successfully');
-    //   this.dataSource.data = this.dataSource.data.filter(loc => loc.id !== id); // Remove deleted item from table
-    // });
+    this.locationService.deleteLocationById(id).subscribe(() => {
+      this.loadAllLocations();
+    });
   }
+
+  applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase(); 
+    this.dataSource.filter = filterValue; 
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage(); 
+    }
+  }
+  
 }

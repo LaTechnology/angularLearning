@@ -1,10 +1,10 @@
 <mat-card>
     <mat-card-content>
-      <mat-card-title>
+      <mat-card-title class="title">
         Add New Location
       </mat-card-title>
   
-      <form [formGroup]="locationForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="locationForm" (ngSubmit)="onSubmit()" class="location-form">
         <div class="form-container">
           <!-- Location Name -->
           <mat-form-field>
