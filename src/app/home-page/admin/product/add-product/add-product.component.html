@@ -46,7 +46,7 @@
             <ng-template matStepLabel> Select Location</ng-template>
             <div class="d-flex col-12 justify-content-end gap-10">
               <lt-button [btnType]="'stepper-previes'">Back</lt-button>
-              <app-submit-button [placeholder]="saveTittle" [callback]="product_submit$" (submit)="save()"  [disabledBtn]="(productForm.invalid && locationForm.invalid)|| (productForm.pristine && locationForm.pristine)">
+              <app-submit-button [placeholder]="saveTittle" [callback]="product_submit$" (submit)="save()" [btnValidity]="selectedLocationIds.selected.length > 0" >
               </app-submit-button>
             </div>
             <div class="chckbox-grid">
@@ -58,6 +58,8 @@
                 </mat-checkbox>
               </div>
             </div>
+            <br>
+            <p *ngIf="selectedLocationIds.selected.length<= 0"><b>note:</b> atleast select one location</p>
           </mat-step>
         </mat-stepper>
       </div>
