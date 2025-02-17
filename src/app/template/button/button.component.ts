@@ -9,6 +9,7 @@ export class ButtonComponent implements OnInit {
   dropdown:number = -1
   openDropdown:boolean = false
   openIconDropdown:boolean = false
+  @Input() formValid = true
   @Input() btnType: any = '';
   @Input() htmlType: 'button' | 'submit' | 'reset' = 'button';
   @Input() iconType:string = ''

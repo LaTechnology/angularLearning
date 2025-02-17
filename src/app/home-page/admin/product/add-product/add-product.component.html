@@ -2,11 +2,11 @@
   <app-right-side-slider [displayPanel]="productSidebar" (closePanel)="closeRightSidebar()">
     <div class="w-px-700">
       <div class="px-10 pt-4 position-relative">
-        <mat-stepper #stepper>
-          <mat-step [stepControl]="productForm" errorMessage="please fill manirory field">
+        <mat-stepper #stepper linear>
+          <mat-step [stepControl]="productForm" [editable]="true">
             <ng-template matStepLabel>{{headerTittle}} </ng-template>
             <div class="d-flex col-12 justify-content-end gap-10">
-              <lt-button [btnType]="'steper-next'" >Next</lt-button>
+              <lt-button [btnType]="'steper-next'" [formValid]="productForm.valid" (click)="productForm.markAllAsTouched()">Next</lt-button>
             </div>
             <form [formGroup]="productForm">
               <div class="sidebar-scroll custom-scrollbar">
@@ -35,7 +35,7 @@
                   </lt-textbox-outline>
 
                   <lt-textbox-outline class="w-50" formControlName="quantity" [control]="productForm.get('quantity')"
-                    [label]="'Quantity'" [type]="'number'" [required]="true">
+                    [label]="'Quantity'" [type]="'text'" [required]="true">
                   </lt-textbox-outline>
                 </div>
               </div>

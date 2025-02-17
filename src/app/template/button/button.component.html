@@ -13,7 +13,7 @@
     </ng-container>
 
     <ng-container *ngSwitchCase="'steper-next'">
-      <button mat-flat-button matStepperNext class="create-btn" [type]="htmlType">
+      <button mat-flat-button [matStepperNext]="formValid ? '' : null" class="create-btn" [type]="htmlType">
         <div class="btn-text color-white">
           <ng-template *ngTemplateOutlet="buttonContent"></ng-template>
         </div>
