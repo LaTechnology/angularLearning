@@ -6,7 +6,8 @@
           <mat-step [stepControl]="productForm" [editable]="true">
             <ng-template matStepLabel>{{headerTittle}} </ng-template>
             <div class="d-flex col-12 justify-content-end gap-10">
-              <lt-button [btnType]="'steper-next'" [formValid]="productForm.valid" (click)="productForm.markAllAsTouched()">Next</lt-button>
+              <lt-button [btnType]="'steper-next'" [formValid]="productForm.valid"
+                (click)="productForm.markAllAsTouched()">Next</lt-button>
             </div>
             <form [formGroup]="productForm">
               <div class="sidebar-scroll custom-scrollbar">
@@ -46,7 +47,8 @@
             <ng-template matStepLabel> Select Location</ng-template>
             <div class="d-flex col-12 justify-content-end gap-10">
               <lt-button [btnType]="'stepper-previes'">Back</lt-button>
-              <app-submit-button [placeholder]="saveTittle" [callback]="product_submit$" (submit)="save()" [btnValidity]="selectedLocationIds.selected.length > 0" >
+              <app-submit-button [placeholder]="saveTittle" [callback]="product_submit$" (submit)="save()"
+                [btnValidity]="selectedLocationIds.selected.length > 0">
               </app-submit-button>
             </div>
             <div class="chckbox-grid">
@@ -58,8 +60,13 @@
                 </mat-checkbox>
               </div>
             </div>
-            <br>
-            <p *ngIf="selectedLocationIds.selected.length<= 0"><b>note:</b> atleast select one location</p>
+            <div *ngIf="selectedLocationIds.selected.length<= 0" class="applicable-note position-absolute p-3 mat-20">
+              <div class="d-flex gap-7 align-items-center">
+                <lt-icon [name]="'info_round_yellow'" [iconClass]="'icon-16'"></lt-icon>
+                <div class="subtitle font-weight-5">Note</div>
+              </div>
+              <div class="font-13 pal-25 pt-1 subtitle font-weight-4">Please atleast select one location</div>
+            </div>
           </mat-step>
         </mat-stepper>
       </div>
