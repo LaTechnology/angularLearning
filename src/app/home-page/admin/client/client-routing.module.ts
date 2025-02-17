@@ -9,7 +9,7 @@ const routes: Routes = [
     children: [
       { path: 'add', component: ClientAddFormComponent },
       { path: 'edit/:id', component: ClientAddFormComponent },
-      { path: 'bulk-upload', component: ClientAddFormComponent },
+      { path: 'bulk-edit', component: ClientAddFormComponent },
     ],
   },
 ];
