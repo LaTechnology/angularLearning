@@ -76,8 +76,17 @@ body { margin: 0; font-family: "Poppins", serif !important;
     &:hover{
       color: #000;
     }
+
    }
   }
+  li.active{
+    background-color: #ddd !important;
+  }
+}
+.dropdown-menu.show li.active {
+ a{
+    color: #0a58ca !important;
+ }
 }
 
 .mat-mdc-checkbox-checked .mdc-checkbox__background {
