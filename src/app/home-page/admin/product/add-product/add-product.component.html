@@ -6,7 +6,7 @@
           <mat-step [stepControl]="productForm" errorMessage="please fill manirory field">
             <ng-template matStepLabel>{{headerTittle}} </ng-template>
             <div class="d-flex col-12 justify-content-end gap-10">
-              <lt-button [btnType]="'steper-next'">Next</lt-button>
+              <lt-button [btnType]="'steper-next'" >Next</lt-button>
             </div>
             <form [formGroup]="productForm">
               <div class="sidebar-scroll custom-scrollbar">
@@ -46,7 +46,7 @@
             <ng-template matStepLabel> Select Location</ng-template>
             <div class="d-flex col-12 justify-content-end gap-10">
               <lt-button [btnType]="'stepper-previes'">Back</lt-button>
-              <app-submit-button [placeholder]="saveTittle" [callback]="product_submit$" (submit)="save()">
+              <app-submit-button [placeholder]="saveTittle" [callback]="product_submit$" (submit)="save()"  [disabledBtn]="(productForm.invalid && locationForm.invalid)|| (productForm.pristine && locationForm.pristine)">
               </app-submit-button>
             </div>
             <div class="chckbox-grid">

@@ -62,10 +62,10 @@
           <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
             <mat-cell *matCellDef="let product">
-              <button mat-icon-button color="primary" (click)="editProduct(product)">
+              <button mat-icon-button color="primary" (click)="editProduct(product)" [disabled]="selection.selected.length > 0">
                 <mat-icon>edit</mat-icon>
               </button>
-              <button mat-icon-button color="warn" (click)="openDeleteModal(product.id)">
+              <button mat-icon-button color="warn" (click)="openDeleteModal(product.id)" [disabled]="selection.selected.length > 0">
                 <mat-icon>delete</mat-icon>
               </button>        
             </mat-cell>
@@ -93,7 +93,7 @@
             </div>
             <div class="modal-footer border-0">
               <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
-              <button type="button" class="btn btn-danger btn-sm" (click)="confirmDelete()">Delete</button>
+              <button type="button" class="btn btn-danger btn-sm" (click)="confirmDelete()" >Delete</button>
             </div>
           </div>
         </div>
