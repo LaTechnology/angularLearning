@@ -11,6 +11,18 @@
       "alternativePhoneNumber": "987653456",
       "isActive": true,
       "gender": "Male"
+    },
+    {
+      "id": "e747",
+      "firstName": "seba",
+      "lastName": "win",
+      "age": "50",
+      "email": "seba@gmail.com",
+      "dateOfBirth": "2022-06-14T18:30:00.000Z",
+      "phoneNumber": "9876543223",
+      "alternativePhoneNumber": "0987653456",
+      "isActive": true,
+      "gender": "Male"
     }
   ],
   "products": [
@@ -53,6 +65,39 @@
             "region": "asia2",
             "landMark": "Phoenix",
             "phoneNumber": "9898987879"
+          }
+        },
+        {
+          "id": "09cd",
+          "name": "Ram home",
+          "billingAddress": {
+            "addressId": "e64e3372-e39f-4aec-8ab6-caf352b5b206",
+            "addressLine1": "electronic city",
+            "addressLine2": "light city",
+            "city": "banglore",
+            "district": "district",
+            "pincode": "980898",
+            "state": "tamilnadu",
+            "country": "India",
+            "region": "asia",
+            "landMark": "electronic",
+            "phoneNumber": "0989898787",
+            "addressType": "Work",
+            "id": "1bda"
+          },
+          "shippingAddress": {
+            "addressLine1": "checking",
+            "addressLine2": "line 2",
+            "city": "gingee",
+            "district": "villupuram",
+            "pincode": "604204",
+            "state": "tamilnadu",
+            "country": "india",
+            "region": "asia",
+            "landMark": "phoenix",
+            "phoneNumber": "6987669878",
+            "addressType": "Home",
+            "id": "79ca"
           }
         }
       ],
@@ -286,6 +331,16 @@
         }
       ],
       "id": "a107"
+    },
+    {
+      "id": "0351",
+      "productName": "xcd",
+      "size": "S",
+      "brand": "dfwefr",
+      "color": "da",
+      "code": "dfsdv",
+      "quantity": "1",
+      "locations": []
     }
   ],
   "addresses": [

@@ -45,7 +45,7 @@ export class AddProductComponent {
     private fb: FormBuilder,
     private productService: ProductService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
+    private   activatedRoute: ActivatedRoute,
     public _session: SessionStorageService,
     public _util: UtilService
   ) {}

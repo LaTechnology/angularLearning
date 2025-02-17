@@ -190,7 +190,7 @@ export class AddCustomerComponent implements OnInit {
         this.store.dispatch(addCustomer({ customer: newCustomer }));
         alert('Customer added successfully!');
       }
-      this.router.navigate(['/customer']);
+      this.router.navigate(['/customer/list']);
     }
   }
 }
