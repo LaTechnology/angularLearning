@@ -28,6 +28,10 @@ const routes: Routes = [
   {
     path: 'role',
     loadChildren: () => import('../app/home-page/admin/role/role.module').then((m) => m.RoleModule)
+  },
+  {
+    path:'location',
+    loadChildren:() => import('../app/home-page/admin/location/location.module').then((m)=>m.LocationModule)
   }
 
 
