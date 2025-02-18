@@ -11,17 +11,19 @@ export class HomePageComponent implements OnInit {
     { label: 'Inventory', link: '/inventory' },
     { label: 'Order', link: '/order' }
   ];
+
   linkDropdownList = [
     { name: 'Customer', link: '/customer/list' },
     { name: 'Product', link: '/product' },
     { name: 'Address', link: '/address/list' },
     { name: 'Location', link: '/location/list' },
     { name: 'Client', link: '/client' },
-    { name: 'Roles', link: '/listrole' },
+    {name: 'Roles', link: '/role'},
   ];
 
   activeTabIndex: number = -1;
   activeDropdownItem: string | null = null;
+
 
   constructor(private router: Router) {}
 

@@ -74,7 +74,7 @@ export class UpdateRoleComponent {
       response => {
         console.log('User roles updated successfully:', response);
         alert('User roles updated successfully!');
-        this.router.navigate(['listrole']);
+        this.router.navigate(['/role']);
       },
       error => {
         console.error('Error updating user:', error);
@@ -84,7 +84,7 @@ export class UpdateRoleComponent {
   }
 
   viewRoles() {
-    this.router.navigate(['listrole']);
+    this.router.navigate(['/role']);
   }
 
 }

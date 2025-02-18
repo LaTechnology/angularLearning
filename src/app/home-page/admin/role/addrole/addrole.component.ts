@@ -86,7 +86,7 @@ export class AddroleComponent {
         next: (response) => {
           console.log('data', response);
           alert('UserRole successfully submitted!');
-          this.router.navigate(['/listrole']);
+          this.router.navigate(['/role']);
         },
         error: (error) => {
           console.error('Error submitting form data:', error);
@@ -97,7 +97,7 @@ export class AddroleComponent {
   }
 
   viewRoles() {
-    this.router.navigate(['/listrole'])
+    this.router.navigate(['/role'])
   }
 
   get selectedRoles(): FormArray {
