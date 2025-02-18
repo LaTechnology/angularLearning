@@ -29,11 +29,6 @@ import { customerReducer } from './home-page/admin/customer/store/customer.reduc
 import { CustomerEffects } from './home-page/admin/customer/store/customer.effects';
 import { MatSort } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ListRoleComponent } from './home-page/admin/role/list-role/list-role.component';
-import { UpdateRoleComponent } from './home-page/admin/role/update-role/update-role.component';
-import { DeleteDialogComponent } from './home-page/admin/role/delete-dialog/delete-dialog.component';
-import { BulkEditDialogComponent } from './home-page/admin/role/bulk-edit-dialog/bulk-edit-dialog.component';
-import { AddroleComponent } from './home-page/admin/role/addrole/addrole.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -49,15 +44,9 @@ import { AddressEffects } from './home-page/admin/address/store/address.effects'
     HomePageComponent,
     InventoryComponent,
     OrdersComponent,
-    AddroleComponent,
-    ListRoleComponent,
-    UpdateRoleComponent,
-    DeleteDialogComponent,
-    BulkEditDialogComponent,
     ConfirmDialogComponent,
     BulkEditComponent
-    // ConfirmationDialogComponent,
-   
+
   ],
   imports: [
     NgbModule,
@@ -87,28 +76,28 @@ import { AddressEffects } from './home-page/admin/address/store/address.effects'
     MatIconModule,
     HttpClientModule,
     MatDatepickerModule,
-     MatSelectModule,
-      MatInputModule,
-       FormsModule,
-      CommonModule,
-     FormsModule,
-     ReactiveFormsModule,
-     MatInputModule,
-     MatCheckboxModule,
-     MatMenuModule,
-     MatDatepickerModule,
-     MatNativeDateModule,
-     MatCardModule,
-     MatTableModule,
-     MatSortModule,
-     MatPaginatorModule,
-     MatButtonModule,
-     MatIconModule,
-     HttpClientModule,
-     StoreModule.forRoot({customers: customerReducer,addresses:addressReducer}),
-     EffectsModule.forRoot([CustomerEffects,AddressEffects]),
-     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-     
+    MatSelectModule,
+    MatInputModule,
+    FormsModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatMenuModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatButtonModule,
+    MatIconModule,
+    HttpClientModule,
+    StoreModule.forRoot({ customers: customerReducer, addresses: addressReducer }),
+    EffectsModule.forRoot([CustomerEffects, AddressEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+
   ],
   providers: [
     provideClientHydration(),

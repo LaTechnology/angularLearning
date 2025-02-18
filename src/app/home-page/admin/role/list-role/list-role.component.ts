@@ -81,7 +81,7 @@ export class ListRoleComponent {
   }
 
   addRole() {
-    this.router.navigate(['addrole']);
+    this.router.navigate(['role/addrole']);
   }
 
   deleteUser(id: string): void {
