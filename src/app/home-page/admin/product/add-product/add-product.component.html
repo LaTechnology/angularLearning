@@ -1,48 +1,75 @@
 <ng-container *ngIf="productSideBarOpen">
   <app-right-side-slider [displayPanel]="productSidebar" (closePanel)="closeRightSidebar()">
     <div class="w-px-700">
-      <form [formGroup]="productForm">
+      <div class="px-10 pt-4 position-relative">
+        <mat-stepper #stepper linear>
+          <mat-step [stepControl]="productForm" [editable]="true">
+            <ng-template matStepLabel>{{headerTittle}} </ng-template>
+            <div class="d-flex col-12 justify-content-end gap-10">
+              <lt-button [btnType]="'steper-next'" [formValid]="productForm.valid"
+                (click)="productForm.markAllAsTouched()">Next</lt-button>
+            </div>
+            <form [formGroup]="productForm">
+              <div class="sidebar-scroll custom-scrollbar">
+                <div class="col-12  d-flex gap-16">
+                  <lt-textbox-outline [label]="'Name'" class="w-50" [required]="true" [type]="'text'"
+                    formControlName="productName" [control]="productForm.get('productName')">
+                  </lt-textbox-outline>
+                  <lt-single-select [label]="'Size'" [items]="sizes" [required]="true" class="w-50"
+                    [control]="productForm.get('size')" formControlName="size">
+                  </lt-single-select>
+                </div>
 
-        <div class="sidebar-header d-flex justify-content-between">
-          <lt-form-header [header]="headerTittle"></lt-form-header>
-          <div class="action-buttons d-flex c-gap-10">
-            <lt-button [btnType]="'light-button'" (click)="closeRightSidebar()">Cancel</lt-button>
-            <app-submit-button [placeholder]="saveTittle" [callback]="product_submit$" (submit)="save()">
-            </app-submit-button>
-          </div>
-        </div>
-        <div class="px-34 sidebar-scroll custom-scrollbar pt-4 position-relative">
-          <div class="col-12  d-flex gap-16">
-            <lt-textbox-outline [label]="'Name'" class="w-50" [required]="true" [type]="'text'" 
-              formControlName="productName" [control]="productForm.get('productName')">
-            </lt-textbox-outline>
-            <lt-single-select [label]="'To'" [items]="sizes" [required]="true" class="w-50" [control]="productForm.get('size')"
-              formControlName="size">
-            </lt-single-select>
-          </div>
+                <div class="col-12  d-flex gap-16">
+                  <lt-textbox-outline [label]="'Brand'" class="w-50" [required]="true" [type]="'text'"
+                    formControlName="brand" [control]="productForm.get('brand')">
+                  </lt-textbox-outline>
 
-          <div class="col-12  d-flex gap-16">
-            <lt-textbox-outline [label]="'Brand'" class="w-50" [required]="true" [type]="'text'"
-              formControlName="brand" [control]="productForm.get('brand')">
-            </lt-textbox-outline>
+                  <lt-textbox-outline class="w-50" formControlName="color" [control]="productForm.get('color')"
+                    [label]="'Color'" [type]="'text'" [required]="true">
+                  </lt-textbox-outline>
+                </div>
 
-            <lt-textbox-outline class="w-50" formControlName="color" [control]="productForm.get('color')"
-              [label]="'Color'" [type]="'text'" [required]="true">
-            </lt-textbox-outline>
-          </div>
+                <div class="col-12  d-flex gap-16">
+                  <lt-textbox-outline [label]="'Code'" class="w-50" [required]="true" [type]="'text'"
+                    formControlName="code" [control]="productForm.get('code')">
+                  </lt-textbox-outline>
 
-          <div class="col-12  d-flex gap-16">
-            <lt-textbox-outline [label]="'Code'" class="w-50" [required]="true" [type]="'text'"
-              formControlName="code" [control]="productForm.get('code')">
-            </lt-textbox-outline>
-
-            <lt-textbox-outline class="w-50" formControlName="quantity" [control]="productForm.get('quantity')"
-              [label]="'Quantity'" [type]="'text'" [required]="true">
-            </lt-textbox-outline>
-          </div>
-     
-        </div>
-      </form>
+                  <lt-textbox-outline class="w-50" formControlName="quantity" [control]="productForm.get('quantity')"
+                    [label]="'Quantity'" [type]="'text'" [required]="true">
+                  </lt-textbox-outline>
+                </div>
+              </div>
+            </form>
+          </mat-step>
+          <!--  -->
+          <mat-step [stepControl]="locationForm" errorMessage="Address is required.">
+            <ng-template matStepLabel> Select Location</ng-template>
+            <div class="d-flex col-12 justify-content-end gap-10">
+              <lt-button [btnType]="'stepper-previes'">Back</lt-button>
+              <app-submit-button [placeholder]="saveTittle" [callback]="product_submit$" (submit)="save()"
+                [btnValidity]="selectedLocationIds.selected.length > 0">
+              </app-submit-button>
+            </div>
+            <div class="chckbox-grid">
+              <div *ngFor="let location of locations">
+                <mat-checkbox [indeterminate]="isBulkEdit && getCheckboxState(location.id) === 'intermediate'"
+                  [checked]="isBulkEdit ? getCheckboxState(location.id) === 'checked' : selectedLocationIds.isSelected(location.id)"
+                  (change)="onLocationChange(location)">
+                  {{ location.name }}
+                </mat-checkbox>
+              </div>
+            </div>
+            <div *ngIf="selectedLocationIds.selected.length<= 0" class="applicable-note position-absolute p-3 mat-20">
+              <div class="d-flex gap-7 align-items-center">
+                <lt-icon [name]="'info_round_yellow'" [iconClass]="'icon-16'"></lt-icon>
+                <div class="subtitle font-weight-5">Note</div>
+              </div>
+              <div class="font-13 pal-25 pt-1 subtitle font-weight-4">Please atleast select one location</div>
+            </div>
+          </mat-step>
+        </mat-stepper>
+      </div>
     </div>
   </app-right-side-slider>
 </ng-container>

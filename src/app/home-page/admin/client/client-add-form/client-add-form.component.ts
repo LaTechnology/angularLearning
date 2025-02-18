@@ -46,7 +46,7 @@ export class ClientAddFormComponent {
     if (userAction === 'add') {
       this.headerTittle = 'Add New User';
       this.saveTittle = 'Save';
-    } else if(userAction === 'bulk-upload'){
+    } else if(userAction === 'bulk-edit'){
       this.headerTittle = 'Bulk Update User';
       this.saveTittle = 'Bulk Update';
       const idList = this._session.getItem('clientIDList');
@@ -119,7 +119,7 @@ export class ClientAddFormComponent {
         this.postUserData(this.userForm.value);
       } else if (this.activatedRoute.snapshot.url[0].path === 'edit') {
         this.updateUserData(this.userForm.value);
-      } else if (this.activatedRoute.snapshot.url[0].path === 'bulk-upload'){
+      } else if (this.activatedRoute.snapshot.url[0].path === 'bulk-edit'){
         this.bulkUpdateUserData(this.userForm.value);
       }
     }

@@ -36,6 +36,10 @@ import { ConfirmDialogComponent } from './home-page/dialog/confirm-dialog/confir
 import { BulkEditComponent } from './home-page/dialog/bulk-edit/bulk-edit.component';
 import { addressReducer } from './home-page/admin/address/store/address.reducer';
 import { AddressEffects } from './home-page/admin/address/store/address.effects';
+import { LocationComponent } from './home-page/admin/location/location.component';
+import { AddLocationComponent } from './home-page/admin/location/add-location/add-location.component';
+import { EditLocationComponent } from './home-page/admin/location/edit-location/edit-location.component';
+import { LocationListComponent } from './home-page/admin/location/location-list/location-list.component';
 
 
 @NgModule({
@@ -45,8 +49,9 @@ import { AddressEffects } from './home-page/admin/address/store/address.effects'
     InventoryComponent,
     OrdersComponent,
     ConfirmDialogComponent,
-    BulkEditComponent
-
+    BulkEditComponent,
+    // ConfirmationDialogComponent,
+  
   ],
   imports: [
     NgbModule,

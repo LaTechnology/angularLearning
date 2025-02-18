@@ -32,8 +32,8 @@
   font-size: 0.75rem !important;
   line-height: 18px !important;
   font-weight: 500;
-  color: $white;
-  background: $secondary;
+  color: white;
+  background: #1a2d48;
   padding: 4px 8px !important;
   cursor: pointer;
   border-radius: 4px !important;
@@ -144,8 +144,8 @@
 }
 
 .orange-disabled-button {
-  background: var(--lt-deep-orange-500) !important;
-  color: var(--lt-white) !important;
+  background: rgb(201, 199, 199) !important;
+  color: white !important;
   cursor: not-allowed !important;
   transition: background 0.5s ease !important;
 }

@@ -1,0 +1,75 @@
+  <div class="row mb-3">
+    <div class="col-12 col-md-6 mb-6">
+        <mat-form-field appearance="outline" class="w-30">
+            <mat-label>Search Location</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Enter keyword"/>
+        </mat-form-field>
+    </div>
+    <div class="col-12 col-md-6 mb-6 text-end mt-2">
+        <button class="btn btn-dark float-end ms-3 mt-2 text-white" (click)="editBulkLocations()" [disabled]="!(isBulkEditActive())">
+            <a class="button-link">bulk edit</a>
+        </button>
+
+        <button class="btn btn-primary float-end ms-3 mt-2">
+            <a routerLink="/location/add" class="button-link">add new location</a>
+        </button>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8">
+  
+        <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef class="custom-header">
+            <mat-checkbox (change)="selectAllRows($event)" 
+                            [checked]="selectedRows.size === dataSource.data.length" 
+                            [indeterminate]="selectedRows.size > 0 && selectedRows.size < dataSource.data.length">
+            </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let element" class="custom-cell">
+            <mat-checkbox (change)="toggleRowSelection(element)" 
+                            [checked]="selectedRows.has(element)">
+            </mat-checkbox>
+            </td>
+        </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="custom-header">Location Name</th>
+        <td mat-cell *matCellDef="let element" class="custom-cell">{{element?.name}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="billingAddress">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="custom-header">Billing Address</th>
+        <td mat-cell *matCellDef="let element" class="custom-cell">{{element?.billingAddress?.addressLine1}},{{element?.shippingAddress?.city}},{{element?.shippingAddress?.state}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="shippingAddress">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="custom-header">Shipping Address</th>
+        <td mat-cell *matCellDef="let element" class="custom-cell">{{element?.shippingAddress?.addressLine1}},{{element.shippingAddress?.city}},{{element.shippingAddress?.state}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="custom-header">Actions</th>
+        <td mat-cell *matCellDef="let element" class="actions-column">
+          <button mat-icon-button [matMenuTriggerFor]="menu" >
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="editLocation(element.id)" [disabled]="isBulkEditActive()">
+                  <mat-icon>edit</mat-icon> Edit
+                </button>
+                <button mat-menu-item (click)="deleteLocation(element.id)" [disabled]="isBulkEditActive()">
+                  <mat-icon>delete</mat-icon> Delete
+                </button>
+              </mat-menu>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons class="custom-paginator"></mat-paginator>
+  </div>
+  

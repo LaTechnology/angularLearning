@@ -30,6 +30,7 @@ const routes: Routes = [
     loadChildren: () => import('../app/home-page/admin/role/role.module').then((m) => m.RoleModule)
   }
 
+
 ];
 
 @NgModule({

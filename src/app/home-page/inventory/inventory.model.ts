@@ -1,10 +1,9 @@
-export interface Product {
-  id: number;
-  productName: string;
+export interface InventoryItem {
+  name: string;
   size: string;
   brand: string;
   color: string;
   code: string;
   quantity: number;
-  locations: any[];
+  location: string;
 }
